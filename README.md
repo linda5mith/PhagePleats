@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/phagepleats_logo.png" alt="PhagePleats Logo" width="300"/>
+  <img src="data/img/PhagePleats.png" alt="PhagePleats Logo" width="300"/>
 </p>
 
 # PhagePleats 🧵🦠
