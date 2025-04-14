@@ -1,0 +1,72 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+foldseek_createDB           1
+foldseek_search             1
+run_python_script           1
+total                       5
+
+Select jobs to execute...
+
+[Wed Jan 29 10:10:14 2025]
+rule foldseek_createDB:
+    input: /home/administrator/phd/crAss_DB/folds
+    output: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB
+    jobid: 2
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Wed Jan 29 10:12:24 2025]
+Finished job 2.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Wed Jan 29 10:12:24 2025]
+rule foldseek_search:
+    input: data/targetDB, /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB
+    output: aln.dbtype, /home/administrator/phd/PhagePleats_out_29:01:25/log/foldseek_log.txt
+    jobid: 1
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_29:01:25/log/foldseek_log.txt; Input files updated by another job: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB; Set of input files has changed since last execution
+    resources: tmpdir=/tmp
+
+
+[Wed Jan 29 10:12:24 2025]
+rule foldseek_convertalis:
+    input: data/targetDB, /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB, alignments/aln.9, alignments/aln.3, alignments/aln.7, alignments/aln.14, alignments/aln.8, alignments/aln.2, alignments/aln.19, alignments/aln.17, alignments/aln.11, alignments/aln.23, alignments/aln.20, alignments/aln.10, alignments/aln.22, alignments/aln.4, alignments/aln.index, alignments/aln.1, alignments/aln.5, alignments/aln.16, alignments/aln.13, alignments/aln.dbtype, alignments/aln.0, alignments/aln.18, alignments/aln.12, alignments/aln.21, alignments/aln.6, alignments/aln.15
+    output: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/search_result.tsv
+    jobid: 3
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/search_result.tsv; Input files updated by another job: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Wed Jan 29 10:13:38 2025]
+Finished job 3.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Wed Jan 29 10:13:38 2025]
+rule run_python_script:
+    input: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/search_result.tsv, data/presence_absence_c_40_tm_30_4100.csv, data/4100_phage_ICTV_metadata.csv, data/models, /home/administrator/phd/PhagePleats_out_29:01:25
+    output: /home/administrator/phd/PhagePleats_out_29:01:25/taxa_predictions.csv
+    jobid: 4
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_29:01:25/taxa_predictions.csv; Input files updated by another job: /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/search_result.tsv
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+[Wed Jan 29 10:17:04 2025]
+Error in rule foldseek_search:
+    jobid: 1
+    input: data/targetDB, /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB
+    output: aln.dbtype, /home/administrator/phd/PhagePleats_out_29:01:25/log/foldseek_log.txt
+    shell:
+        
+        foldseek search /home/administrator/phd/PhagePleats_out_29:01:25/foldseek_out/queryDB data/targetDB aln tmpFolder -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --max-seqs 5 --exhaustive-search 1 -e 0.001 | tee /home/administrator/phd/PhagePleats_out_29:01:25/log/foldseek_log.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Cancelling snakemake on user request.

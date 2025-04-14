@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+foldseek_createDB           1
+foldseek_search             1
+run_python_script           1
+total                       5
+
+Select jobs to execute...
+
+[Mon Apr 14 13:25:08 2025]
+rule foldseek_createDB:
+    input: /home/administrator/phd/77_test_phages/fabian_phages/pdbs
+    output: /home/administrator/phd/PhagePleats_out_14:04:25_13:25/foldseek_out/queryDB, /home/administrator/phd/PhagePleats_out_14:04:25_13:25/log/foldseek_log.txt
+    jobid: 2
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_14:04:25_13:25/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule foldseek_createDB in file /home/administrator/phd/PhagePleats/Snakefile, line 45:
+Job 2  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/administrator/phd/PhagePleats_out_14:04:25_13:25/log/foldseek_log.txt
+Removing output files of failed job foldseek_createDB since they might be corrupted:
+/home/administrator/phd/PhagePleats_out_14:04:25_13:25/foldseek_out/queryDB
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-04-14T132507.980015.snakemake.log

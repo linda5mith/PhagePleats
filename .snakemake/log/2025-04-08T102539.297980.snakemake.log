@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule capture_alignments in file /home/administrator/phd/PhagePleats/Snakefile, line 77:
+Missing input files for rule capture_alignments:
+    output: alignments
+    affected files:
+        aln.index

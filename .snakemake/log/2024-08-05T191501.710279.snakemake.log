@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+foldseek_createDB        1
+total                    1
+
+Select jobs to execute...
+
+[Mon Aug  5 19:15:01 2024]
+rule foldseek_createDB:
+    input: /home/administrator/phd/PhagePleats/test_data
+    output: foldseek_out_dir/queryDB
+    jobid: 0
+    reason: Missing output files: foldseek_out_dir/queryDB
+    resources: tmpdir=/tmp
+
+[Mon Aug  5 19:15:02 2024]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2024-08-05T191501.710279.snakemake.log

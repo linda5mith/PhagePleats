@@ -1,0 +1,94 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+easy_cluster        1
+total               1
+
+Resources before job selection: {'_cores': 4, '_nodes': 9223372036854775807}
+Ready jobs (1)
+Select jobs to execute...
+Using greedy selector because only single job has to be scheduled.
+Selected jobs (1)
+Resources after job selection: {'_cores': 3, '_nodes': 9223372036854775806}
+
+[Thu Aug  1 18:50:54 2024]
+rule easy_cluster:
+    input: /home/administrator/phd/PhagePleats/pooled_pdbs, /home/administrator/phd/PhagePleats/foldseek_out
+    output: tmp
+    log: /home/administrator/phd/PhagePleats/logs/result_cluster.log
+    jobid: 0
+    reason: Updated input files: /home/administrator/phd/PhagePleats/foldseek_out
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+Full Traceback (most recent call last):
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/site-packages/snakemake/executors/__init__.py", line 2656, in run_wrapper
+    run(
+  File "/home/administrator/phd/PhagePleats/Snakefile", line 84, in __rule_easy_cluster
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/site-packages/snakemake/shell.py", line 294, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'mkdir -p /home/administrator/phd/PhagePleats/pooled_pdbs &&  
+        echo "Running foldseek..."
+        foldseek easy-cluster /home/administrator/phd/PhagePleats/pooled_pdbs result tmp -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --cluster-reassign 1 > /home/administrator/phd/PhagePleats/logs/result_cluster.log 2>&1
+        mv *result* /home/administrator/phd/PhagePleats/foldseek_out' died with <Signals.SIGINT: 2>.
+
+[Thu Aug  1 18:51:01 2024]
+Error in rule easy_cluster:
+    jobid: 0
+    input: /home/administrator/phd/PhagePleats/pooled_pdbs, /home/administrator/phd/PhagePleats/foldseek_out
+    output: tmp
+    log: /home/administrator/phd/PhagePleats/logs/result_cluster.log (check log file(s) for error details)
+    shell:
+        
+        echo "Running foldseek..."
+        foldseek easy-cluster /home/administrator/phd/PhagePleats/pooled_pdbs result tmp -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --cluster-reassign 1 > /home/administrator/phd/PhagePleats/logs/result_cluster.log 2>&1
+        mv *result* /home/administrator/phd/PhagePleats/foldseek_out
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Full Traceback (most recent call last):
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/site-packages/snakemake/executors/__init__.py", line 2656, in run_wrapper
+    run(
+  File "/home/administrator/phd/PhagePleats/Snakefile", line 84, in __rule_easy_cluster
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/site-packages/snakemake/shell.py", line 294, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'mkdir -p /home/administrator/phd/PhagePleats/pooled_pdbs &&  
+        echo "Running foldseek..."
+        foldseek easy-cluster /home/administrator/phd/PhagePleats/pooled_pdbs result tmp -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --cluster-reassign 1 > /home/administrator/phd/PhagePleats/logs/result_cluster.log 2>&1
+        mv *result* /home/administrator/phd/PhagePleats/foldseek_out' died with <Signals.SIGINT: 2>.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/site-packages/snakemake/executors/__init__.py", line 715, in _callback
+    raise ex
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/site-packages/snakemake/executors/__init__.py", line 699, in cached_or_run
+    run_func(*args)
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/site-packages/snakemake/executors/__init__.py", line 2692, in run_wrapper
+    raise RuleException(
+snakemake.exceptions.RuleException: CalledProcessError in file /home/administrator/phd/PhagePleats/Snakefile, line 44:
+Command 'mkdir -p /home/administrator/phd/PhagePleats/pooled_pdbs &&  
+        echo "Running foldseek..."
+        foldseek easy-cluster /home/administrator/phd/PhagePleats/pooled_pdbs result tmp -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --cluster-reassign 1 > /home/administrator/phd/PhagePleats/logs/result_cluster.log 2>&1
+        mv *result* /home/administrator/phd/PhagePleats/foldseek_out' died with <Signals.SIGINT: 2>.
+  File "/home/administrator/phd/PhagePleats/Snakefile", line 44, in __rule_easy_cluster
+
+RuleException:
+CalledProcessError in file /home/administrator/phd/PhagePleats/Snakefile, line 44:
+Command 'mkdir -p /home/administrator/phd/PhagePleats/pooled_pdbs &&  
+        echo "Running foldseek..."
+        foldseek easy-cluster /home/administrator/phd/PhagePleats/pooled_pdbs result tmp -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --cluster-reassign 1 > /home/administrator/phd/PhagePleats/logs/result_cluster.log 2>&1
+        mv *result* /home/administrator/phd/PhagePleats/foldseek_out' died with <Signals.SIGINT: 2>.
+  File "/home/administrator/phd/PhagePleats/Snakefile", line 44, in __rule_easy_cluster
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Complete log: .snakemake/log/2024-08-01T185054.370382.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks

@@ -1,0 +1,59 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+foldseek_createDB           1
+foldseek_search             1
+run_python_script           1
+total                       5
+
+Select jobs to execute...
+
+[Mon Apr 14 14:09:01 2025]
+rule foldseek_createDB:
+    input: /home/administrator/phd/77_test_phages/fabian_phages/pdbs
+    output: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/foldseek_out/queryDB
+    log: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/log/foldseek_createDB.log
+    jobid: 2
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Mon Apr 14 14:09:03 2025]
+Finished job 2.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Mon Apr 14 14:09:04 2025]
+checkpoint foldseek_search:
+    input: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/foldseek_out/queryDB, data/targetDB
+    output: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments
+    log: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/log/foldseek_search.log
+    jobid: 3
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments; Input files updated by another job: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+[Mon Apr 14 14:10:40 2025]
+Finished job 3.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Mon Apr 14 14:10:40 2025]
+rule foldseek_convertalis:
+    input: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/foldseek_out/queryDB, data/targetDB, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.9, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.3, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.7, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.14, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.8, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.2, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.19, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.17, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.11, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.23, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.20, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.10, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.22, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.4, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.index, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.1, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.5, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.16, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.13, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.dbtype, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.0, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.18, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.12, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.21, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.6, /home/administrator/phd/PhagePleats_out_14:04:25_14:09/alignments/aln.15
+    output: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/foldseek_out/search_result.tsv
+    log: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/log/foldseek_convertalis.log
+    jobid: 1
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_14:04:25_14:09/foldseek_out/search_result.tsv
+    resources: tmpdir=/tmp
+
+RuleException in rule foldseek_convertalis in file /home/administrator/phd/PhagePleats/Snakefile, line 86:
+AttributeError: 'Wildcards' object has no attribute 'alignment_dir', when formatting the following:
+
+        foldseek convertalis {input.query} {input.target} {wildcards.alignment_dir}/aln {output.result} | tee -a {log}
+        

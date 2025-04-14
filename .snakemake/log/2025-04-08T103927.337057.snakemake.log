@@ -1,0 +1,37 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+foldseek_search             1
+run_python_script           1
+total                       4
+
+Select jobs to execute...
+
+[Tue Apr  8 10:39:27 2025]
+rule foldseek_search:
+    input: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB, data/targetDB
+    output: alignments/aln, /home/administrator/phd/PhagePleats_out_08:04:25/log/foldseek_log.txt
+    jobid: 1
+    reason: Forced execution
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+[Tue Apr  8 10:45:23 2025]
+Error in rule foldseek_search:
+    jobid: 1
+    input: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB, data/targetDB
+    output: alignments/aln, /home/administrator/phd/PhagePleats_out_08:04:25/log/foldseek_log.txt
+    shell:
+        
+        mkdir -p alignments
+        foldseek search /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB data/targetDB alignments/aln tmpFolder             -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --max-seqs 5             --exhaustive-search 1 -e 0.001 | tee /home/administrator/phd/PhagePleats_out_08:04:25/log/foldseek_log.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-04-08T103927.337057.snakemake.log

@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+all                      1
+run_python_script        1
+total                    2
+
+Select jobs to execute...
+
+[Wed Sep  4 11:19:05 2024]
+rule run_python_script:
+    input: /home/administrator/phd/PhagePleats_out/foldseek_out/search_result.tsv, data/presence_absence_c_40_tm_30_4100.csv, data/models, /home/administrator/phd/PhagePleats_out
+    output: /home/administrator/phd/PhagePleats_out/taxa_predictions.csv
+    jobid: 4
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out/taxa_predictions.csv
+    resources: tmpdir=/tmp
+
+[Wed Sep  4 11:19:13 2024]
+Error in rule run_python_script:
+    jobid: 4
+    input: /home/administrator/phd/PhagePleats_out/foldseek_out/search_result.tsv, data/presence_absence_c_40_tm_30_4100.csv, data/models, /home/administrator/phd/PhagePleats_out
+    output: /home/administrator/phd/PhagePleats_out/taxa_predictions.csv
+
+RuleException:
+CalledProcessError in file /home/administrator/phd/PhagePleats/Snakefile, line 96:
+Command 'mkdir -p /home/administrator/phd/PhagePleats_out &&  /home/administrator/programs/miniforge3/envs/CaudoAuto/bin/python3.10 /home/administrator/phd/PhagePleats/.snakemake/scripts/tmpjwq9j_43.phagepleats.py' returned non-zero exit status 1.
+  File "/home/administrator/phd/PhagePleats/Snakefile", line 96, in __rule_run_python_script
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-04T111905.000810.snakemake.log

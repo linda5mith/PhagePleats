@@ -1,0 +1,51 @@
+The flag 'touch' used in rule all is only valid for outputs, not inputs.
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+foldseek_createDB           1
+run_python_script           1
+total                       4
+
+Select jobs to execute...
+
+[Tue Sep  3 11:57:05 2024]
+rule foldseek_createDB:
+    input: /home/administrator/phd/soil_2024/circular_irish_L001_2_3_4_folds
+    output: /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    jobid: 3
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB; Updated input files: /home/administrator/phd/soil_2024/circular_irish_L001_2_3_4_folds
+    resources: tmpdir=/tmp
+
+[Tue Sep  3 11:57:06 2024]
+Finished job 3.
+1 of 4 steps (25%) done
+Select jobs to execute...
+
+[Tue Sep  3 11:57:06 2024]
+rule foldseek_convertalis:
+    input: data/targetDB, /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    output: /home/administrator/phd/PhagePleats_out/foldseek_out/search_result.tsv
+    jobid: 2
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out/foldseek_out/search_result.tsv; Input files updated by another job: /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Tue Sep  3 11:57:06 2024]
+Error in rule foldseek_convertalis:
+    jobid: 2
+    input: data/targetDB, /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    output: /home/administrator/phd/PhagePleats_out/foldseek_out/search_result.tsv
+    shell:
+        
+        foldseek convertalis /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB data/targetDB aln /home/administrator/phd/PhagePleats_out/foldseek_out/search_result.tsv
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-09-03T115705.367112.snakemake.log

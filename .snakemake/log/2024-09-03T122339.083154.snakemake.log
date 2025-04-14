@@ -1,0 +1,51 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+all                      1
+foldseek_createDB        1
+foldseek_search          1
+total                    3
+
+Select jobs to execute...
+
+[Tue Sep  3 12:23:39 2024]
+rule foldseek_createDB:
+    input: /home/administrator/phd/soil_2024/circular_irish_L001_2_3_4_folds
+    output: /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    jobid: 2
+    reason: Code has changed since last execution
+    resources: tmpdir=/tmp
+
+[Tue Sep  3 12:23:39 2024]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Tue Sep  3 12:23:39 2024]
+rule foldseek_search:
+    input: data/targetDB, /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    output: aln.dbtype, /home/administrator/phd/PhagePleats_out/log/foldseek_log.txt
+    jobid: 1
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out/log/foldseek_log.txt; Input files updated by another job: /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Tue Sep  3 12:24:12 2024]
+Finished job 1.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Tue Sep  3 12:24:12 2024]
+localrule all:
+    input: /home/administrator/phd/PhagePleats_out/log/foldseek_log.txt
+    jobid: 0
+    reason: Input files updated by another job: /home/administrator/phd/PhagePleats_out/log/foldseek_log.txt
+    resources: tmpdir=/tmp
+
+[Tue Sep  3 12:24:12 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2024-09-03T122339.083154.snakemake.log

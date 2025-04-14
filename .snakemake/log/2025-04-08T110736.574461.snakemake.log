@@ -1,0 +1,60 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+foldseek_createDB           1
+foldseek_search             1
+run_python_script           1
+total                       5
+
+Select jobs to execute...
+
+[Tue Apr  8 11:07:36 2025]
+rule foldseek_createDB:
+    input: /home/administrator/phd/PhagePleats/test_data
+    output: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB
+    jobid: 2
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Tue Apr  8 11:07:36 2025]
+Finished job 2.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Tue Apr  8 11:07:36 2025]
+checkpoint foldseek_search:
+    input: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB, data/targetDB
+    output: alignments
+    jobid: 3
+    reason: Input files updated by another job: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+[Tue Apr  8 11:07:41 2025]
+Finished job 3.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Tue Apr  8 11:07:41 2025]
+rule foldseek_convertalis:
+    input: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB, data/targetDB, alignments/aln.9, alignments/aln.3, alignments/aln.7, alignments/aln.14, alignments/aln.8, alignments/aln.2, alignments/aln.19, alignments/aln.17, alignments/aln.11, alignments/aln.23, alignments/aln.20, alignments/aln.10, alignments/aln.22, alignments/aln.4, alignments/aln.index, alignments/aln.1, alignments/aln.5, alignments/aln.16, alignments/aln.13, alignments/aln.dbtype, alignments/aln.0, alignments/aln.18, alignments/aln.12, alignments/aln.21, alignments/aln.6, alignments/aln.15
+    output: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv, /home/administrator/phd/PhagePleats_out_08:04:25/log/foldseek_log.txt
+    jobid: 1
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule foldseek_convertalis in file /home/administrator/phd/PhagePleats/Snakefile, line 85:
+Job 1  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/administrator/phd/PhagePleats_out_08:04:25/log/foldseek_log.txt
+Removing output files of failed job foldseek_convertalis since they might be corrupted:
+/home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-04-08T110736.574461.snakemake.log

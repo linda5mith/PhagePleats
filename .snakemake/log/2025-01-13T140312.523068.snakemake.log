@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule foldseek_createDB in file /home/administrator/phd/PhagePleats/Snakefile, line 51:
+Missing input files for rule foldseek_createDB:
+    output: /home/administrator/phd/PhagePleats_out/foldseek_out/queryDB
+    affected files:
+        /home/administrator/phd/caudoviricetes_structural_taxonomy/test_phages/77_test_phages/test_phages_791_pdbs

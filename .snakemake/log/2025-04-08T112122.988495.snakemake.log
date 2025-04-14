@@ -1,0 +1,49 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+run_python_script           1
+total                       3
+
+Select jobs to execute...
+
+[Tue Apr  8 11:21:23 2025]
+rule foldseek_convertalis:
+    input: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/queryDB, data/targetDB, alignments/aln.9, alignments/aln.3, alignments/aln.7, alignments/aln.14, alignments/aln.8, alignments/aln.2, alignments/aln.19, alignments/aln.17, alignments/aln.11, alignments/aln.23, alignments/aln.20, alignments/aln.10, alignments/aln.22, alignments/aln.4, alignments/aln.index, alignments/aln.1, alignments/aln.5, alignments/aln.16, alignments/aln.13, alignments/aln.dbtype, alignments/aln.0, alignments/aln.18, alignments/aln.12, alignments/aln.21, alignments/aln.6, alignments/aln.15
+    output: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv
+    log: /home/administrator/phd/PhagePleats_out_08:04:25/log/foldseek_log.txt
+    jobid: 1
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv, /home/administrator/phd/PhagePleats_out_08:04:25/log/foldseek_log.txt
+    resources: tmpdir=/tmp
+
+[Tue Apr  8 11:21:23 2025]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Tue Apr  8 11:21:23 2025]
+rule run_python_script:
+    input: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv, data/presence_absence_c_40_tm_30_4100.csv, data/4100_phage_ICTV_metadata.csv, data/models, /home/administrator/phd/PhagePleats_out_08:04:25
+    output: /home/administrator/phd/PhagePleats_out_08:04:25/taxa_predictions.csv
+    jobid: 4
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_08:04:25/taxa_predictions.csv; Input files updated by another job: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+[Tue Apr  8 11:21:31 2025]
+Error in rule run_python_script:
+    jobid: 4
+    input: /home/administrator/phd/PhagePleats_out_08:04:25/foldseek_out/search_result.tsv, data/presence_absence_c_40_tm_30_4100.csv, data/4100_phage_ICTV_metadata.csv, data/models, /home/administrator/phd/PhagePleats_out_08:04:25
+    output: /home/administrator/phd/PhagePleats_out_08:04:25/taxa_predictions.csv
+
+RuleException:
+CalledProcessError in file /home/administrator/phd/PhagePleats/Snakefile, line 158:
+Command 'mkdir -p /home/administrator/phd/PhagePleats_out_08:04:25 &&  /home/administrator/programs/miniforge3/envs/CaudoAuto/bin/python3.10 /home/administrator/phd/PhagePleats/.snakemake/scripts/tmpihmwyhax.phagepleats.py' died with <Signals.SIGINT: 2>.
+  File "/home/administrator/phd/PhagePleats/Snakefile", line 158, in __rule_run_python_script
+  File "/home/administrator/programs/miniforge3/envs/CaudoAuto/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Complete log: .snakemake/log/2025-04-08T112122.988495.snakemake.log

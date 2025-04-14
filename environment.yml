@@ -1,0 +1,16 @@
+name: phagepleats
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - tqdm
+  - faiss-cpu
+  - pip
+  - snakemake
+  - foldseek
+  - scikit-learn=1.3.2
+

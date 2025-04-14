@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in rule all in file /home/administrator/phd/PhagePleats/Snakefile, line 44:
+Missing input files for rule all:
+    affected files:
+        /home/administrator/phd/PhagePleats_out/foldseek_out/family_predictions.csv

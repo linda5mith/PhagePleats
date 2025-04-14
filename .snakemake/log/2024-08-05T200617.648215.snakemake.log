@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule foldseek_search in file /home/administrator/phd/PhagePleats/Snakefile, line 46:
+Missing input files for rule foldseek_search:
+    output: /home/administrator/phd/PhagePleats_out/foldseek_out/aln
+    affected files:
+        data/targetDB

@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+foldseek_convertalis        1
+foldseek_createDB           1
+foldseek_search             1
+run_python_script           1
+total                       5
+
+Select jobs to execute...
+
+[Mon Apr 14 10:55:26 2025]
+rule foldseek_createDB:
+    input: /home/administrator/phd/77_test_phages/fabian_phages/pdbs
+    output: /home/administrator/phd/PhagePleats_out_14:04:25_10:55/foldseek_out/queryDB
+    jobid: 2
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_14:04:25_10:55/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Mon Apr 14 10:55:29 2025]
+Finished job 2.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Mon Apr 14 10:55:29 2025]
+checkpoint foldseek_search:
+    input: /home/administrator/phd/PhagePleats_out_14:04:25_10:55/foldseek_out/queryDB, data/targetDB
+    output: alignments
+    jobid: 3
+    reason: Input files updated by another job: /home/administrator/phd/PhagePleats_out_14:04:25_10:55/foldseek_out/queryDB; Set of input files has changed since last execution
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+Terminating processes on user request, this might take some time.
+[Mon Apr 14 10:56:52 2025]
+Error in rule foldseek_search:
+    jobid: 3
+    input: /home/administrator/phd/PhagePleats_out_14:04:25_10:55/foldseek_out/queryDB, data/targetDB
+    output: alignments
+    shell:
+        
+        mkdir -p alignments
+        foldseek search /home/administrator/phd/PhagePleats_out_14:04:25_10:55/foldseek_out/queryDB data/targetDB alignments/aln tmpFolder             -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --max-seqs 5             --exhaustive-search 1 -e 0.001 | tee /home/administrator/phd/PhagePleats_out_14:04:25_10:55/log/foldseek_log.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-04-14T105526.737520.snakemake.log
