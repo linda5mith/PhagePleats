@@ -8,11 +8,8 @@
 
 ## 🚀 Features
 
-- 🧬 Compute % shared proteins between phage genomes
-- 📊 Cluster genomes into clades using UMAP + Leiden/Louvain
-- 🔬 Predict taxonomic ranks (Order, Family, Subfamily, Genus)
-- 🧠 Trainable model based on structural protein presence/absence
-- 🧪 Benchmarking and quality control tools for model predictions
+- 🔬 Predict taxonomic ranks (Order, Family, Subfamily, Genus) of your phage
+- 🧬 Compute % shared proteins and distance between input phage genomes and established taxonomic ranks
 
 ## 📦 Installation
 
