@@ -4,6 +4,7 @@ import numpy as np
 from tqdm import tqdm
 import pickle
 import faiss
+from sklearn.metrics import jaccard_score
 
 # 1. Read Foldseek result file
 def read_search(path_to_foldseek_search):
@@ -166,7 +167,7 @@ def predict_all_ranks(X, ranks=["Order", "Family", "Subfamily", "Genus"], model_
         df_rank.index = X.index
         all_preds.append(df_rank)
         df_proba = df_proba.sort_index()
-        df_proba.to_csv(os.path.join(prob_dir, f"{rank}_proba.csv"), index=False)
+        df_proba.to_csv(os.path.join(prob_dir, f"{rank}_proba.csv"))
 
     final_df = pd.concat(all_preds, axis=1)
     final_df.index.name = "Genome"
@@ -219,7 +220,99 @@ def compute_closest_training_genomes(presence_absence, input_matrix):
     return results
 
 #Novelty-aware post-prediction QC layer 👾🧬✨
+def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_df, preds, intra_rank_relatedness):
+    """
+    Compute novelty-aware summary per input genome based on FAISS distances and Jaccard similarity
+    with predicted taxonomic clades.
+    """
 
+    print("🔍 Loading training presence/absence matrix...")
+    presence_absence = pd.read_csv(presence_absence_path, index_col=0)
+    training_matrix = presence_absence.astype('float32').T
+    input_matrix = input_matrix.astype('float32')
+    taxonomy_df = taxonomy_df.set_index("Leaves") 
+
+    print("🔗 Finding closest training genome (Euclidean distance) to input genome...")
+    index = faiss.IndexFlatL2(training_matrix.shape[1])
+    index.add(training_matrix.values)
+
+    distances, indices = index.search(input_matrix.values, k=1)
+    closest_df = pd.DataFrame({
+        'Genome': input_matrix.index,
+        'closest_training_genome': training_matrix.index[indices.flatten()],
+        'euclidean_dist_to_closest_hit': distances.flatten()
+    }).set_index("Genome")
+
+    print("🔬 Computing % shared proteins + FAISS distance to predicted clades...")
+    results = []
+
+    for rank in ["Order", "Family", "Subfamily", "Genus"]:
+        preds[rank] = preds[rank].astype(str)
+        taxonomy_df[rank] = taxonomy_df[rank].astype(str)
+
+    for genome in tqdm(input_matrix.index, desc="💫 Calculating per-genome clade similarity"):
+        row = {"Genome": genome}
+        input_vec = input_matrix.loc[genome].values.astype('float32')
+
+        for rank in ["Order", "Family", "Subfamily", "Genus"]:
+            pred_clade = preds.loc[genome, rank]
+            genomes_in_clade = taxonomy_df[taxonomy_df[rank] == pred_clade].index
+            matching_genomes = training_matrix.index.intersection(genomes_in_clade)
+            if matching_genomes.empty:
+                row[f"%_shared_with_predicted_{rank}"] = np.nan
+                row[f"eucl_dist_to_predicted_{rank}"] = np.nan
+            else:
+                # % Shared Proteins (Jaccard)
+                jaccards = [
+                    jaccard_score(
+                        input_vec.astype(bool),
+                        training_matrix.loc[g].values.astype(bool),
+                        average='binary',
+                        zero_division=0
+                    )
+                    for g in matching_genomes
+                ]
+                row[f"%_shared_with_predicted_{rank}"] = np.mean(jaccards)
+
+                # Euclidean Distance (FAISS)
+                clade_matrix = training_matrix.loc[matching_genomes].values.astype('float32')
+                input_vec_2d = input_vec.reshape(1, -1)
+                clade_index = faiss.IndexFlatL2(clade_matrix.shape[1])
+                clade_index.add(clade_matrix)
+                distances, _ = clade_index.search(input_vec_2d, k=clade_matrix.shape[0])
+                row[f"eucl_dist_to_predicted_{rank}"] = np.mean(distances)
+
+        results.append(row)
+
+    clade_df = pd.DataFrame(results).set_index("Genome")
+
+    print("🧬 Merging intra-clade reference statistics...")
+    final_df = closest_df.join(clade_df)
+    print(final_df.index.name)
+    print(final_df.columns)
+
+    for rank in ["Order", "Family", "Subfamily", "Genus"]:
+        intra = intra_rank_relatedness[intra_rank_relatedness["rank"] == rank][
+            ["clade", "intra_avg_shared_proteins", "intra_avg_euclidean"]
+        ].copy()
+        intra.columns = [rank, f"{rank}_intra_avg_shared_proteins", f"{rank}_intra_avg_euclidean_dist"]
+
+        final_df = final_df.merge(
+            preds[[rank]], left_index=True, right_index=True, how='left'
+        ).merge(
+            intra, on=rank, how='left'
+        )
+
+        final_df[f"{rank}_novel_by_shared"] = (
+            final_df[f"%_shared_with_predicted_{rank}"] < final_df[f"{rank}_intra_avg_shared_proteins"]
+        )
+        final_df[f"{rank}_novel_by_distance"] = (
+            final_df[f"eucl_dist_to_predicted_{rank}"] > final_df[f"{rank}_intra_avg_euclidean_dist"]
+        )
+ 
+    final_df.index.name = "Genome"
+    print("✅ Novelty summary complete.")
+    return final_df
 
 
 # Main Snakemake execution
@@ -236,6 +329,8 @@ if __name__ == "__main__":
        ___|||___
       /   |||   \
     PhagePleats is predicting... 🧬🚀✨
+              
+    Uncovering the virosphere one phage at a time... 🔬🧫👾
     ''')
         
     # ... call it before prediction starts lol:
@@ -245,18 +340,37 @@ if __name__ == "__main__":
     metadata = snakemake.input.query_metadata
     presence_absence = snakemake.input.presence_absence
     models = snakemake.input.models_path
-    out_dir = snakemake.input.outdir
+    taxonomy = snakemake.input.taxonomy
+    intra_rank_relatedness = snakemake.input.intra_relatedness
+    outdir = snakemake.input.outdir
 
     search_df = read_search(search_result)
     metadata_df = read_metadata(metadata)
     search_df = map_query_to_genome(search_df, metadata_df)
     input_matrix = create_input_matrix(search_df, presence_absence)
 
-    preds = predict_all_ranks(input_matrix, model_base=models, out_dir=out_dir)
-    preds.to_csv(os.path.join(out_dir, 'taxa_predictions.csv'))
+    preds = predict_all_ranks(input_matrix, model_base=models, out_dir=outdir)
+    print("\n📦 PhagePleats predictions saved to:")
+    print(f"    → {os.path.join(outdir, 'taxa_predictions.csv')}")
+    preds.to_csv(os.path.join(outdir, 'taxa_predictions.csv'))
 
     dists = compute_closest_training_genomes(presence_absence, input_matrix)  # assumes p_a_matrix is defined elsewhere or passed in
-    dists.to_csv(os.path.join(out_dir, 'eucl_distances.csv'), index=False)
+
+    taxonomy_df = pd.read_csv(taxonomy)
+    intra_df = pd.read_csv(intra_rank_relatedness)
+
+    final_summary_df = compute_clade_novelty_summary(
+    presence_absence_path=presence_absence,
+    input_matrix=input_matrix,
+    taxonomy_df=taxonomy_df,
+    preds=preds,
+    intra_rank_relatedness=intra_df
+    )
+
+    final_summary_df.to_csv(os.path.join(outdir, "novel_taxa_summary.csv"))
+    print("\n📦 Final novelty-aware prediction summary saved to:")
+    print(f"    → {os.path.join(outdir, 'novel_taxa_summary.csv')}")
+
     def print_happy_phage():
         print(r'''
           ___

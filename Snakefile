@@ -39,7 +39,7 @@ rule all:
     input:
         os.path.join(foldseek_out_dir, 'search_result.tsv'),
         os.path.join(outdir, 'taxa_predictions.csv'),
-        os.path.join(outdir, 'eucl_distances.csv')
+        os.path.join(outdir, 'novel_taxa_summary.csv')
 
 # 1. Create foldseek DB of query pdbs
 rule foldseek_createDB:
@@ -100,12 +100,14 @@ rule run_python_script:
     input:
         search_result=os.path.join(foldseek_out_dir, 'search_result.tsv'),
         query_metadata=config['metadata'],
-        presence_absence="data/presence_absence_4064_HSV1_outgroup.csv",
+        presence_absence="data/presence_absence.csv",
         models_path="data/models",
+        taxonomy="data/taxonomy.csv",
+        intra_relatedness="data/intra_rank_relatedness.csv",
         outdir=outdir
     output:
         taxa_preds=os.path.join(outdir, 'taxa_predictions.csv'),
-        closest_genomes=os.path.join(outdir, 'eucl_distances.csv')
+        closest_genomes=os.path.join(outdir, 'novel_taxa_summary.csv')
     script:
         "phagepleats.py"
 
