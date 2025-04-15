@@ -1,3 +1,0 @@
-NameError in file /home/administrator/phd/PhagePleats/Snakefile, line 23:
-The name 'output_dir' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}
-  File "/home/administrator/phd/PhagePleats/Snakefile", line 23, in <module>

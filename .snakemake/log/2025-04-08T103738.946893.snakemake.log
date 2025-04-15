@@ -1,3 +1,0 @@
-CreateRuleException in file /home/administrator/phd/PhagePleats/Snakefile, line 126:
-The name foldseek_convertalis is already used by another rule
-  File "/home/administrator/phd/PhagePleats/Snakefile", line 126, in <module>

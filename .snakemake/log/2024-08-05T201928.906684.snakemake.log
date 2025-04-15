@@ -1,6 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule foldseek_convertalis in file /home/administrator/phd/PhagePleats/Snakefile, line 66:
-Missing input files for rule foldseek_convertalis:
-    output: /home/administrator/phd/PhagePleats_out/foldseek_out/search_result.tsv
-    affected files:
-        /home/administrator/phd/PhagePleats_out/foldseek_out/aln

@@ -1,3 +1,0 @@
-NameError in file /home/administrator/phd/PhagePleats/Snakefile, line 36:
-name 'input_PDBs' is not defined
-  File "/home/administrator/phd/PhagePleats/Snakefile", line 36, in <module>

@@ -1,3 +1,0 @@
-AttributeError in file /home/administrator/phd/PhagePleats/Snakefile, line 95:
-'Checkpoint' object has no attribute 'output'
-  File "/home/administrator/phd/PhagePleats/Snakefile", line 95, in <module>
