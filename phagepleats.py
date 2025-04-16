@@ -217,7 +217,7 @@ def compute_closest_training_genomes(presence_absence, input_matrix):
     results = pd.DataFrame({
         'input_genome': input_ids,
         'closest_training_genome': closest_genomes,
-        'euclidean_distance': distances.flatten()
+        'euclidean_distance': np.sqrt(distances.flatten())
     })
 
     return results
@@ -243,7 +243,7 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
     closest_df = pd.DataFrame({
         'Genome': input_matrix.index,
         'closest_training_genome': training_matrix.index[indices.flatten()],
-        'euclidean_dist_to_closest_hit': distances.flatten()
+        'euclidean_dist_to_closest_hit': np.sqrt(distances.flatten())
     }).set_index("Genome")
 
     print("🔬 Computing % shared proteins + FAISS distance to predicted clades...")
@@ -283,7 +283,8 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
                 clade_index = faiss.IndexFlatL2(clade_matrix.shape[1])
                 clade_index.add(clade_matrix)
                 distances, _ = clade_index.search(input_vec_2d, k=clade_matrix.shape[0])
-                row[f"eucl_dist_to_predicted_{rank}"] = np.mean(distances)
+                #IndexFlatL2 in FAISS returns L2 squared distances so get the sq root
+                row[f"eucl_dist_to_predicted_{rank}"] = np.sqrt(np.mean(distances))
 
         results.append(row)
 

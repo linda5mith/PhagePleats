@@ -109,5 +109,5 @@ rule run_python_script:
         taxa_preds=os.path.join(outdir, 'taxa_predictions.csv'),
         closest_genomes=os.path.join(outdir, 'novel_taxa_summary.csv')
     script:
-        "phagepleats.py"
+        "phagepleats2.py"
 
