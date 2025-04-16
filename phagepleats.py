@@ -182,45 +182,59 @@ def predict_all_ranks(X, ranks=["Order", "Family", "Subfamily", "Genus"], model_
     return final_df
 
 # 7. Compute distances to training matrix using FAISS
-def compute_closest_training_genomes(presence_absence, input_matrix):
+def compute_closest_training_genomes(presence_absence, input_matrix, taxonomy_df):
     """
-    Finds the closest training genome to each input genome using FAISS (Euclidean distance).
+    Finds the closest training genome for each input genome and computes:
+    - Euclidean distance
+    - % shared proteins
+    - Taxonomic ranks of closest genome (Order, Family, Subfamily, Genus)
 
     Args:
-        training_matrix_T (pd.DataFrame): Transposed training matrix (genomes x features).
-        input_matrix (pd.DataFrame): Transposed input matrix (genomes x features).
+        presence_absence_path (str): Path to the training presence/absence matrix CSV.
+        input_matrix (pd.DataFrame): Presence/absence matrix of input genomes.
+        taxonomy_df (pd.DataFrame): DataFrame with columns ['Leaves', 'Order', 'Family', 'Subfamily', 'Genus'].
 
     Returns:
-        pd.DataFrame: DataFrame containing closest training genome and distance per input genome.
+        pd.DataFrame: DataFrame with closest genome info, distance, % shared, and taxonomic ranks.
     """
-    # Convert to float32 as required by FAISS
+    # Load training matrix
     presence_absence = pd.read_csv(presence_absence, index_col=0)
-    X_train = presence_absence.astype('float32').T
-    X_input = input_matrix.astype('float32')
+    training_matrix = presence_absence.astype('float32').T
+    input_matrix = input_matrix.astype('float32')
 
-    # Convert to numpy arrays
-    X_train_np = X_train.values
-    X_input_np = X_input.values
+    # Build FAISS index
+    index = faiss.IndexFlatL2(training_matrix.shape[1])
+    index.add(training_matrix.values)
 
-    # Build FAISS index using Euclidean distance (L2)
-    index = faiss.IndexFlatL2(X_train_np.shape[1])
-    index.add(X_train_np)
+    # Search
+    distances, indices = index.search(input_matrix.values, k=1)
+    closest_genomes = training_matrix.index[indices.flatten()]
+    sqrt_distances = np.sqrt(distances.flatten())
 
-    # Perform nearest neighbor search
-    distances, indices = index.search(X_input_np, k=1)
+    # Set taxonomy index
+    taxonomy_df = taxonomy_df.set_index("Leaves").astype(str)
 
-    # Map indices back to genome names
-    closest_genomes = X_train.index[indices.flatten()]
-    input_ids = X_input.index
+    # Compute results
+    results = []
+    for genome, closest, dist in zip(input_matrix.index, closest_genomes, sqrt_distances):
+        input_vec = input_matrix.loc[genome].astype(bool)
+        closest_vec = training_matrix.loc[closest].astype(bool)
+        shared = jaccard_score(input_vec, closest_vec, average='binary', zero_division=0)
 
-    # Construct output DataFrame
-    results = pd.DataFrame({
-        'input_genome': input_ids,
-        'closest_training_genome': closest_genomes,
-        'euclidean_distance': np.sqrt(distances.flatten())
-    })
+        tax = taxonomy_df.loc[closest] if closest in taxonomy_df.index else {}
 
-    return results
+        results.append({
+            "input_genome": genome,
+            "closest_training_genome": closest,
+            "euclidean_distance": dist,
+            "%_shared_proteins": shared,
+            "Order": tax.get("Order", np.nan),
+            "Family": tax.get("Family", np.nan),
+            "Subfamily": tax.get("Subfamily", np.nan),
+            "Genus": tax.get("Genus", np.nan)
+        })
+
+    return pd.DataFrame(results).round(3)
 
 #Novelty-aware post-prediction QC layer 👾🧬✨
 def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_df, preds, intra_rank_relatedness):
@@ -362,10 +376,11 @@ if __name__ == "__main__":
     print(f"    → {os.path.join(outdir, 'taxa_predictions.csv')}")
     preds.to_csv(os.path.join(outdir, 'taxa_predictions.csv'))
 
-    dists = compute_closest_training_genomes(presence_absence, input_matrix)
-
     taxonomy_df = pd.read_csv(taxonomy)
     intra_df = pd.read_csv(intra_rank_relatedness)
+
+    dists = compute_closest_training_genomes(presence_absence, input_matrix, taxonomy_df)
+    dists.to_csv(os.path.join(outdir, 'phage_closest_hit.csv'), index=False)
 
     final_summary_df = compute_clade_novelty_summary(
     presence_absence_path=presence_absence,
