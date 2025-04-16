@@ -131,6 +131,9 @@ def predict_from_models(X, models, rank):
         f"{rank}_prob": pred_scores
     }, index=X.index)
 
+    df_out.index.name = 'Genome'
+    df_out = df_out.sort_index()
+
     return df_out, prob_matrix
 
 def predict_all_ranks(X, ranks=["Order", "Family", "Subfamily", "Genus"], model_base="data/models", out_dir="outputs"):
@@ -227,7 +230,7 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
     """
 
     print("🔍 Loading training presence/absence matrix...")
-    presence_absence = pd.read_csv(presence_absence_path, index_col=0)
+    presence_absence = pd.read_csv(presence_absence_path, index_col=0, compression='gzip')
     training_matrix = presence_absence.astype('float32').T
     input_matrix = input_matrix.astype('float32')
     taxonomy_df = taxonomy_df.set_index("Leaves") 
@@ -285,11 +288,9 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
         results.append(row)
 
     clade_df = pd.DataFrame(results).set_index("Genome")
-
     print("🧬 Merging intra-clade reference statistics...")
     final_df = closest_df.join(clade_df)
-    print(final_df.index.name)
-    print(final_df.columns)
+    original_index = final_df.index.copy()
 
     for rank in ["Order", "Family", "Subfamily", "Genus"]:
         intra = intra_rank_relatedness[intra_rank_relatedness["rank"] == rank][
@@ -310,10 +311,12 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
             final_df[f"eucl_dist_to_predicted_{rank}"] > final_df[f"{rank}_intra_avg_euclidean_dist"]
         )
  
+    final_df.index = original_index
     final_df.index.name = "Genome"
+    final_df = final_df.round(2).sort_index()
+
     print("✅ Novelty summary complete.")
     return final_df
-
 
 # Main Snakemake execution
 if __name__ == "__main__":

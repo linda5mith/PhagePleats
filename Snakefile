@@ -100,7 +100,7 @@ rule run_python_script:
     input:
         search_result=os.path.join(foldseek_out_dir, 'search_result.tsv'),
         query_metadata=config['metadata'],
-        presence_absence="data/presence_absence.csv",
+        presence_absence="data/presence_absence.csv.gz",
         models_path="data/models",
         taxonomy="data/taxonomy.csv",
         intra_relatedness="data/intra_rank_relatedness.csv",
