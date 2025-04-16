@@ -1,6 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule run_python_script in file /home/administrator/phd/PhagePleats/Snakefile, line 99:
-Missing input files for rule run_python_script:
-    output: /home/administrator/phd/PhagePleats_out_16:04:25_10:16/taxa_predictions.csv, /home/administrator/phd/PhagePleats_out_16:04:25_10:16/novel_taxa_summary.csv
-    affected files:
-        metadata/genome_protein_mapping.csv
