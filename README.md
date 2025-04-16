@@ -4,12 +4,16 @@
 
 # PhagePleats 🧵🦠
 
-**PhagePleats** is a toolkit for analyzing, clustering, and classifying phage genomes based on structural protein content. It provides a streamlined pipeline for computing protein similarity, defining novel clades, and predicting taxonomy based on shared protein profiles.
+**PhagePleats** is a tool for taxonomically classifying dsDNA bacteriophages of the order Caudoviricetes
 
 ## 🚀 Features
 
 - 🔬 Predict taxonomic ranks (Order, Family, Subfamily, Genus) of your phage
 - 🧬 Compute % shared proteins and distance between input phage genomes and established taxonomic ranks
+
+<p align="center">
+  <img src="data/img/PhagePleats_Pipeline.png" alt="PhagePleats Pipeline" width="1000"/>
+</p>
 
 ## 📦 Installation
 
