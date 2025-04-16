@@ -234,7 +234,7 @@ def compute_closest_training_genomes(presence_absence, input_matrix, taxonomy_df
             "Genus": tax.get("Genus", np.nan)
         })
 
-    return pd.DataFrame(results).round(3)
+    return pd.DataFrame(results).round(3).sort_values(by='input_genome')
 
 #Novelty-aware post-prediction QC layer 👾🧬✨
 def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_df, preds, intra_rank_relatedness):

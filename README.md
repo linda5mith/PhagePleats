@@ -6,6 +6,10 @@
 
 **PhagePleats** is a tool for taxonomically classifying dsDNA bacteriophages of the order Caudoviricetes.
 
+Each fold, a secret, 
+A tapestry starts to form — 
+PhagePleats dares to know. 🧠🦠🐍
+
 ## Features
 
 - 🔬 Predict taxonomic ranks (Order, Family, Subfamily, Genus) of your phage
