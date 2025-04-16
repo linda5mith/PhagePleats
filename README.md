@@ -4,9 +4,9 @@
 
 # PhagePleats 🧵🦠
 
-**PhagePleats** is a tool for taxonomically classifying dsDNA bacteriophages of the order Caudoviricetes
+**PhagePleats** is a tool for taxonomically classifying dsDNA bacteriophages of the order Caudoviricetes.
 
-## 🚀 Features
+## Features
 
 - 🔬 Predict taxonomic ranks (Order, Family, Subfamily, Genus) of your phage
 - 🧬 Compute % shared proteins and distance between input phage genomes and established taxonomic ranks
@@ -24,3 +24,19 @@ git clone https://github.com/linda5mith/PhagePleats.git
 cd PhagePleats
 conda env create -f environment.yml
 conda activate phagepleats
+```
+
+## ▶️ Running PhagePleats
+
+Edit the `config.yml` file to include paths to your:
+
+- `pdbs/` directory  
+- genome-to-protein mapping file  
+- desired output directory  
+
+> **Note:** The default `config.yml` is already set up to run on the included test data.
+
+Then run the pipeline:
+
+```bash
+snakemake --cores 4
