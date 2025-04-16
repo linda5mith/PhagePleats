@@ -293,17 +293,21 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
     original_index = final_df.index.copy()
 
     for rank in ["Order", "Family", "Subfamily", "Genus"]:
+        preds[rank] = preds[rank].astype(str)
+        final_df[rank] = preds[rank]
+
         intra = intra_rank_relatedness[intra_rank_relatedness["rank"] == rank][
             ["clade", "intra_avg_shared_proteins", "intra_avg_euclidean"]
         ].copy()
-        intra.columns = [rank, f"{rank}_intra_avg_shared_proteins", f"{rank}_intra_avg_euclidean_dist"]
+        intra["clade"] = intra["clade"].astype(str)
 
-        final_df = final_df.merge(
-            preds[[rank]], left_index=True, right_index=True, how='left'
-        ).merge(
-            intra, on=rank, how='left'
-        )
+        intra_dict_shared = dict(zip(intra["clade"], intra["intra_avg_shared_proteins"]))
+        intra_dict_dist = dict(zip(intra["clade"], intra["intra_avg_euclidean"]))
 
+        final_df[f"{rank}_intra_avg_shared_proteins"] = final_df[rank].map(intra_dict_shared)
+        final_df[f"{rank}_intra_avg_euclidean_dist"] = final_df[rank].map(intra_dict_dist)
+
+        # Handle NaNs safely in novelty comparisons
         final_df[f"{rank}_novel_by_shared"] = (
             final_df[f"%_shared_with_predicted_{rank}"] < final_df[f"{rank}_intra_avg_shared_proteins"]
         )
@@ -357,7 +361,7 @@ if __name__ == "__main__":
     print(f"    → {os.path.join(outdir, 'taxa_predictions.csv')}")
     preds.to_csv(os.path.join(outdir, 'taxa_predictions.csv'))
 
-    dists = compute_closest_training_genomes(presence_absence, input_matrix)  # assumes p_a_matrix is defined elsewhere or passed in
+    dists = compute_closest_training_genomes(presence_absence, input_matrix)
 
     taxonomy_df = pd.read_csv(taxonomy)
     intra_df = pd.read_csv(intra_rank_relatedness)
