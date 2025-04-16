@@ -338,7 +338,7 @@ if __name__ == "__main__":
       /   |||   \
     PhagePleats is predicting... 🧬🚀✨
               
-    Uncovering the virosphere one phage at a time... 🔬🧫👾
+    Uncovering the virosphere one phage at a time... 🔬🦧👾
     ''')
         
     # ... call it before prediction starts lol:
