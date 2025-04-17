@@ -1,0 +1,11 @@
+Genome,Order,Order_prob,Family,Family_prob,Subfamily,Subfamily_prob,Genus,Genus_prob
+CS2_NODE_27_length_129660_cov_24.518784,Demerecvirales,0.21,Casjensviridae,0.08,Rosalindvirinae,0.06,Nonanavirus,0.04
+CT5_NODE_49_length_69315_cov_33.422596,Drexlervirales,0.21,Excaliburviridae,0.08,Rosalindvirinae,0.06,Cimandefvirus,0.06
+CZ16_NODE_50_length_90258_cov_311.426948,Vilmavirales,0.34,Cutlassviridae,0.08,Margaretvirinae,0.08,Marvinvirus,0.04
+G11_NODE_2_length_193439_cov_16.262809,Demerecvirales,0.19,Herelleviridae,0.14,Hydravirinae,0.04,Lavrentievavirus,0.04
+T2_NODE_60_length_89125_cov_125.700763,Demerecvirales,0.13,Schitoviridae_1,0.1,Titanvirinae,0.05,Pariacacavirus,0.03
+Z16_NODE_15_length_98364_cov_31.635496,Thumleimavirales,0.36,Straboviridae,0.07,Lysitheavirinae,0.07,Abouovirus,0.04
+Z20_NODE_1015_length_44282_cov_10.715287,Autographivirales,0.3,Autographiviridae_1,0.09,Titanvirinae,0.05,Perisivirus,0.03
+Z20_NODE_1747_length_36391_cov_12.310766,Excaliburvirales,0.17,Madridviridae,0.1,Loutivirinae,0.05,Bernalvirus,0.02
+Z20_NODE_67_length_88061_cov_109.332443,Demerecvirales,0.23,Steigviridae,0.05,Tempevirinae_1,0.04,Nonanavirus,0.05
+Z20_NODE_95_length_77480_cov_43.202467,Crassvirales,0.16,Herelleviridae,0.07,Europavirinae,0.05,Coetzeevirus,0.03

@@ -1,10 +1,12 @@
 # Specify path to input pdbs
-#PDBs: "test_data/pdbs"
-PDBs: "/home/administrator/phd/77_test_phages/fabian_phages/pdbs"
+PDBs: "test_data/pdbs"
+#PDBs: "/home/administrator/phd/77_test_phages/fabian_phages/pdbs"
+#PDBs: "/home/administrator/phd/77_test_phages/test_phages_701_pdbs"
 
 # genome-protein mapping metadata file
-#metadata: "test_data/metadata/genome_protein_mapping.csv"
-metadata: "/home/administrator/phd/77_test_phages/fabian_phages/new_zip/metadata_proteins.csv"
+metadata: "test_data/metadata/genome_protein_mapping.csv"
+#metadata: "/home/administrator/phd/77_test_phages/fabian_phages/new_zip/metadata_proteins.csv"
+#metadata: "/home/administrator/phd/77_test_phages/genome_protein_mapping.csv"
 
 # Output directory
 outdir: "/home/administrator/phd/"

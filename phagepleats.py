@@ -5,6 +5,9 @@ from tqdm import tqdm
 import pickle
 import faiss
 from sklearn.metrics import jaccard_score
+from collections import defaultdict
+from joblib import Parallel, delayed
+import time
 
 # 1. Read Foldseek result file
 def read_search(path_to_foldseek_search):
@@ -52,10 +55,8 @@ def map_query_to_genome(search, metadata):
     search['query_genome'] = search['query'].map(protein_to_genome)
     return search
 
-# 4. Create input presence/absence matrix for testing
 def create_input_matrix(search, presence_absence_path):
-    """
-    Creates a presence/absence matrix for input genomes based on detected clusters.
+    """Creates a presence/absence matrix for input genomes based on detected clusters.
 
     Args:
         search (pd.DataFrame): Search DataFrame with 'query_genome' and 'target'.
@@ -64,24 +65,32 @@ def create_input_matrix(search, presence_absence_path):
     Returns:
         pd.DataFrame: Presence/absence matrix (genomes x clusters).
     """
+    print("Building presence/absence matrix...")
     presence_absence = pd.read_csv(presence_absence_path)
     presence_absence[['accession', 'function']] = presence_absence['cluster_ID_function'].str.split(":", n=1, expand=True)
     presence_absence.set_index('cluster_ID_function', inplace=True)
-    cluster_index = presence_absence.index
 
-    genomes = search['query_genome'].dropna().unique()
-    input_df = pd.DataFrame(index=cluster_index, columns=genomes)
+    # Make mapping from accession -> cluster_ID_function
+    accession_to_cluster = presence_absence['accession'].to_dict()
+    cluster_lookup = {v: k for k, v in accession_to_cluster.items()}
 
-    for genome in tqdm(genomes, desc="Building presence/absence matrix"):
-        genome_clusters = search[search['query_genome'] == genome]['target'].values
-        for cluster in genome_clusters:
-            match = presence_absence[presence_absence['accession'] == cluster]
-            if not match.empty:
-                full_id = match.index[0]
-                input_df.at[full_id, genome] = 1
+    # Filter only known clusters in the lookup
+    search['matched_cluster'] = search['target'].map(cluster_lookup)
+    valid = search.dropna(subset=['query_genome', 'matched_cluster'])
 
-    return input_df.astype('float32').fillna(0).T
+    # Pivot table into presence/absence matrix
+    pivot = (
+        valid
+        .drop_duplicates(subset=['query_genome', 'matched_cluster'])
+        .assign(present=1)
+        .pivot(index='query_genome', columns='matched_cluster', values='present')
+        .fillna(0)
+        .astype('float32')
+    )
 
+    # Reindex to ensure all clusters in same order as original
+    final = pivot.reindex(columns=presence_absence.index, fill_value=0)
+    return final
 
 # 5. Read in models and run prediction
 def load_models_from_folder(folder_path):
@@ -182,7 +191,7 @@ def predict_all_ranks(X, ranks=["Order", "Family", "Subfamily", "Genus"], model_
     return final_df
 
 # 7. Compute distances to training matrix using FAISS
-def compute_closest_training_genomes(presence_absence, input_matrix, taxonomy_df):
+def compute_closest_training_genomes(presence_absence_path, input_matrix, taxonomy_df):
     """
     Finds the closest training genome for each input genome and computes:
     - Euclidean distance
@@ -198,7 +207,7 @@ def compute_closest_training_genomes(presence_absence, input_matrix, taxonomy_df
         pd.DataFrame: DataFrame with closest genome info, distance, % shared, and taxonomic ranks.
     """
     # Load training matrix
-    presence_absence = pd.read_csv(presence_absence, index_col=0)
+    presence_absence = pd.read_csv(presence_absence_path, index_col=0, compression='gzip')
     training_matrix = presence_absence.astype('float32').T
     input_matrix = input_matrix.astype('float32')
 
@@ -221,7 +230,7 @@ def compute_closest_training_genomes(presence_absence, input_matrix, taxonomy_df
         closest_vec = training_matrix.loc[closest].astype(bool)
         shared = jaccard_score(input_vec, closest_vec, average='binary', zero_division=0)
 
-        tax = taxonomy_df.loc[closest] if closest in taxonomy_df.index else {}
+        tax = taxonomy_df.loc[closest].to_dict() if closest in taxonomy_df.index else {}
 
         results.append({
             "input_genome": genome,
@@ -236,23 +245,136 @@ def compute_closest_training_genomes(presence_absence, input_matrix, taxonomy_df
 
     return pd.DataFrame(results).round(3).sort_values(by='input_genome')
 
-#Novelty-aware post-prediction QC layer 👾🧬✨
-def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_df, preds, intra_rank_relatedness):
-    """
-    Compute novelty-aware summary per input genome based on FAISS distances and Jaccard similarity
-    with predicted taxonomic clades.
-    """
+# --- Helper: Preprocess matrices and build clade members ---
+def preprocess_matrices(training_matrix, input_matrix, taxonomy_df, preds):
+    training_matrix_f32 = training_matrix.astype('float32')
+    training_matrix_bool = training_matrix.astype(bool)
+    input_matrix_f32 = input_matrix.astype('float32')
+    input_matrix_bool = input_matrix.astype(bool)
 
+    clade_members = defaultdict(dict)
+    for rank in ["Order", "Family", "Subfamily", "Genus"]:
+        taxonomy_df[rank] = taxonomy_df[rank].astype(str)
+        preds[rank] = preds[rank].astype(str)
+        for clade, clade_df in taxonomy_df.groupby(rank):
+            matched = clade_df.index.intersection(training_matrix.index)
+            if len(matched) > 0:
+                clade_members[rank][clade] = matched
+
+    return training_matrix_f32, training_matrix_bool, input_matrix_f32, input_matrix_bool, clade_members
+
+# --- Helper: Build FAISS indexes ---
+def build_faiss_indexes(clade_members, training_matrix_f32):
+    faiss_indexes = defaultdict(dict)
+    for rank in clade_members:
+        for clade, genomes in clade_members[rank].items():
+            vecs = training_matrix_f32.loc[genomes].values
+            if vecs.shape[0] > 0:
+                index = faiss.IndexFlatL2(vecs.shape[1])
+                index.add(vecs)
+                faiss_indexes[rank][clade] = index
+    return faiss_indexes
+
+# --- Helper: Process a single genome ---
+def process_genome(genome, input_matrix_f32, input_matrix_bool, training_matrix_bool, clade_members, faiss_indexes, preds):
+    row = {"Genome": genome}
+    input_vec = input_matrix_f32.loc[genome].values
+    input_vec_bool = input_matrix_bool.loc[genome].values
+
+    for rank in ["Order", "Family", "Subfamily", "Genus"]:
+        pred_clade = preds.loc[genome, rank]
+        matched_genomes = clade_members[rank].get(pred_clade, [])
+
+        if len(matched_genomes) == 0:
+            row[f"%_shared_with_predicted_{rank}"] = np.nan
+            row[f"eucl_dist_to_predicted_{rank}"] = np.nan
+        else:
+            clade_bools = training_matrix_bool.loc[matched_genomes].values
+            jaccard_vals = np.mean([
+                jaccard_score(input_vec_bool, clade_bools[i], average='binary', zero_division=0)
+                for i in range(clade_bools.shape[0])
+            ])
+            row[f"%_shared_with_predicted_{rank}"] = jaccard_vals
+
+            faiss_index = faiss_indexes[rank].get(pred_clade)
+            if faiss_index:
+                D, _ = faiss_index.search(input_vec.reshape(1, -1), k=faiss_index.ntotal)
+                row[f"eucl_dist_to_predicted_{rank}"] = np.sqrt(np.mean(D))
+            else:
+                row[f"eucl_dist_to_predicted_{rank}"] = np.nan
+
+    return row
+
+# --- Helper: Classify novelty based on z-scores ---
+def classify_novelty(z_s, z_d, rank):
+    if pd.isna(z_s) or pd.isna(z_d):
+        return "Unknown"
+    for threshold, label in zip([3, 2, 1], ["order", "family", "subfamily", "genus"]):
+        if z_s <= -threshold or z_d >= threshold:
+            return f"Potential new {label if rank.lower() == label else rank.lower()}"
+    return "Likely member"
+
+# --- Additional: Compute z-scores and flags for all ranks ---
+def compute_z_scores_and_flag_all_ranks(phage_df, intra_df):
+    for rank in ["Order", "Family", "Subfamily", "Genus"]:
+        z_shared_list = []
+        z_euclid_list = []
+        flag_list = []
+
+        for _, row in phage_df.iterrows():
+            predicted_clade = row[rank]
+            clade_metrics = intra_df[(intra_df['rank'] == rank) & (intra_df['clade'] == predicted_clade)]
+
+            if clade_metrics.empty:
+                z_shared = z_euclid = None
+                novelty_flag = "Clade not in intra table"
+            else:
+                mean_shared = clade_metrics["intra_avg_shared_proteins"].values[0]
+                std_shared = clade_metrics["intra_std_shared_proteins"].values[0]
+                mean_euclid = clade_metrics["intra_avg_euclidean"].values[0]
+                std_euclid = clade_metrics["intra_std_euclidean"].values[0]
+
+                try:
+                    shared = row[f"%_shared_with_predicted_{rank}"]
+                    euclid = row[f"eucl_dist_to_predicted_{rank}"]
+                    if std_shared == 0 or std_euclid == 0:
+                        z_shared = z_euclid = np.nan
+                    else:
+                        z_shared = (shared - mean_shared) / std_shared
+                        z_euclid = (euclid - mean_euclid) / std_euclid
+                except:
+                    z_shared = z_euclid = np.nan
+
+                novelty_flag = classify_novelty(z_shared, z_euclid, rank)
+
+            z_shared_list.append(z_shared)
+            z_euclid_list.append(z_euclid)
+            flag_list.append(novelty_flag)
+            
+            print(predicted_clade)
+            print(z_shared)
+            print(z_euclid)
+            print(novelty_flag)
+            print('-----------------------')
+
+        phage_df[f"{rank}_z_shared_proteins"] = z_shared_list
+        phage_df[f"{rank}_z_euclidean_distance"] = z_euclid_list
+        phage_df[f"{rank}_novelty_flag"] = flag_list
+
+    return phage_df
+
+
+# #Novelty-aware post-prediction QC layer 👾🧬✨
+def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_df, preds, intra_rank_relatedness):
     print("🔍 Loading training presence/absence matrix...")
     presence_absence = pd.read_csv(presence_absence_path, index_col=0, compression='gzip')
     training_matrix = presence_absence.astype('float32').T
     input_matrix = input_matrix.astype('float32')
-    taxonomy_df = taxonomy_df.set_index("Leaves") 
+    taxonomy_df = taxonomy_df.set_index("Leaves")
 
     print("🔗 Finding closest training genome (Euclidean distance) to input genome...")
     index = faiss.IndexFlatL2(training_matrix.shape[1])
     index.add(training_matrix.values)
-
     distances, indices = index.search(input_matrix.values, k=1)
     closest_df = pd.DataFrame({
         'Genome': input_matrix.index,
@@ -261,79 +383,30 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
     }).set_index("Genome")
 
     print("🔬 Computing % shared proteins + FAISS distance to predicted clades...")
+    start = time.perf_counter()
+    training_matrix_f32, training_matrix_bool, input_matrix_f32, input_matrix_bool, clade_members = preprocess_matrices(
+        training_matrix, input_matrix, taxonomy_df, preds
+    )
+    faiss_indexes = build_faiss_indexes(clade_members, training_matrix_f32)
+
     results = []
-
-    for rank in ["Order", "Family", "Subfamily", "Genus"]:
-        preds[rank] = preds[rank].astype(str)
-        taxonomy_df[rank] = taxonomy_df[rank].astype(str)
-
     for genome in tqdm(input_matrix.index, desc="💫 Calculating per-genome clade similarity"):
-        row = {"Genome": genome}
-        input_vec = input_matrix.loc[genome].values.astype('float32')
-
-        for rank in ["Order", "Family", "Subfamily", "Genus"]:
-            pred_clade = preds.loc[genome, rank]
-            genomes_in_clade = taxonomy_df[taxonomy_df[rank] == pred_clade].index
-            matching_genomes = training_matrix.index.intersection(genomes_in_clade)
-            if matching_genomes.empty:
-                row[f"%_shared_with_predicted_{rank}"] = np.nan
-                row[f"eucl_dist_to_predicted_{rank}"] = np.nan
-            else:
-                # % Shared Proteins (Jaccard)
-                jaccards = [
-                    jaccard_score(
-                        input_vec.astype(bool),
-                        training_matrix.loc[g].values.astype(bool),
-                        average='binary',
-                        zero_division=0
-                    )
-                    for g in matching_genomes
-                ]
-                row[f"%_shared_with_predicted_{rank}"] = np.mean(jaccards)
-
-                # Euclidean Distance (FAISS)
-                clade_matrix = training_matrix.loc[matching_genomes].values.astype('float32')
-                input_vec_2d = input_vec.reshape(1, -1)
-                clade_index = faiss.IndexFlatL2(clade_matrix.shape[1])
-                clade_index.add(clade_matrix)
-                distances, _ = clade_index.search(input_vec_2d, k=clade_matrix.shape[0])
-                #IndexFlatL2 in FAISS returns L2 squared distances so get the sq root
-                row[f"eucl_dist_to_predicted_{rank}"] = np.sqrt(np.mean(distances))
-
+        row = process_genome(genome, input_matrix_f32, input_matrix_bool, training_matrix_bool, clade_members, faiss_indexes, preds)
         results.append(row)
 
-    clade_df = pd.DataFrame(results).set_index("Genome")
-    print("🧬 Merging intra-clade reference statistics...")
-    final_df = closest_df.join(clade_df)
-    original_index = final_df.index.copy()
+    end = time.perf_counter()
+    print(f"⏱️ Took {end - start:.2f} seconds for intra-clade similarity calculations")
 
+    clade_df = pd.DataFrame(results).set_index("Genome")
+    final_df = closest_df.join(clade_df)
+
+    print("🧬 Assigning novelty scores...")
     for rank in ["Order", "Family", "Subfamily", "Genus"]:
-        preds[rank] = preds[rank].astype(str)
         final_df[rank] = preds[rank]
 
-        intra = intra_rank_relatedness[intra_rank_relatedness["rank"] == rank][
-            ["clade", "intra_avg_shared_proteins", "intra_avg_euclidean"]
-        ].copy()
-        intra["clade"] = intra["clade"].astype(str)
-
-        intra_dict_shared = dict(zip(intra["clade"], intra["intra_avg_shared_proteins"]))
-        intra_dict_dist = dict(zip(intra["clade"], intra["intra_avg_euclidean"]))
-
-        final_df[f"{rank}_intra_avg_shared_proteins"] = final_df[rank].map(intra_dict_shared)
-        final_df[f"{rank}_intra_avg_euclidean_dist"] = final_df[rank].map(intra_dict_dist)
-
-        # Handle NaNs safely in novelty comparisons
-        final_df[f"{rank}_novel_by_shared"] = (
-            final_df[f"%_shared_with_predicted_{rank}"] < final_df[f"{rank}_intra_avg_shared_proteins"]
-        )
-        final_df[f"{rank}_novel_by_distance"] = (
-            final_df[f"eucl_dist_to_predicted_{rank}"] > final_df[f"{rank}_intra_avg_euclidean_dist"]
-        )
- 
-    final_df.index = original_index
+    final_df = compute_z_scores_and_flag_all_ranks(final_df, intra_rank_relatedness)
     final_df.index.name = "Genome"
     final_df = final_df.round(2).sort_index()
-
     print("✅ Novelty summary complete.")
     return final_df
 
@@ -344,7 +417,7 @@ if __name__ == "__main__":
           ___
         /     \
        | o   o |
-        \  ^  /
+        \ ˇ ˇ /
          |||||
          |||||
           |||

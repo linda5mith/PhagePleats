@@ -1,0 +1,11 @@
+input_genome,closest_training_genome,euclidean_distance,%_shared_proteins,Order,Family,Subfamily,Genus
+CS2_NODE_27_length_129660_cov_24.518784,NC_048862,9.11,0.035,Madridvirales,Madridviridae,Titanvirinae,nan
+CT5_NODE_49_length_69315_cov_33.422596,NC_002515,8.124,0.043,Madridvirales,Mesyanzhinovviridae_2,Bradleyvirinae_2,nan
+CZ16_NODE_50_length_90258_cov_311.426948,NC_002515,8.718,0.026,Madridvirales,Mesyanzhinovviridae_2,Bradleyvirinae_2,nan
+G11_NODE_2_length_193439_cov_16.262809,NC_048862,11.0,0.032,Madridvirales,Madridviridae,Titanvirinae,nan
+T2_NODE_60_length_89125_cov_125.700763,NC_002515,7.071,0.057,Madridvirales,Mesyanzhinovviridae_2,Bradleyvirinae_2,nan
+Z16_NODE_15_length_98364_cov_31.635496,NC_002515,9.899,0.03,Madridvirales,Mesyanzhinovviridae_2,Bradleyvirinae_2,nan
+Z20_NODE_1015_length_44282_cov_10.715287,NC_002515,7.483,0.051,Madridvirales,Mesyanzhinovviridae_2,Bradleyvirinae_2,nan
+Z20_NODE_1747_length_36391_cov_12.310766,NC_004814,5.477,0.118,Madridvirales,Madridviridae,Titanvirinae,nan
+Z20_NODE_67_length_88061_cov_109.332443,NC_048862,8.66,0.026,Madridvirales,Madridviridae,Titanvirinae,nan
+Z20_NODE_95_length_77480_cov_43.202467,NC_002515,9.165,0.045,Madridvirales,Mesyanzhinovviridae_2,Bradleyvirinae_2,nan
