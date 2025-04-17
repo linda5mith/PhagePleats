@@ -46,61 +46,53 @@ Then run the pipeline:
 snakemake --cores 4
 ```
 
-📊 Interpreting PhagePleats Outputs
+## 📊 Interpreting PhagePleats Outputs
 
-PhagePleats outputs three main result files:
-🧬 taxonomy_predictions.csv
+PhagePleats generates **three main result files**:
 
-This file contains the predicted taxonomy for each input phage, along with confidence scores for each taxonomic rank.
+---
 
-Columns:
+### 🧬 `taxonomy_predictions.csv`
 
-    Genome — Identifier of the query phage genome
+This file contains the **predicted taxonomy** for each input phage, along with confidence scores.
 
-    Order, Family, Subfamily, Genus — Predicted taxonomic assignments
+**Key columns:**
+- `Genome`: Identifier for the input genome
+- `Order`, `Family`, `Subfamily`, `Genus`: Predicted taxonomic assignments
+- `Order_prob`, `Family_prob`, etc.: Confidence score (0–1) for each predicted rank
 
-    *_prob — Confidence score (probability from 0 to 1) for each prediction
+---
 
-🧬 phage_closest_hit.csv
+### 🧩 `phage_closest_hit.csv`
 
-This file shows the closest training genome (in protein space) for each input genome.
+This file reports the **closest training genome** to each input genome based on structural protein profiles.
 
-Columns:
+**Key columns:**
+- `input_genome`: Query genome name  
+- `closest_training_genome`: Closest match in the reference database  
+- `euclidean_distance`: Euclidean distance in presence/absence space  
+- `%_shared_proteins`: Jaccard similarity to closest genome  
+- `Order`, `Family`, etc.: Known taxonomy of the closest training genome  
 
-    input_genome — Query genome name
+---
 
-    closest_training_genome — Closest reference genome from the training set
+### 🧪 `novel_taxa_summary.csv`
 
-    euclidean_distance — Distance to closest training genome hit
+This file combines predictions, clade comparisons, and intra-clade statistics to assign **novelty flags**.
 
-    %_shared_proteins — Jaccard similarity with the closest genome
+**Key columns:**
+- `Genome`: Input genome ID  
+- `closest_training_genome`: Most similar known genome  
+- `euclidean_dist_to_closest_hit`: Distance to closest genome  
+- `%_shared_with_predicted_*`: Mean Jaccard similarity to predicted clade  
+- `eucl_dist_to_predicted_*`: Mean Euclidean distance to predicted clade  
+- `*_z_shared_proteins` and `*_z_euclidean_distance`: Z-scores comparing your genome to typical members of the predicted clade  
+- `*_novelty_flag`: Final novelty status for each rank:
 
-    Order, Family, Subfamily, Genus — Known taxonomy of the closest genome
+  - `Likely member`  
+  - `Potential new genus`, `Potential new family`, etc.  
+  - `Unknown` (if intra-clade stats are unavailable)
 
-🧬 novel_taxa_summary.csv
+---
 
-This is the novelty-aware output, combining taxonomic predictions, clade similarity metrics, and novelty flags.
-
-Columns:
-
-    Genome — Input genome name
-
-    closest_training_genome — Closest reference match
-
-    euclidean_dist_to_closest_hit — Distance to that closest match
-
-    %_shared_with_predicted_* — Avg. % shared proteins with the predicted clade
-
-    eucl_dist_to_predicted_* — Avg. Euclidean distance to the predicted clade
-
-    *_z_shared_proteins, *_z_euclidean_distance — Z-scores compared to intra-clade distribution
-
-    *_novelty_flag — Novelty classification, one of:
-
-        Likely member
-
-        Potential new genus, Potential new family, etc.
-
-        Unknown (e.g. if clade stats are missing)
-
-🧪 Use this file to assess whether your input phages may represent novel taxa.
+These flags aim to **highlight potential novel taxa** and provide a quantitative basis for exploring viral novelty in your dataset.
