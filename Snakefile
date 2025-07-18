@@ -68,7 +68,7 @@ checkpoint foldseek_search:
         mkdir -p {output}
         foldseek search {input.query} {input.target} {output}/aln {output}/tmpFolder \
             -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 --max-seqs 5 \
-            --exhaustive-search 1 -e 0.001 | tee -a {log}
+            --exhaustive-search 1 -e 0.01 | tee -a {log}
         """
 
 # 3. Checkpoint to wait for all alignment files to be created

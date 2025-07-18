@@ -37,6 +37,19 @@ def read_metadata(path_to_input_metadata):
     Returns:
         pd.DataFrame: Metadata DataFrame with 'genome' and 'protein' columns.
     """
+    if not os.path.exists(path_to_input_metadata):
+        raise FileNotFoundError(f"Metadata file not found: {path_to_input_metadata}")
+
+    try:
+        metadata = pd.read_csv(path_to_input_metadata)
+    except pd.errors.ParserError as e:
+        raise ValueError(f"Failed to read metadata as CSV: {e}")
+
+    required_cols = {"protein", "genome"}
+    if not required_cols.issubset(metadata.columns):
+        raise ValueError(f"Metadata must contain columns: {required_cols}, but found: {set(metadata.columns)}")
+
+    print(f"✅ Loaded metadata: {metadata.shape[0]} rows, {metadata.shape[1]} columns")
     return pd.read_csv(path_to_input_metadata)
 
 # 3. Map each query to its genome using metadata
@@ -51,8 +64,14 @@ def map_query_to_genome(search, metadata):
     Returns:
         pd.DataFrame: Updated search DataFrame with 'query_genome' column.
     """
+    if 'protein' not in metadata.columns or 'genome' not in metadata.columns:
+        raise ValueError("Metadata must contain 'protein' and 'genome' columns.")
+
     protein_to_genome = dict(zip(metadata['protein'], metadata['genome']))
     search['query_genome'] = search['query'].map(protein_to_genome)
+
+    unmapped = search['query_genome'].isna().sum()
+    print(f"🔍 Mapped queries to genomes. Unmapped queries: {unmapped} / {len(search)}")
     return search
 
 def create_input_matrix(search, presence_absence_path):
@@ -363,8 +382,7 @@ def compute_z_scores_and_flag_all_ranks(phage_df, intra_df):
 
     return phage_df
 
-
-# #Novelty-aware post-prediction QC layer 👾🧬✨
+# Novelty-aware post-prediction QC layer 👾🧬✨
 def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_df, preds, intra_rank_relatedness):
     print("🔍 Loading training presence/absence matrix...")
     presence_absence = pd.read_csv(presence_absence_path, index_col=0, compression='gzip')
