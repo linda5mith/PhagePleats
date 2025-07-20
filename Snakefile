@@ -2,9 +2,15 @@ configfile: "config.yml"
 import os
 import yaml
 import glob
+import json
+import pandas as pd
 from datetime import datetime
+from phagepleats.io import read_search, read_metadata, map_query_to_genome, create_input_matrix
+from phagepleats.prediction import predict_all_ranks, hierarchical_lookup
+from phagepleats.similarity import compute_closest_training_genomes
+from phagepleats.novelty import compute_clade_novelty_summary
 
-# Load the configuration file
+# Load config file
 with open("config.yml", 'r') as f:
     config = yaml.safe_load(f)
 
@@ -12,7 +18,7 @@ with open("config.yml", 'r') as f:
 installation_path = os.path.abspath('.')
 input_PDBs = config['PDBs']
 cluster_reps = os.path.join(installation_path, 'cluster_reps')
-today_date = datetime.now().strftime('%d:%m:%y_%H:%M')
+today_date = datetime.now().strftime('%d:%m:%y')
 outdir = os.path.join(config['outdir'], f"PhagePleats_out_{today_date}")
 log_dir = os.path.join(outdir, "log")
 foldseek_out_dir = os.path.join(outdir, "foldseek_out")
@@ -74,9 +80,7 @@ checkpoint foldseek_search:
 # 3. Checkpoint to wait for all alignment files to be created
 def aggregate_input(wildcards):
     checkpoint_output = checkpoints.foldseek_search.get(**wildcards).output[0]
-    #print(checkpoint_output)
     alignment_files = glob_wildcards(os.path.join(checkpoint_output, "aln.{i}")).i
-    #print(alignment_files)
     return expand(os.path.join(checkpoint_output, "aln.{i}"), i=alignment_files)
 
 # 4. Convert search alignments to tsv
@@ -95,19 +99,83 @@ rule foldseek_convertalis:
         foldseek convertalis {input.query} {input.target} {outdir}/alignments/aln {output.result} | tee -a {log}
         """
 
-#4. Run PhagePleats predictions
-rule run_python_script:
+rule run_phagepleats_pipeline:
     input:
         search_result=os.path.join(foldseek_out_dir, 'search_result.tsv'),
         query_metadata=config['metadata'],
         presence_absence="data/presence_absence.csv.gz",
         models_path="data/models",
-        taxonomy="data/taxonomy.csv",
+        taxonomy_json="data/taxonomy.json",
+        taxonomy_df="data/taxonomy.csv",
         intra_relatedness="data/intra_rank_relatedness.csv",
         outdir=outdir
     output:
         taxa_preds=os.path.join(outdir, 'taxa_predictions.csv'),
         closest_genomes=os.path.join(outdir, 'novel_taxa_summary.csv')
-    script:
-        "phagepleats.py"
+    run:
+        def print_phage_ascii():
+            print(r'''
+                    ___
+                  /     \
+                 | o   o |
+                  \ ˇ ˇ /
+                   |||||
+                   |||||
+                    |||
+                 ___|||___
+                /   |||   \
+            PhagePleats is predicting... 🧬🚀✨
+                    
+            Uncovering the virosphere one phage at a time... 🔬🦧👾
+            ''')
+        
+        print_phage_ascii()
+
+        # 1: Load and preprocess input data
+        search_df = read_search(input.search_result)
+        metadata_df = read_metadata(input.query_metadata)
+        search_df = map_query_to_genome(search_df, metadata_df)
+        input_matrix = create_input_matrix(search_df, input.presence_absence)
+
+        # 2 Load taxonomy
+        with open(input.taxonomy_json) as f:
+            hierarchy = json.load(f)
+
+        # 3. Predict all ranks
+        flat_preds = predict_all_ranks(input_matrix, out_dir=input.outdir)
+        preds = hierarchical_lookup(flat_preds, hierarchy)
+        preds.to_csv(output.taxa_preds)
+        print(preds)
+
+        # 4: Compute novelty
+        taxonomy_df = pd.read_csv(input.taxonomy_df)
+        intra_df = pd.read_csv(input.intra_relatedness)
+
+        novelty_summary_df = compute_clade_novelty_summary(
+            input.presence_absence,
+            input_matrix=input_matrix,
+            taxonomy_df=taxonomy_df,
+            preds=preds,
+            intra_rank_relatedness=intra_df
+        )
+        novelty_summary_df.to_csv(output.closest_genomes)
+
+        print("✅ All results saved.")
+
+
+#4. Run PhagePleats predictions
+# rule run_python_script:
+#     input:
+#         search_result=os.path.join(foldseek_out_dir, 'search_result.tsv'),
+#         query_metadata=config['metadata'],
+#         presence_absence="data/presence_absence.csv.gz",
+#         models_path="data/models",
+#         taxonomy="data/taxonomy.csv",
+#         intra_relatedness="data/intra_rank_relatedness.csv",
+#         outdir=outdir
+#     output:
+#         taxa_preds=os.path.join(outdir, 'taxa_predictions.csv'),
+#         closest_genomes=os.path.join(outdir, 'novel_taxa_summary.csv')
+#     script:
+#         "phagepleats.py"
 

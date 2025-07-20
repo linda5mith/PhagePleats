@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+run_phagepleats_pipeline        1
+total                           2
+
+Select jobs to execute...
+
+[Sat Jul 19 16:32:53 2025]
+rule run_phagepleats_pipeline:
+    input: /home/administrator/phd/PhagePleats_out_19:07:25/foldseek_out/search_result.tsv, test_data/metadata/genome_protein_mapping.csv, data/presence_absence.csv.gz, data/models, data/taxonomy.csv, data/intra_rank_relatedness.csv, /home/administrator/phd/PhagePleats_out_19:07:25
+    output: /home/administrator/phd/PhagePleats_out_19:07:25/taxa_predictions.csv, /home/administrator/phd/PhagePleats_out_19:07:25/novel_taxa_summary.csv
+    jobid: 4
+    reason: Missing output files: /home/administrator/phd/PhagePleats_out_19:07:25/novel_taxa_summary.csv, /home/administrator/phd/PhagePleats_out_19:07:25/taxa_predictions.csv
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-19T163252.523367.snakemake.log

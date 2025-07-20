@@ -1,0 +1,3117 @@
+{
+  "Bolasvirales": {
+    "Bolasviridae": {
+      "Titaniavirinae": [
+        "Ceduovirus_2",
+        "Ceduovirus_3",
+        "Ceduovirus_1",
+        "Ceduovirus_5",
+        "Ceduovirus_4"
+      ],
+      "Pulivirinae": [
+        "Chertseyvirus"
+      ]
+    }
+  },
+  "Kestrosvirales": {
+    "Kestrosviridae": {
+      "Majritivirinae": [
+        "Kleczkowskavirus",
+        "Rosemountvirus"
+      ]
+    }
+  },
+  "Sarissavirales": {
+    "Sarissaviridae": {
+      "Poltergeistvirinae": [
+        "Bridgettevirus",
+        "Agmunavirus"
+      ]
+    }
+  },
+  "Axehammervirales": {
+    "Axehammerviridae": {
+      "Awasisvirinae": [
+        "Kochitakasuvirus",
+        "Kafunavirus"
+      ]
+    }
+  },
+  "Gatlingvirales": {
+    "Gatlingviridae": {
+      "Caleuchevirinae": [
+        "Firingavirus",
+        "Bocovirus"
+      ]
+    }
+  },
+  "Bombardvirales": {
+    "Yataganviridae": {
+      "Kerberosvirinae": [
+        "Bowservirus"
+      ]
+    },
+    "Bombardviridae": {
+      "Ilmar\u00ebvirinae": [
+        "Beenievirus_1",
+        "Beenievirus_3",
+        "Howevirus",
+        "Beenievirus_2"
+      ],
+      "Nymbaxtervirinae": [
+        "Nymphadoravirus_3",
+        "Baxterfoxvirus_1",
+        "Baxterfoxvirus_2",
+        "Nymphadoravirus_1",
+        "Nymphadoravirus_4",
+        "Nymphadoravirus_5",
+        "Nymphadoravirus_2"
+      ]
+    },
+    "Tekkoviridae": {
+      "Galateavirinae": [
+        "Jujuvirus_1",
+        "Jujuvirus_2",
+        "Fairfaxidumvirus"
+      ]
+    },
+    "Gramrviridae": {
+      "Himaliavirinae": [
+        "Attisvirus_1",
+        "Attisvirus_4",
+        "Attisvirus_2",
+        "Attisvirus_3"
+      ],
+      "Kaelithvirinae": [
+        "Denisevirus"
+      ],
+      "Xenthosvirinae": [
+        "Luckytenvirus"
+      ]
+    },
+    "Molotovviridae": {
+      "Smertriosvirinae": [
+        "Trigintaduovirus"
+      ],
+      "Deimosvirinae": [
+        "Trigintaduovirus"
+      ]
+    },
+    "Rhomphaiaviridae": {
+      "Makropulosvirinae": [
+        "Ruthyvirus",
+        "Betterkatzvirus"
+      ]
+    },
+    "Urumiviridae": {
+      "Vytisvirinae": [
+        "Britbratvirus"
+      ]
+    },
+    "Zarionviridae": {
+      "Zarionvirinae": [
+        "Eyrevirus"
+      ]
+    },
+    "Ortheliaviridae": {
+      "Ortheliavirinae": [
+        "Trigintaduovirus"
+      ]
+    },
+    "Onoviridae": {
+      "Langleyhallvirinae": [
+        "Getalongvirus_1",
+        "Apricotvirus",
+        "Horusvirus",
+        "Getalongvirus_2"
+      ]
+    }
+  },
+  "Tantovirales": {
+    "Tantoviridae": {
+      "Bergelmirvirinae": [
+        "Roslyckyvirus"
+      ]
+    }
+  },
+  "Bovirales": {
+    "Boviridae": {
+      "Ind\u00e9pendancevirinae": [
+        "Feofaniavirus"
+      ]
+    }
+  },
+  "Madisavirales": {
+    "Naginataviridae": {
+      "Greipvirinae": [
+        "Syrbvirus"
+      ]
+    },
+    "Yariviridae": {
+      "Beirutvirinae": [
+        "Syrbvirus"
+      ]
+    },
+    "Umb\u00e4\u00e4ssaviridae": {
+      "Umb\u00e4\u00e4ssavirinae": [
+        "Syrbvirus"
+      ]
+    }
+  },
+  "Ekuvirales": {
+    "Ekuviridae": {
+      "Epimetheusvirinae": [
+        "Sawaravirus",
+        "Marienburgvirus_2",
+        "Pankowvirus",
+        "Marienburgvirus_1"
+      ],
+      "Sepvirinae": [
+        "Traversvirus_1",
+        "Traversvirus_2",
+        "Traversvirus_3",
+        "Traversvirus_4",
+        "Diegovirus",
+        "Oslovirus"
+      ]
+    }
+  },
+  "Arquebusvirales": {
+    "Qiangviridae": {
+      "Iapetusvirinae": [
+        "Fromanvirus_1",
+        "Fromanvirus_5",
+        "Fromanvirus_9"
+      ]
+    },
+    "Arquebusviridae": {
+      "Pasiphaevirinae": [
+        "Sagamiharavirus",
+        "Rerduovirus"
+      ],
+      "Qingluanvirinae": [
+        "Microwolfvirus_2"
+      ],
+      "Moonvirinae": [
+        "Pukovnikvirus",
+        "Fromanvirus_8",
+        "Fromanvirus_2",
+        "Anthonyvirus",
+        "Refugevirus",
+        "Fromanvirus_4",
+        "Pharaohvirus",
+        "Gladiatorvirus",
+        "Fromanvirus_7",
+        "Turbidovirus",
+        "Eagleeyevirus",
+        "Luchadorvirus"
+      ],
+      "Mirandavirinae": [
+        "Benedictvirus",
+        "Fromanvirus_6"
+      ],
+      "Europavirinae": [
+        "Backyardiganvirus",
+        "Veracruzvirus_1",
+        "Veracruzvirus_2",
+        "Timshelvirus_2",
+        "Timshelvirus_1",
+        "Kimonavirus",
+        "Fromanvirus_3",
+        "Microwolfvirus_1"
+      ],
+      "Arionvirinae": [
+        "Soupsvirus",
+        "Phleivirus"
+      ]
+    },
+    "Runguviridae": {
+      "Quijotevirinae": [
+        "Pahexavirus"
+      ],
+      "Arquatrovirinae": [
+        "Caelumvirus",
+        "Likavirus",
+        "Hautrevirus",
+        "Omarvirus",
+        "Arequatrovirus",
+        "Yosifvirus",
+        "Camvirus",
+        "Celiavirus"
+      ]
+    },
+    "Sodegaramiviridae": {
+      "Beephvirinae": [
+        "Manuelvirus_2",
+        "Manuelvirus_1",
+        "Immanueltrevirus",
+        "Flowerpowervirus"
+      ]
+    }
+  },
+  "Shotelvirales": {
+    "Shotelviridae": {
+      "Rocinantevirinae": [
+        "Casadabanvirus"
+      ]
+    },
+    "Rocinanteviridae": {
+      "Rocinantevirinae": [
+        "Mardecavirus"
+      ]
+    }
+  },
+  "Katarvirales": {
+    "Katarviridae": {
+      "Rocinantevirinae": [
+        "Delepquintavirus"
+      ]
+    }
+  },
+  "Xiphosvirales": {
+    "Xiphosviridae": {
+      "Bl\u00e9riotvirinae": [
+        "Teubervirus"
+      ],
+      "Mccleskeyvirinae": [
+        "Limdunavirus",
+        "Unaquatrovirus"
+      ]
+    }
+  },
+  "Vilmavirales": {
+    "Assegaiviridae": {
+      "Carpovirinae": [
+        "Kostyavirus"
+      ],
+      "Prosperovirinae": [
+        "Omegavirus_1",
+        "Omegavirus_3",
+        "Omegavirus_2"
+      ],
+      "Yliriavirinae": [
+        "Gaiavirus"
+      ]
+    },
+    "Jambokviridae": {
+      "Hypatiavirinae": [
+        "Marvinvirus"
+      ]
+    },
+    "Kalashnikovviridae": {
+      "Peitrussvirinae": [
+        "Ronaldovirus"
+      ]
+    },
+    "Katanaviridae": {
+      "Tethyrvirinae": [
+        "Yvonnevirus"
+      ],
+      "Atlasvirinae": [
+        "Oneupvirus",
+        "Smoothievirus"
+      ],
+      "Ijiraqvirinae": [
+        "Daredevilvirus",
+        "Mollymurvirus"
+      ]
+    },
+    "Vilmaviridae_2": {
+      "Maelionvirinae": [
+        "Wildcatvirus"
+      ],
+      "Mclasvirinae": [
+        "Kumaovirus",
+        "Bongovirus",
+        "Reyvirus"
+      ]
+    },
+    "Vilmaviridae_1": {
+      "Lclasvirinae": [
+        "Bronvirus",
+        "Lumosvirus",
+        "Bromdenvirus",
+        "Faithunavirus"
+      ],
+      "Deeyouvirinae": [
+        "Nevillevirus",
+        "Octobienvirus"
+      ]
+    }
+  },
+  "Uluvirales": {
+    "Uluviridae": {
+      "Proteusvirinae": [
+        "Efquatrovirus_2",
+        "Efquatrovirus_1",
+        "Efquatrovirus_3"
+      ]
+    }
+  },
+  "Chakrivirales": {
+    "Chakriviridae": {
+      "Nereidvirinae": [
+        "Lillamyvirus",
+        "Muminvirus_1",
+        "Muminvirus_2"
+      ],
+      "Sumajmajtavirinae": [
+        "Tantvirus"
+      ]
+    }
+  },
+  "Hungamungavirales": {
+    "Hungamungaviridae": {
+      "Weywotvirinae": [
+        "Kojivirus",
+        "Ilzatvirus",
+        "Elerivirus",
+        "Neferthenavirus"
+      ],
+      "Kua'kuavirinae": [
+        "Luckybarnesvirus"
+      ]
+    }
+  },
+  "Sagarisvirales": {
+    "Sagarisviridae": {
+      "Siarnaqvirinae": [
+        "Austintatiousvirus",
+        "Raleighvirus"
+      ],
+      "Guaranivirinae": [
+        "Leicestervirus",
+        "Lentavirus"
+      ]
+    }
+  },
+  "Jittevirales": {
+    "Jitteviridae": {
+      "Yvagavirinae": [
+        "Elmenteitavirus",
+        "Oshimavirus"
+      ],
+      "Anankevirinae": [
+        "Halcyonevirus_1",
+        "Halcyonevirus_2"
+      ]
+    }
+  },
+  "Mizrakvirales": {
+    "Mizrakviridae": {
+      "Albiorixvirinae": [
+        "Vedamuthuvirus_1",
+        "Vedamuthuvirus_2"
+      ],
+      "Suttungrvirinae": [
+        "Phifelvirus"
+      ]
+    }
+  },
+  "Doryvirales": {
+    "Doryviridae": {
+      "Saffarvirinae": [
+        "Cequinquevirus",
+        "Lafunavirus",
+        "Arawnvirus"
+      ]
+    }
+  },
+  "Krisvirales": {
+    "Krisviridae": {
+      "Erinomevirinae": [
+        "Jacevirus"
+      ],
+      "Staburagsvirinae": [
+        "Kelleziovirus"
+      ],
+      "Nusakanvirinae": [
+        "Jacevirus"
+      ],
+      "Ersavirinae": [
+        "Bippervirus"
+      ]
+    }
+  },
+  "Nagamakivirales": {
+    "Nagamakiviridae": {
+      "Aegaeonvirinae": [
+        "Samwavirus"
+      ]
+    },
+    "Makomb\u00e9viridae": {
+      "Makomb\u00e9virinae": [
+        "Whiteheadvirus"
+      ]
+    }
+  },
+  "Mancatchervirales": {
+    "Mancatcherviridae": {
+      "Earhartvirinae": [
+        "Barbavirus"
+      ]
+    }
+  },
+  "Shuanggouvirales": {
+    "Shuang Gouviridae": {
+      "Bocaprinsvirinae": [
+        "Laroyevirus",
+        "Sansavirus"
+      ]
+    }
+  },
+  "Trisulavirales": {
+    "Trisulaviridae": {
+      "Angrbodavirinae": [
+        "Cbastvirus"
+      ],
+      "Riosarvirinae": [
+        "Cbastvirus"
+      ],
+      "Samagiyavirinae": [
+        "Cbastvirus"
+      ]
+    }
+  },
+  "Retiariusvirales": {
+    "Retiariusviridae": {
+      "Telestovirinae": [
+        "Jimmervirus",
+        "Abouovirus"
+      ]
+    }
+  },
+  "Patavirales": {
+    "Pataviridae": {
+      "Ymirvirinae": [
+        "Plateaulakevirus_1",
+        "Plateaulakevirus_2"
+      ]
+    }
+  },
+  "Koravirales": {
+    "Koraviridae": {
+      "Arkasvirinae": [
+        "Corndogvirus"
+      ]
+    }
+  },
+  "Pigervirales": {
+    "Yumiviridae": {
+      "Tarqeqvirinae": [
+        "Ravarandavirus_1",
+        "Ravarandavirus_2"
+      ]
+    },
+    "Pigerviridae": {
+      "Thelxinoevirinae": [
+        "Pagevirus"
+      ],
+      "\u0120gantijavirinae": [
+        "Certevirus"
+      ],
+      "Baidurivirinae": [
+        "Rahariannevirus"
+      ],
+      "Belindavirinae": [
+        "Sherbrookevirus_1",
+        "Somnumvirus",
+        "Appavirus",
+        "Sherbrookevirus_2"
+      ]
+    }
+  },
+  "Tetsubovirales": {
+    "Tetsuboviridae": {
+      "Narvivirinae": [
+        "Schmidvirus_2",
+        "Schmidvirus_1"
+      ]
+    }
+  },
+  "Pantevenvirales": {
+    "KauSinKeviridae": {
+      "Taphaovirinae": [
+        "Emdodecavirus"
+      ]
+    },
+    "Arquusviridae": {
+      "G\u00f6kt\u00fcrkvirinae": [
+        "Metrivirus"
+      ]
+    },
+    "Daneaxeviridae": {
+      "Enceladusvirinae": [
+        "Alexandravirus",
+        "Salmondvirus",
+        "Rivsvirus"
+      ],
+      "Khomsavirinae": [
+        "Baikalvirus"
+      ]
+    },
+    "Mortarviridae": {
+      "Anthevirinae": [
+        "Menderavirus",
+        "Busanvirus"
+      ]
+    },
+    "Nightshadeviridae": {
+      "Eburoniavirinae": [
+        "Sarumanvirus",
+        "Mieseafarmvirus",
+        "Moturavirus"
+      ]
+    },
+    "Ranseurviridae": {
+      "Amateruvirinae": [
+        "Kungbxnavirus"
+      ]
+    },
+    "Ackermannviridae": {
+      "Sazumvirinae": [
+        "Tedavirus"
+      ],
+      "Tanzanitevirinae": [
+        "Ionavirus"
+      ],
+      "Hyrrokkinvirinae": [
+        "Campanilevirus"
+      ],
+      "Maepingvirinae": [
+        "Chakrabartyvirus"
+      ],
+      "Cvivirinae": [
+        "Nezavisimistyvirus",
+        "Kuttervirus_1",
+        "Taipeivirus",
+        "Kuttervirus_2",
+        "Miltonvirus",
+        "Agtrevirus"
+      ]
+    },
+    "Arenbergviridae": {
+      "Ixbalanqu\u00e9virinae": [
+        "Wroclawvirus"
+      ],
+      "Xiangliuvirinae": [
+        "Asteriusvirus",
+        "Alcyoneusvirus",
+        "Eneladusvirus"
+      ]
+    },
+    "Demerecviridae": {
+      "Santamasavirinae": [
+        "Shenzhenvirus"
+      ],
+      "Foldvirinae": [
+        "Pogseptimavirus"
+      ],
+      "Ermolyevavirinae": [
+        "Thalassavirus",
+        "Jesfedecavirus",
+        "Cetovirus"
+      ],
+      "Markadamsvirinae": [
+        "Tequintavirus",
+        "Epseptimavirus_1",
+        "Priunavirus",
+        "Novosibvirus",
+        "Hongcheonvirus",
+        "Sugarlandvirus",
+        "Epseptimavirus_2"
+      ]
+    },
+    "Kyanoviridae": {
+      "Iovirinae": [
+        "Alisovirus",
+        "Eurybiavirus",
+        "Neptunevirus",
+        "Leucotheavirus",
+        "Lowelvirus",
+        "Brizovirus",
+        "Potamoivirus",
+        "Yushanluvirus",
+        "Scyllavirus",
+        "Anaposvirus",
+        "Zhoulongquanvirus",
+        "Tamkungvirus",
+        "Kanaloavirus",
+        "Haifavirus",
+        "Vellamovirus",
+        "Nodensvirus",
+        "Palaemonvirus",
+        "Ronodorvirus",
+        "Ahtivirus",
+        "Thaumasvirus",
+        "Emcearvirus",
+        "Greenvirus",
+        "Shenzhenivirus",
+        "Yellowseavirus"
+      ],
+      "\u00c6girvirinae": [
+        "Huanghaivirus"
+      ],
+      "Ugaritvirinae": [
+        "Serangoonvirus"
+      ],
+      "Kiviuqvirinae": [
+        "Mazuvirus",
+        "Atlauavirus"
+      ]
+    },
+    "Molycolviridae": {
+      "Magorvirinae": [
+        "Mollyvirus"
+      ]
+    },
+    "Pootjesviridae": {
+      "Ramajayvirinae": [
+        "Heverleevirus"
+      ],
+      "Agoutovirinae": [
+        "Rollinsvirus"
+      ],
+      "Staniewskivirinae": [
+        "Innesvirus",
+        "Emnonavirus",
+        "Trinifflemingvirus"
+      ]
+    },
+    "Straboviridae": {
+      "Fortitudovirinae": [
+        "Krischvirus"
+      ],
+      "Larissavirinae": [
+        "Tulanevirus",
+        "Nanhuvirus"
+      ],
+      "Spevirinae": [
+        "Schizotequatrovirus"
+      ],
+      "Mimasvirinae": [
+        "Slopekvirus",
+        "Pseudotevenvirus"
+      ],
+      "Trinculovirinae": [
+        "Cinqassovirus",
+        "Angelvirus"
+      ],
+      "Tevenvirinae": [
+        "Gaprivervirus",
+        "Muldoonvirus",
+        "Tequatrovirus",
+        "Dhakavirus",
+        "Gualtarvirus",
+        "Jiangsuvirus",
+        "Bragavirus",
+        "Carettavirus",
+        "Mosigvirus",
+        "Moonvirus",
+        "Winklervirus",
+        "Kanagawavirus",
+        "Mosugukvirus",
+        "Gelderlandvirus",
+        "Karamvirus",
+        "Roskildevirus",
+        "Tegunavirus",
+        "Jiaodavirus",
+        "Marfavirus"
+      ],
+      "Emmerichvirinae": [
+        "Ceceduovirus",
+        "Ishigurovirus"
+      ],
+      "Twarogvirinae": [
+        "Lazarusvirus",
+        "Zedzedvirus",
+        "Acajnonavirus",
+        "Ezekielvirus"
+      ]
+    },
+    "Wangshuviridae": {
+      "Wangshuvirinae": [
+        "Takahashivirus"
+      ]
+    },
+    "Victoriapeakviridae": {
+      "Victoriapeakvirinae": [
+        "Cuauhnahuacvirus"
+      ]
+    },
+    "Kukriviridae": {
+      "Eucampyvirinae_1": [
+        "Firehammervirus_1",
+        "Firehammervirus_2"
+      ],
+      "Eucampyvirinae_2": [
+        "Fletchervirus"
+      ]
+    },
+    "Lakviridae": {
+      "Quingentivirinae": [
+        "Vetruanivirus",
+        "Hatfieldvirus",
+        "Wendovervirus"
+      ]
+    }
+  },
+  "Tabarzinvirales": {
+    "Tabarzinviridae": {
+      "Melqu\u00edadesvirinae": [
+        "Aurunvirus"
+      ]
+    }
+  },
+  "Dahvirales": {
+    "Dahviridae": {
+      "Velesvirinae": [
+        "Anamdongvirus"
+      ]
+    }
+  },
+  "Amentumvirales": {
+    "Amentumviridae": {
+      "Qorathvirinae": [
+        "Phrappuccinovirus"
+      ],
+      "Ceeclamvirinae_2": [
+        "Bixzunavirus"
+      ],
+      "Ceeclamvirinae_1": [
+        "Myrnavirus",
+        "Puppervirus",
+        "Finchvirus"
+      ]
+    }
+  },
+  "Crassvirales": {
+    "Fipunaviridae": {
+      "Mintomevirinae": [
+        "Fipvunavirus"
+      ]
+    },
+    "Suoliviridae": {
+      "Tumearanduvirinae": [
+        "Dechshavirus"
+      ],
+      "Loutivirinae": [
+        "Birpovirus",
+        "Culoivirus",
+        "Cohcovirus_1",
+        "Canhaevirus",
+        "Buchavirus_3",
+        "Cohcovirus_2",
+        "Buchavirus_2",
+        "Buchavirus_1",
+        "Aurodevirus_2",
+        "Aurodevirus_1",
+        "Afonbuvirus",
+        "Blohavirus"
+      ],
+      "Uncouvirinae": [
+        "Besingivirus"
+      ],
+      "Oafivirinae": [
+        "Burzaovirus",
+        "Buhlduvirus",
+        "Bohxovirus",
+        "Cacepaovirus"
+      ]
+    },
+    "Intestiviridae": {
+      "Coarsevirinae": [
+        "Junduvirus"
+      ],
+      "Crudevirinae": [
+        "Carjivirus",
+        "Delmidovirus",
+        "Drivevirus",
+        "Dabirmavirus",
+        "Fohxhuevirus",
+        "Diorhovirus",
+        "Whopevirus"
+      ],
+      "Churivirinae": [
+        "Jahgtovirus_2",
+        "Jahgtovirus_1"
+      ]
+    },
+    "Steigviridae": {
+      "Asinivirinae_1": [
+        "Mahlunavirus",
+        "Wulfhauvirus",
+        "Kolpuevirus",
+        "Kehishuvirus",
+        "Lahndsivirus",
+        "Kahnovirus",
+        "Lebriduvirus"
+      ],
+      "Asinivirinae_3": [
+        "Akihdevirus"
+      ],
+      "Asinivirinae_4": [
+        "Pipoluvirus"
+      ],
+      "Asinivirinae_2": [
+        "Pamirivirus"
+      ]
+    }
+  },
+  "Assiduvirales": {
+    "Shinaiviridae": {
+      "Togevirinae": [
+        "Incheonvirus"
+      ]
+    },
+    "Aggregaviridae": {
+      "Leklsullunvirinae": [
+        "Harrekavirus"
+      ]
+    },
+    "Assiduviridae": {
+      "Pandiavirinae": [
+        "Harrekavirus"
+      ],
+      "Haikvirinae": [
+        "Harrekavirus"
+      ]
+    },
+    "Forsetiviridae": {
+      "Janssenvirinae": [
+        "Freyavirus"
+      ]
+    }
+  },
+  "Tambovirales": {
+    "Tamboviridae": {
+      "Harriotvirinae": [
+        "Sextaecvirus"
+      ]
+    }
+  },
+  "Tjotjovirales": {
+    "Tjotjoviridae": {
+      "Branvirinae": [
+        "Saundersvirus"
+      ]
+    }
+  },
+  "Boomerangvirales": {
+    "Boomerangviridae": {
+      "Guataub\u00e1virinae": [
+        "Questintvirus"
+      ]
+    }
+  },
+  "Gauntletvirales": {
+    "Gauntletviridae": {
+      "Virexvirinae": [
+        "Hnatkovirus"
+      ]
+    }
+  },
+  "Catapultvirales": {
+    "Catapultviridae": {
+      "Umbrielvirinae": [
+        "Korravirus_1",
+        "Korravirus_2"
+      ],
+      "Logevirinae": [
+        "Archimedesvirus"
+      ]
+    },
+    "Zweih\u00c3\u00a4nderviridae": {
+      "Meztlivirinae": [
+        "Goodmanvirus"
+      ]
+    },
+    "Dits\u00f6\u0300viridae": {
+      "Dits\u00f6\u0300virinae": [
+        "Woodruffvirus",
+        "Velanvirus"
+      ]
+    }
+  },
+  "Chakramvirales": {
+    "Chakramviridae": {
+      "Tethysvirinae": [
+        "Fernvirus_3",
+        "Fernvirus_1",
+        "Fernvirus_2",
+        "Lilyvirus"
+      ],
+      "Gochnauervirinae_1": [
+        "Dragolirvirus"
+      ],
+      "Gochnauervirinae_2": [
+        "Dragolirvirus"
+      ]
+    }
+  },
+  "Chukonuvirales": {
+    "Chukonuviridae": {
+      "Enifvirinae": [
+        "Myoalterovirus"
+      ],
+      "Skurskavirinae": [
+        "Nankokuvirus",
+        "Pakpunavirus"
+      ],
+      "Gorskivirinae": [
+        "Flaumdravirus",
+        "Kremarvirus"
+      ]
+    }
+  },
+  "Drexlervirales": {
+    "Claymoreviridae": {
+      "Dysnomiavirinae": [
+        "Akiravirus",
+        "Skatevirus_2",
+        "Shuimuvirus",
+        "Caminolopintovirus",
+        "Skatevirus_1",
+        "Macdonaldcampvirus_2",
+        "Segzyvirus",
+        "Deseoctovirus",
+        "Macdonaldcampvirus_1"
+      ],
+      "Geirrodvirinae": [
+        "Buchananvirus"
+      ],
+      "Krotoavirinae": [
+        "Roufvirus"
+      ]
+    },
+    "Drexlerviridae": {
+      "Tempevirinae_1": [
+        "Webervirus_1",
+        "Warwickvirus",
+        "Changchunvirus",
+        "Sauletekiovirus",
+        "Webervirus_2",
+        "Kyungwonvirus",
+        "Badaguanvirus",
+        "Sertoctavirus",
+        "Tunavirus_1",
+        "Tlsvirus_1",
+        "Eclunavirus",
+        "Tunavirus_3",
+        "Baihuvirus",
+        "Webervirus_3",
+        "Nouzillyvirus",
+        "Hanrivervirus",
+        "Henuseptimavirus"
+      ],
+      "Rogunavirinae": [
+        "Christensenvirus",
+        "Rogunavirus_1",
+        "Rtpvirus",
+        "Eastlansingvirus",
+        "Rogunavirus_2",
+        "Guelphvirus"
+      ],
+      "Tempevirinae_2": [
+        "Tlsvirus_2"
+      ],
+      "Tunavirinae": [
+        "Tunavirus_2"
+      ]
+    }
+  },
+  "Crossbowvirales": {
+    "Crossbowviridae": {
+      "Adrasteavirinae": [
+        "Gamtrevirus"
+      ],
+      "Vanthvirinae": [
+        "Montyvirus",
+        "Demosthenesvirus",
+        "Getseptimavirus"
+      ]
+    }
+  },
+  "Cutlassvirales": {
+    "Cutlassviridae": {
+      "Rosalindvirinae": [
+        "Audreyjarvisvirus_3",
+        "Audreyjarvisvirus_1",
+        "Audreyjarvisvirus_2"
+      ],
+      "Joanripponvirinae": [
+        "Tsamsavirus",
+        "Haetaevirus",
+        "Kenyattavirus",
+        "Zhangjivirus",
+        "Sophritavirus"
+      ]
+    },
+    "Eigerviridae": {
+      "Eigervirinae": [
+        "Spbetavirus"
+      ]
+    },
+    "Andrewesviridae": {
+      "Andrewesvirinae": [
+        "Vipetofemvirus",
+        "Denvervirus"
+      ]
+    }
+  },
+  "Daovirales": {
+    "Daoviridae": {
+      "Alvaldivirinae": [
+        "Baileybluvirus"
+      ],
+      "Azeevirinae": [
+        "Yangvirus",
+        "Manhattanvirus_2",
+        "Liebevirus",
+        "Manhattanvirus_1"
+      ]
+    },
+    "Incendiarviridae": {
+      "Peggyvirinae": [
+        "Lomovskayavirus"
+      ],
+      "Pallenevirinae": [
+        "Dubuvirus"
+      ],
+      "Harpalykevirinae": [
+        "Abbeymikolonvirus"
+      ]
+    },
+    "Scorpionviridae": {
+      "Najsakopajkvirinae": [
+        "Sfunavirus"
+      ],
+      "Skollvirinae": [
+        "Sfunavirus"
+      ]
+    },
+    "Levantesviridae": {
+      "Levantesvirinae": [
+        "Attoomivirus"
+      ]
+    }
+  },
+  "Derringervirales": {
+    "Derringerviridae": {
+      "Laomedeiavirinae": [
+        "Lastavirus",
+        "Pavtokvirus",
+        "Parlovirus"
+      ],
+      "Xolotlanvirinae": [
+        "Ittyvirus"
+      ],
+      "Portiavirinae": [
+        "Gervaisevirus",
+        "Cimandefvirus"
+      ],
+      "Ledavirinae": [
+        "Lessievirus_2",
+        "Lessievirus_1"
+      ]
+    },
+    "Skulduggeryviridae": {
+      "Equianovirinae": [
+        "Skulduggeryvirus"
+      ]
+    }
+  },
+  "Dirkvirales": {
+    "Dirkviridae": {
+      "Amaltheavirinae": [
+        "Marthavirus_1",
+        "Marthavirus_2",
+        "Ayohtrevirus"
+      ],
+      "Naiadvirinae": [
+        "Klausavirus_2",
+        "Klausavirus_1"
+      ],
+      "Antaresvirinae": [
+        "Vibakivirus"
+      ]
+    }
+  },
+  "Durandalvirales": {
+    "Durandalviridae": {
+      "Iolausvirinae": [
+        "Aguilavirus"
+      ],
+      "Hendrixvirinae_1": [
+        "Kwaitsingvirus",
+        "Cuauhtlivirus",
+        "Byrnievirus",
+        "Wongtaivirus",
+        "Nochtlivirus",
+        "Yautsimvirus"
+      ],
+      "Hendrixvirinae_2": [
+        "Shamshuipovirus"
+      ]
+    },
+    "Arberviridae": {
+      "Arbervirinae": [
+        "Stanholtvirus"
+      ]
+    },
+    "Viriatoviridae": {
+      "Viriatovirinae": [
+        "Cronusvirus"
+      ]
+    },
+    "Koyopa'viridae": {
+      "Koyopa'virinae": [
+        "Detrevirus"
+      ]
+    },
+    "Cordeliaviridae": {
+      "Cordeliavirinae": [
+        "Xipdecavirus",
+        "Eisenstarkvirus"
+      ]
+    }
+  },
+  "Dynamitevirales": {
+    "Dynamiteviridae": {
+      "Pandoravirinae": [
+        "Lambdavirus_1",
+        "Glaedevirus",
+        "Alegriavirus",
+        "Lambdavirus_2"
+      ],
+      "Thalassavirinae": [
+        "Jouyvirus_2",
+        "Jouyvirus_1",
+        "Bievrevirus"
+      ],
+      "Pirxvirinae": [
+        "Ravinvirus"
+      ]
+    }
+  },
+  "Pilumvirales": {
+    "Excaliburviridae": {
+      "Mnemevirinae": [
+        "Coventryvirus"
+      ],
+      "Metisvirinae": [
+        "Rockefellervirus_4",
+        "Rockefellervirus_3",
+        "Rockefellervirus_1",
+        "Rockefellervirus_2"
+      ],
+      "Azeredovirinae_5": [
+        "Phietavirus_17"
+      ],
+      "Azeredovirinae_4": [
+        "Phietavirus_16"
+      ]
+    },
+    "Pilumviridae": {
+      "Charonvirinae": [
+        "Triavirus_1",
+        "Triavirus_3",
+        "Triavirus_2",
+        "Triavirus_4"
+      ],
+      "Azeredovirinae_1": [
+        "Phietavirus_13",
+        "Phietavirus_6",
+        "Phietavirus_7",
+        "Phietavirus_8",
+        "Phietavirus_10",
+        "Phietavirus_9",
+        "Phietavirus_1",
+        "Phietavirus_12",
+        "Phietavirus_3",
+        "Phietavirus_11",
+        "Phietavirus_5",
+        "Phietavirus_2",
+        "Phietavirus_4"
+      ],
+      "Azeredovirinae_2": [
+        "Dubowvirus_5",
+        "Dubowvirus_1",
+        "Dubowvirus_2",
+        "Dubowvirus_6",
+        "Dubowvirus_7",
+        "Dubowvirus_8",
+        "Dubowvirus_3",
+        "Dubowvirus_4",
+        "Phietavirus_15"
+      ],
+      "Azeredovirinae_3": [
+        "Phietavirus_14"
+      ]
+    },
+    "Stilettoviridae": {
+      "Pipiteavirinae": [
+        "Fibralongavirus",
+        "Zhangqianvirus"
+      ]
+    },
+    "Pachyviridae_1": {
+      "Thestiasvirinae": [
+        "Callevirus",
+        "Elemovirus"
+      ]
+    },
+    "Cannonballviridae": {
+      "Bronfenbrennervirinae_2": [
+        "Peeveelvirus_1",
+        "Peeveelvirus_2",
+        "Peeveelvirus_3",
+        "Peeveelvirus_4"
+      ],
+      "Bronfenbrennervirinae_1": [
+        "Biseptimavirus_2",
+        "Biseptimavirus_4",
+        "Biseptimavirus_5",
+        "Biseptimavirus_6",
+        "Biseptimavirus_1",
+        "Biseptimavirus_7",
+        "Biseptimavirus_3"
+      ]
+    }
+  },
+  "Falchionvirales": {
+    "Falchionviridae": {
+      "Actaeavirinae": [
+        "Emalynvirus",
+        "Ponsvirus"
+      ],
+      "Thiazzivirinae": [
+        "Mapvirus"
+      ]
+    },
+    "Hativiridae": {
+      "Hativirinae": [
+        "Zukovirus"
+      ]
+    }
+  },
+  "Falconetvirales": {
+    "Falconetviridae": {
+      "Hi'iakavirinae": [
+        "Paclarkvirus_1",
+        "Paclarkvirus_2"
+      ],
+      "Phailinsiamvirinae": [
+        "Stonewallvirus"
+      ]
+    },
+    "Gridrviridae": {
+      "Gridrvirinae": [
+        "Cecivirus"
+      ]
+    }
+  },
+  "Fauchardvirales": {
+    "Fauchardviridae": {
+      "Desdemonavirinae": [
+        "Persistencevirus",
+        "Seamegvirus",
+        "Richievirus",
+        "Fajavirus"
+      ],
+      "Velionvirinae": [
+        "Arvduovirus"
+      ],
+      "Nyxoravirinae": [
+        "Triplejayvirus"
+      ],
+      "Ferdinandvirinae": [
+        "Sargevirus",
+        "Kumottavirus"
+      ]
+    }
+  },
+  "Flintlockvirales": {
+    "Flintlockviridae": {
+      "Erraivirinae": [
+        "Sircambvirus"
+      ],
+      "Surturvirinae": [
+        "Sircambvirus"
+      ],
+      "Skrymirvirinae": [
+        "Sircambvirus"
+      ],
+      "Alnitakvirinae": [
+        "Sircambvirus"
+      ],
+      "Jameshumphriesvirinae": [
+        "Sircambvirus"
+      ]
+    }
+  },
+  "Gladiusvirales": {
+    "Gladiusviridae": {
+      "Hadarvirinae": [
+        "Lietduovirus"
+      ],
+      "Kantovirinae": [
+        "Bakolyvirus",
+        "Tsukubavirus",
+        "Naesvirus"
+      ]
+    }
+  },
+  "Glaivevirales": {
+    "Glaiveviridae": {
+      "Sinopevirinae": [
+        "Saphexavirus_1",
+        "Saphexavirus_2"
+      ],
+      "Valetudovirinae": [
+        "Homburgvirus"
+      ],
+      "Noifasuivirinae": [
+        "Carnodivirus"
+      ]
+    }
+  },
+  "Glockvirales": {
+    "Glockviridae": {
+      "Callirrhoevirinae": [
+        "Terapinvirus"
+      ],
+      "Cuanco\u00e1virinae": [
+        "Terapinvirus"
+      ],
+      "Madriuvirinae": [
+        "Lambovirus"
+      ],
+      "Dclasvirinae": [
+        "Onyinyevirus"
+      ]
+    }
+  },
+  "Grenadevirales": {
+    "Grenadeviridae": {
+      "Gunnlodvirinae": [
+        "Lubbockvirus"
+      ],
+      "Despinavirinae": [
+        "Yongloolinvirus_1",
+        "Colneyvirus_3",
+        "Colneyvirus_2",
+        "Colneyvirus_1",
+        "Yongloolinvirus_2"
+      ]
+    }
+  },
+  "Gungnirvirales": {
+    "Gungnirviridae": {
+      "Thebevirinae": [
+        "Obolenskvirus_5",
+        "Obolenskvirus_3",
+        "Obolenskvirus_4",
+        "Obolenskvirus_1",
+        "Obolenskvirus_2"
+      ],
+      "Styxvirinae": [
+        "Popoffvirus",
+        "Kunmingvirus"
+      ]
+    }
+  },
+  "Halberdvirales": {
+    "Halberdviridae": {
+      "Gerdvirinae": [
+        "Scappvirus"
+      ],
+      "Euphemevirinae": [
+        "Dhillonvirus"
+      ],
+      "Iztokvirinae": [
+        "Knuthellervirus"
+      ]
+    }
+  },
+  "Howitzervirales": {
+    "Howitzerviridae": {
+      "Perditavirinae": [
+        "Barnyardvirus"
+      ],
+      "Paaliaqvirinae": [
+        "Fowlmouthvirus",
+        "Papyrusvirus"
+      ],
+      "Banksiavirinae": [
+        "Barnyardvirus"
+      ],
+      "Astrol\u00e1bosvirinae": [
+        "Cukevirus"
+      ]
+    }
+  },
+  "Peduovirales": {
+    "Javelinviridae": {
+      "Nixvirinae": [
+        "Vhmlvirus_1",
+        "Vhmlvirus_2",
+        "Hapunavirus"
+      ],
+      "Jarnsaxavirinae": [
+        "Lagaffevirus"
+      ],
+      "Tylosvirinae": [
+        "Coatlandelriovirus"
+      ],
+      "Catalinetavirinae": [
+        "Lagaffevirus"
+      ]
+    },
+    "Peduoviridae": {
+      "Titanvirinae": [
+        "Peduovirus",
+        "Elveevirus",
+        "Eganvirus",
+        "Tigrvirus",
+        "Piscesmortuivirus",
+        "Citexvirus",
+        "Aptresvirus",
+        "Duodecimduovirus",
+        "Kisquattuordecimvirus",
+        "Aresaunavirus",
+        "Bracchivirus",
+        "Nampongvirus",
+        "Xuanwuvirus_2",
+        "Baylorvirus",
+        "Firavirus",
+        "Novemvirus",
+        "Xuanwuvirus_1",
+        "Gemsvirus"
+      ],
+      "Dionevirinae": [
+        "Evevirus",
+        "Quadragintavirus",
+        "Phitrevirus",
+        "Bielevirus",
+        "Catalunyavirus",
+        "Canoevirus",
+        "Hpunavirus",
+        "Longwoodvirus"
+      ]
+    },
+    "Ahraviridae": {
+      "Ahravirinae": [
+        "Eponavirus"
+      ]
+    },
+    "Buruviridae": {
+      "Buruvirinae": [
+        "Ficleduovirus"
+      ]
+    },
+    "Saonviridae": {
+      "Saonvirinae": [
+        "Schmittlotzvirus"
+      ]
+    },
+    "Makriggaviridae": {
+      "Iiscvirinae": [
+        "Jilinvirus",
+        "Foxunavirus",
+        "Hiroshimavirus",
+        "Harrisonburgvirus",
+        "Aryavirus",
+        "Micavirus"
+      ]
+    }
+  },
+  "Aliceevansvirales": {
+    "Karambitviridae": {
+      "Skathivirinae": [
+        "Fattrevirus"
+      ],
+      "Biancavirinae": [
+        "Ashduovirus",
+        "Behunavirus",
+        "Junavirus"
+      ]
+    },
+    "Scutumviridae": {
+      "Hydravirinae": [
+        "Pleetrevirus",
+        "Colunavirus"
+      ],
+      "Brahevirinae": [
+        "Coetzeevirus"
+      ]
+    },
+    "Aliceevansviridae": {
+      "Rheavirinae": [
+        "Brussowvirus_6",
+        "Brussowvirus_7",
+        "Brussowvirus_3",
+        "Brussowvirus_2",
+        "Brussowvirus_1",
+        "Brussowvirus_5",
+        "Brussowvirus_4"
+      ],
+      "Phoebevirinae": [
+        "Vansinderenvirus_3",
+        "Vansinderenvirus_1",
+        "Vansinderenvirus_2"
+      ],
+      "Cressidavirinae": [
+        "Piorkowskivirus_1",
+        "Piorkowskivirus_2"
+      ],
+      "Callistovirinae": [
+        "Moineauvirus_2",
+        "Moineauvirus_1",
+        "Moineauvirus_3"
+      ]
+    }
+  },
+  "Ballistavirales": {
+    "Ballistaviridae": {
+      "Oberonvirinae": [
+        "Vividuovirus",
+        "Kroosvirus_2",
+        "Kroosvirus_1"
+      ],
+      "Janusvirinae": [
+        "Zitchvirus",
+        "Dexdertvirus",
+        "Leonardvirus"
+      ],
+      "Sualocinvirinae": [
+        "Lilbeanievirus"
+      ],
+      "Arielvirinae": [
+        "Clownvirus",
+        "Wizardvirus_1",
+        "Wizardvirus_2"
+      ]
+    },
+    "Parazoniumviridae": {
+      "Onasilosvirinae": [
+        "Clawzvirus",
+        "Northamptonvirus"
+      ]
+    },
+    "Bazookaviridae": {
+      "Bclasvirinae_2": [
+        "Pegunavirus"
+      ],
+      "Bclasvirinae_1": [
+        "Birdsnestvirus",
+        "Coopervirus_1",
+        "Acadianvirus",
+        "Julieunavirus",
+        "Pipefishvirus",
+        "Lilmcdreamyvirus",
+        "Coopervirus_2",
+        "Sourvirus",
+        "Rosebushvirus",
+        "Quesadillavirus"
+      ]
+    }
+  },
+  "Pungovirales": {
+    "Kusanagiviridae": {
+      "Setebosvirinae": [
+        "Coralvirus",
+        "Galaxyvirus"
+      ],
+      "Zembrettavirinae": [
+        "Majavirus"
+      ]
+    },
+    "Matchlockviridae": {
+      "Kalykevirinae": [
+        "Gustavvirus"
+      ],
+      "Karivirinae": [
+        "Gustavvirus"
+      ]
+    },
+    "Pungoviridae": {
+      "Bendidavirinae": [
+        "Flagovirus",
+        "Armstrongvirus"
+      ]
+    },
+    "Tepoztliviridae": {
+      "Ruthgordonvirinae": [
+        "Dardanusvirus",
+        "Gesputvirus",
+        "Catfishvirus",
+        "Vendettavirus"
+      ]
+    }
+  },
+  "Labrysvirales": {
+    "Labrysviridae": {
+      "Thrymrvirinae": [
+        "Burrovirus_1",
+        "Burrovirus_2"
+      ],
+      "Eekayvirinae": [
+        "Tinytimothyvirus",
+        "Akonivirus_2",
+        "Akonivirus_1"
+      ]
+    }
+  },
+  "Laevateinnvirales": {
+    "Laevateinnviridae": {
+      "Nesovirinae": [
+        "Camtrevirus_2",
+        "Camtrevirus_1",
+        "Hubeivirus"
+      ],
+      "Suvirinae": [
+        "Spizizenvirus"
+      ]
+    }
+  },
+  "Machetevirales": {
+    "Macheteviridae": {
+      "Alefvirinae": [
+        "Anatolevirus"
+      ],
+      "Panvirinae": [
+        "Doucettevirus_1",
+        "Doucettevirus_2"
+      ],
+      "Enaiposhavirinae": [
+        "Pulverervirus"
+      ]
+    },
+    "Naronviridae": {
+      "Naronvirinae": [
+        "Minunavirus",
+        "Sleepyheadvirus",
+        "Bernalvirus"
+      ]
+    }
+  },
+  "Mangonelvirales": {
+    "Mangonelviridae": {
+      "Mabvirinae": [
+        "Waukeshavirus"
+      ],
+      "Kavianvirinae": [
+        "Lwoffvirus"
+      ]
+    }
+  },
+  "Masamunevirales": {
+    "Masamuneviridae": {
+      "Helenevirinae": [
+        "Lederbergvirus"
+      ],
+      "Islivirinae": [
+        "Lederbergvirus"
+      ]
+    }
+  },
+  "Mj\u00ef\u00bf\u00bdlnirvirales": {
+    "Mj\u00ef\u00bf\u00bdlnirviridae": {
+      "Praxidikevirinae": [
+        "Gimaduovirus"
+      ],
+      "Churavirinae": [
+        "Godonkavirus"
+      ]
+    }
+  },
+  "Bardichevirales": {
+    "Bardicheviridae": {
+      "Dulcineavirinae": [
+        "Pbunavirus"
+      ],
+      "Sycoraxvirinae": [
+        "Wifcevirus",
+        "Carpasinavirus",
+        "Myosmarvirus",
+        "Kylevirus"
+      ],
+      "Zubenelgenubivirinae": [
+        "Bcepfunavirus"
+      ]
+    }
+  },
+  "Muramasavirales": {
+    "Muramasaviridae": {
+      "Franciscovirinae": [
+        "Enhodamvirus",
+        "Mareflavirus"
+      ],
+      "Nachtwachtvirinae": [
+        "Wolominvirus"
+      ]
+    },
+    "Sigsauerviridae": {
+      "Hiisivirinae": [
+        "Perisivirus"
+      ]
+    },
+    "Dostoevskyviridae": {
+      "Kerer\u016bvirinae": [
+        "Xuquatrovirus"
+      ]
+    }
+  },
+  "Wakizashivirales": {
+    "Wakizashiviridae": {
+      "Euanthevirinae": [
+        "Feofaniavirus"
+      ],
+      "Negoiuvirinae": [
+        "Feofaniavirus"
+      ],
+      "Aumatexvirinae": [
+        "Feofaniavirus"
+      ]
+    }
+  },
+  "Nerfvirales": {
+    "Nerfviridae": {
+      "Erriapusvirinae": [
+        "Chidieberevirus",
+        "Bendigovirus"
+      ],
+      "Rasalhaguevirinae": [
+        "Cantarevirus"
+      ]
+    }
+  },
+  "Oblivionvirales": {
+    "Oblivionviridae": {
+      "Bestlavirinae": [
+        "Nonanavirus",
+        "Carvajevirus"
+      ],
+      "Viculusvirinae": [
+        "Gorganvirus"
+      ]
+    }
+  },
+  "Onagervirales": {
+    "Onagerviridae": {
+      "Nakanb\u00e9virinae": [
+        "Dibbivirus",
+        "Tieomvirus"
+      ]
+    }
+  },
+  "Pepperboxvirales": {
+    "Pepperboxviridae": {
+      "Jebusvirinae": [
+        "Kelquatrovirus"
+      ],
+      "Mundilfarivirinae": [
+        "Uetakevirus_2",
+        "Uetakevirus_1"
+      ]
+    }
+  },
+  "Pugiovirales": {
+    "Pugioviridae": {
+      "Rego\u010dvirinae": [
+        "Deurplevirus"
+      ],
+      "Gutmannvirinae": [
+        "Pebcunavirus",
+        "Carmenvirus"
+      ]
+    }
+  },
+  "Arbalestvirales": {
+    "Bayonetteviridae": {
+      "Aegirvirinae": [
+        "Chenonavirus"
+      ],
+      "Chebruvirinae": [
+        "Brujitavirus_1",
+        "Brujitavirus_2"
+      ],
+      "Nclasvirinae": [
+        "Charlievirus_1",
+        "Charlievirus_2",
+        "Charlievirus_4",
+        "Charlievirus_3"
+      ],
+      "Pclasvirinae": [
+        "Tortellinivirus",
+        "Purkyvirus",
+        "Phayoncevirus",
+        "Fishburnevirus",
+        "Bignuzvirus"
+      ]
+    },
+    "Arbalestviridae": {
+      "Gracegardnervirinae_1": [
+        "Cheoctovirus_3",
+        "Cheoctovirus_1",
+        "Cheoctovirus_2",
+        "Cheoctovirus_11",
+        "Cheoctovirus_8",
+        "Cheoctovirus_6",
+        "Cheoctovirus_12",
+        "Cheoctovirus_10",
+        "Cheoctovirus_7",
+        "Cheoctovirus_17",
+        "Cheoctovirus_4",
+        "Cheoctovirus_5",
+        "Cheoctovirus_16",
+        "Cheoctovirus_14",
+        "Cheoctovirus_18",
+        "Cheoctovirus_15",
+        "Cheoctovirus_9",
+        "Cheoctovirus_13"
+      ],
+      "Gracegardnervirinae_2": [
+        "Avanivirus_1",
+        "Thetabobvirus",
+        "Avanivirus_3",
+        "Avanivirus_4",
+        "Avanivirus_2"
+      ],
+      "Gracegardnervirinae_3": [
+        "Squirtyvirus"
+      ],
+      "Gracegardnervirinae_4": [
+        "Moomoovirus"
+      ]
+    }
+  },
+  "Poniardvirales": {
+    "Poniardviridae": {
+      "Orbitarvirinae": [
+        "Kryptosalinivirus",
+        "Kairosalinivirus"
+      ]
+    }
+  },
+  "Ripwingvirales": {
+    "Ripwingviridae": {
+      "Naqa\u1ef9avirinae": [
+        "Gillianvirus",
+        "Squashvirus"
+      ]
+    }
+  },
+  "Trojanvirales": {
+    "Trojanviridae": {
+      "Naqa\u1ef9avirinae": [
+        "Silentrexvirus"
+      ]
+    }
+  },
+  "Scythevirales": {
+    "Scytheviridae": {
+      "Draugrvirinae": [
+        "Iaduovirus"
+      ]
+    }
+  },
+  "Tabarvirales": {
+    "Tabarviridae": {
+      "Draugrvirinae": [
+        "Svunavirus",
+        "Seongbukvirus"
+      ]
+    }
+  },
+  "Shrapnelvirales": {
+    "Shrapnelviridae": {
+      "Tassilivirinae": [
+        "Amigovirus",
+        "Farahnazvirus"
+      ]
+    }
+  },
+  "Nagantvirales": {
+    "Nagantviridae": {
+      "Tassilivirinae": [
+        "Cimpunavirus"
+      ]
+    }
+  },
+  "Tomahawkvirales": {
+    "Tomahawkviridae": {
+      "Isonoevirinae": [
+        "Mohonavirus"
+      ],
+      "Gomeisavirinae": [
+        "Mohonavirus"
+      ]
+    }
+  },
+  "Stanwilliamsvirales": {
+    "Trebuchetviridae": {
+      "Dagonvirinae": [
+        "Trinavirus"
+      ]
+    },
+    "Stanwilliamsviridae": {
+      "Loccivirinae": [
+        "Wakandavirus",
+        "Gilsonvirus",
+        "Faustvirus"
+      ],
+      "Boydwoodruffvirinae": [
+        "Coruscantvirus",
+        "Samistivirus",
+        "Karimacvirus"
+      ]
+    }
+  },
+  "Estocvirales": {
+    "Estocviridae": {
+      "Tadmorvirinae": [
+        "Jarrellvirus"
+      ]
+    }
+  },
+  "Tepoztopillivirales": {
+    "Tepoztopilliviridae": {
+      "Babyloniavirinae": [
+        "Kamchatkavirus"
+      ]
+    }
+  },
+  "Macuahuitlvirales": {
+    "Macuahuitlviridae": {
+      "Lipperheyvirinae": [
+        "Rauchvirus"
+      ]
+    }
+  },
+  "Blunderbussvirales": {
+    "Blunderbussviridae": {
+      "Polydeucesvirinae": [
+        "Mudcatvirus",
+        "Quivirus"
+      ],
+      "Opheliavirinae": [
+        "Rimavirus",
+        "Gordonvirus",
+        "Bingvirus"
+      ],
+      "Elaravirinae": [
+        "Fremauxvirus",
+        "Nevevirus",
+        "Oengusvirus"
+      ],
+      "Deejayvirinae": [
+        "Pepyhexavirus",
+        "Kenoshavirus",
+        "Tanisvirus"
+      ]
+    }
+  },
+  "Thunderstickvirales": {
+    "Thunderstickviridae": {
+      "Arbervirinae": [
+        "Yanchengvirus"
+      ]
+    }
+  },
+  "Mambelevirales": {
+    "Mambeleviridae": {
+      "Ganymedevirinae": [
+        "Skunavirus_2",
+        "Skunavirus_1",
+        "Skunavirus_3",
+        "Skunavirus_4",
+        "Skunavirus_5",
+        "Uwajimavirus"
+      ]
+    }
+  },
+  "Bowievirales": {
+    "Kpingaviridae": {
+      "Finlayvirinae": [
+        "Saclayvirus"
+      ],
+      "Ounavirinae": [
+        "Felixounavirus",
+        "Kolesnikvirus"
+      ]
+    },
+    "Bowieviridae": {
+      "Vequintavirinae_3": [
+        "Certrevirus_1",
+        "Certrevirus_2",
+        "Certrevirus_3"
+      ],
+      "Vequintavirinae_1": [
+        "Seunavirus",
+        "Mydovirus",
+        "Henunavirus"
+      ],
+      "Vequintavirinae_4": [
+        "Avunavirus"
+      ],
+      "Vequintavirinae_2": [
+        "Vequintavirus_1",
+        "Vequintavirus_2"
+      ]
+    }
+  },
+  "Sengesevirales": {
+    "Sengeseviridae": {
+      "Carmevirinae": [
+        "Murrayvirus",
+        "Skarprettervirus",
+        "Hungariovirus"
+      ],
+      "H\u00e4marikvirinae": [
+        "Sendosyvirus"
+      ]
+    }
+  },
+  "Magrovirales": {
+    "Aoguangviridae": {
+      "Sanchovirinae": [
+        "Senitvirus"
+      ]
+    },
+    "Sanchoviridae": {
+      "Sanchovirinae": [
+        "Holosalinivirus"
+      ]
+    }
+  },
+  "Kirjokansivirales_1": {
+    "Haloferuviridae": {
+      "Sanchovirinae": [
+        "Dpdavirus"
+      ]
+    }
+  },
+  "Juravirales_1": {
+    "Shortaselviridae": {
+      "Sanchovirinae": [
+        "Lonfivirus"
+      ]
+    }
+  },
+  "Adrikavirales": {
+    "Suolaviridae": {
+      "Sanchovirinae": [
+        "Dpdavirus"
+      ]
+    }
+  },
+  "Autographivirales": {
+    "Autographiviridae": {
+      "Psamathevirinae": [
+        "Krakvirus",
+        "Nohivirus",
+        "Oinezvirus"
+      ],
+      "Sechaudvirinae_4": [
+        "Kembevirus"
+      ],
+      "Sechaudvirinae_2": [
+        "Aegirvirus"
+      ],
+      "Sechaudvirinae_1": [
+        "Kajamvirus",
+        "Tangaroavirus",
+        "Cheungvirus",
+        "Tritonvirus",
+        "Ashivirus",
+        "Pedosvirus",
+        "Lirvirus",
+        "Poseidonvirus",
+        "Igirivirus",
+        "Lingvirus"
+      ],
+      "Sechaudvirinae_3": [
+        "Tiilvirus"
+      ]
+    },
+    "Autoscriptoviridae": {
+      "Neraxisvirinae": [
+        "Ampunavirus",
+        "Aqualcavirus",
+        "Risjevirus",
+        "Higashivirus",
+        "Pradovirus",
+        "Sukuvirus",
+        "Mguuvirus"
+      ],
+      "Selurianvirinae": [
+        "Jiaoyazivirus"
+      ],
+      "Slopekvirinae": [
+        "Maculvirus",
+        "Drulisvirus_1",
+        "Phimunavirus",
+        "Drulisvirus_2",
+        "Koutsourovirus",
+        "Kantovirus",
+        "Novosibovirus",
+        "Kotilavirus",
+        "Stompvirus"
+      ],
+      "Beijerinckvirinae_1": [
+        "Friunavirus_1",
+        "Friunavirus_2"
+      ],
+      "Stentvirinae": [
+        "Bonnellvirus"
+      ],
+      "Melnykvirinae": [
+        "Kakivirus",
+        "Cyclitvirus",
+        "Aerosvirus_1",
+        "Pokrovskaiavirus",
+        "Cronosvirus",
+        "Youngvirus",
+        "Aerosvirus_2",
+        "Ermolevavirus",
+        "Percyvirus",
+        "Bifseptvirus",
+        "Lullwatervirus"
+      ],
+      "Dunnvirinae": [
+        "Cuernavacavirus",
+        "Scottvirus"
+      ],
+      "Krylovirinae": [
+        "Phikmvvirus",
+        "Kirikabuvirus"
+      ],
+      "Beijerinckvirinae_2": [
+        "Atuphduovirus",
+        "Daemvirus",
+        "Kafavirus"
+      ]
+    },
+    "Autotranscriptaviridae": {
+      "Threxiavirinae": [
+        "Chosvirus",
+        "Foussvirus",
+        "Pelagivirus",
+        "Gyeongsanvirus",
+        "Ayaqvirus"
+      ],
+      "Vornethvirinae": [
+        "Pairvirus"
+      ],
+      "Hairuvirinae": [
+        "Lauvirus"
+      ],
+      "Ecliphravirinae": [
+        "Foturvirus"
+      ],
+      "Studiervirinae_1": [
+        "Teseptimavirus_1",
+        "Teseptimavirus_2",
+        "Kayfunavirus_1",
+        "Przondovirus_1",
+        "Ghunavirus_1",
+        "Ghunavirus_2",
+        "Chatterjeevirus",
+        "Phutvirus",
+        "Kelmasvirus",
+        "Wuhanvirus",
+        "Aarhusvirus",
+        "Kayfunavirus_4",
+        "Kayfunavirus_3",
+        "Kayfunavirus_2",
+        "Helsettvirus",
+        "Ningirsuvirus",
+        "Caroctavirus",
+        "Berlinvirus",
+        "Teetrevirus_1",
+        "Eapunavirus",
+        "Teetrevirus_2",
+        "Elunavirus",
+        "Pektosvirus"
+      ],
+      "Studiervirinae_2": [
+        "Tawavirus",
+        "Przondovirus_2"
+      ]
+    },
+    "Grimontviridae": {
+      "Yanyanvirinae": [
+        "Lahexavirus"
+      ],
+      "Puckvirinae": [
+        "Moazamivirus",
+        "Crifsvirus",
+        "Privateervirus"
+      ],
+      "Gordonclarkvirinae": [
+        "Kuravirus",
+        "Suseptimavirus"
+      ]
+    },
+    "Zobellviridae_1": {
+      "Phobosvirinae": [
+        "Melvirus",
+        "Citrovirus"
+      ],
+      "Hyperionvirinae": [
+        "Bruynoghevirus",
+        "Vicosavirus",
+        "Krylovvirus"
+      ],
+      "Baganvirinae": [
+        "Paundecimvirus"
+      ]
+    },
+    "Zobellviridae_2": {
+      "Abolvirinae": [
+        "Icepovirus"
+      ]
+    },
+    "Smithwessonviridae": {
+      "Laliguransvirinae": [
+        "Dalianvirus"
+      ]
+    },
+    "Autosignataviridae": {
+      "Molineuxvirinae": [
+        "Axomammavirus",
+        "Acadevirus",
+        "Eracentumvirus",
+        "Murciavirus",
+        "Nerthusvirus",
+        "Trungvirus",
+        "Kaohsiungvirus",
+        "Vectrevirus_1",
+        "Vectrevirus_2",
+        "Gajwadongvirus"
+      ]
+    },
+    "Zobellviridae_3": {
+      "Cobavirinae": [
+        "Siovirus_2",
+        "Veravirus",
+        "Siovirus_1"
+      ]
+    }
+  },
+  "Casjensvirales": {
+    "Casjensviridae": {
+      "Tritonvirinae": [
+        "Lavrentievavirus",
+        "Yonseivirus",
+        "Gwanakrovirus",
+        "Cenphatecvirus",
+        "Ahduovirus",
+        "Chivirus_1",
+        "Redjacvirus",
+        "Enchivirus",
+        "Chivirus_2",
+        "Dunedinvirus"
+      ],
+      "Namakavirinae": [
+        "Sharonstreetvirus",
+        "Nazgulvirus",
+        "Newforgelanevirus",
+        "Salvovirus"
+      ],
+      "Calypsovirinae": [
+        "Broinstvirus"
+      ],
+      "Daphnisvirinae": [
+        "Phobosvirus",
+        "Seodaemunguvirus"
+      ]
+    },
+    "Isagelviridae": {
+      "Isagelvirinae": [
+        "Sessunavirus"
+      ]
+    }
+  },
+  "Chimallivirales": {
+    "Chimalliviridae_1": {
+      "Themistovirinae": [
+        "Moabitevirus",
+        "Siatvirus"
+      ],
+      "Cruinlaghvirinae": [
+        "Eowynvirus"
+      ],
+      "Dimidiumvirinae": [
+        "Ludhianavirus"
+      ],
+      "Calibanvirinae": [
+        "Chaoshanvirus",
+        "Ferozepurvirus",
+        "Nimduovirus",
+        "Petsuvirus"
+      ],
+      "Taphaovirinae": [
+        "Phikzvirus"
+      ],
+      "Lysitheavirinae": [
+        "Tepukevirus"
+      ],
+      "Saovirinae": [
+        "Erskinevirus"
+      ],
+      "Barajeelvirinae": [
+        "Miamivirus"
+      ],
+      "Tryzubvirinae": [
+        "Goslarvirus"
+      ],
+      "Cupidvirinae": [
+        "Iapetusvirus",
+        "Chiangmaivirus",
+        "Ripduovirus"
+      ],
+      "Gorgonvirinae": [
+        "Aphroditevirus_1",
+        "Aphroditevirus_2",
+        "Tidunavirus",
+        "Elvirus"
+      ]
+    }
+  },
+  "Chimallivirales_2": {
+    "Chimalliviridae_2": {
+      "Orthosievirinae": [
+        "Agricanvirus"
+      ]
+    }
+  },
+  "Druskavirales": {
+    "Druskaviridae": {
+      "Helikevirinae": [
+        "Hacavirus"
+      ],
+      "Bambaruush[11]virinae": [
+        "Hacavirus"
+      ],
+      "Madalitsovirinae": [
+        "Hacavirus"
+      ],
+      "Drukyulvirinae": [
+        "Becedseptimavirus",
+        "Fukuivirus"
+      ]
+    }
+  },
+  "Dunevirales": {
+    "Duneviridae": {
+      "Samhvirinae": [
+        "Unahavirus",
+        "Labanvirus",
+        "Ingelinevirus"
+      ]
+    }
+  },
+  "Nakonvirales": {
+    "Ekchuahviridae": {
+      "Tondravirinae": [
+        "Kukulkanvirus",
+        "Kisinvirus"
+      ]
+    },
+    "Tondraviridae": {
+      "Tondravirinae": [
+        "Jenstvirus"
+      ]
+    }
+  },
+  "Saffermanvirales": {
+    "Fredfastierviridae": {
+      "B\u00e9lisamavirinae": [
+        "Jamesmcgillvirus"
+      ],
+      "Fornjotvirinae": [
+        "Jasminevirus"
+      ]
+    },
+    "Saffermanviridae": {
+      "Sissivirinae": [
+        "Kozyakovvirus",
+        "Wumptrevirus"
+      ]
+    },
+    "Sissiviridae": {
+      "Sissivirinae": [
+        "Wumpquatrovirus"
+      ]
+    }
+  },
+  "Kirjokansivirales_2": {
+    "Graaviviridae": {
+      "Mastikavirinae": [
+        "Beejeyvirus"
+      ]
+    },
+    "Mastikaviridae": {
+      "Mastikavirinae": [
+        "Inhavirus"
+      ]
+    }
+  },
+  "Guelinvirales": {
+    "Guelinviridae": {
+      "Stephanovirinae": [
+        "Brucesealvirus",
+        "Hzauvirus"
+      ],
+      "Trimobevirinae": [
+        "Susfortunavirus"
+      ],
+      "Denniswatsonvirinae_2": [
+        "Gregsiragusavirus"
+      ]
+    }
+  },
+  "Thumleimavirales": {
+    "Hafunaviridae_2": {
+      "Diavirinae": [
+        "Laminvirus"
+      ],
+      "Tahayvirinae": [
+        "Laminvirus"
+      ]
+    },
+    "Hafunaviridae_1": {
+      "Euporievirinae": [
+        "Haloferacalesvirus"
+      ]
+    },
+    "Awohaliviridae": {
+      "Awohalivirinae": [
+        "Eilatmyovirus"
+      ]
+    }
+  },
+  "Herellevirales": {
+    "Herelleviridae_1": {
+      "Ibirapit\u00e1virinae": [
+        "Klumppvirus"
+      ],
+      "Jasinskavirinae": [
+        "Pecentumvirus"
+      ],
+      "Bastillevirinae_1": [
+        "Eldridgevirus",
+        "Jeonjuvirus",
+        "Agatevirus_2",
+        "Agatevirus_1",
+        "Siophivirus",
+        "Nitunavirus",
+        "Grisebachstrassevirus"
+      ],
+      "Twortvirinae": [
+        "Silviavirus",
+        "Sciuriunavirus",
+        "Baoshanvirus",
+        "Sepunavirus",
+        "Twortvirus",
+        "Kayvirus"
+      ],
+      "Bastillevirinae_3": [
+        "Tsarbombavirus",
+        "Caeruleovirus"
+      ],
+      "Bastillevirinae_4": [
+        "Wphvirus_1",
+        "Wphvirus_2"
+      ],
+      "Bastillevirinae_2": [
+        "Bequatrovirus_1",
+        "Bequatrovirus_2",
+        "Bastillevirus"
+      ]
+    },
+    "Herelleviridae_2": {
+      "Galileovirinae": [
+        "Tybeckvirus",
+        "Mooreparkvirus"
+      ],
+      "Hermippevirinae": [
+        "Salchichonvirus"
+      ],
+      "Mulchatnavirinae": [
+        "Hopescreekvirus"
+      ],
+      "Halimedevirinae": [
+        "Harbinvirus_2",
+        "Harbinvirus_1",
+        "Elpedvirus"
+      ]
+    },
+    "Herelleviridae_3": {
+      "Brockvirinae_1": [
+        "Schiekvirus",
+        "Kochikohdavirus_1"
+      ],
+      "Brockvirinae_2": [
+        "Kochikohdavirus_2"
+      ]
+    },
+    "Herelleviridae_4": {
+      "Spounavirinae": [
+        "Okubovirus",
+        "Siminovitchvirus"
+      ]
+    }
+  },
+  "Mesyanzhinovvirales_1": {
+    "Mesyanzhinovviridae_1": {
+      "Doperevirinae": [
+        "Keylargovirus"
+      ],
+      "Rabinowitzvirinae": [
+        "Yuavirus",
+        "Abidjanvirus"
+      ]
+    }
+  },
+  "Mesyanzhinovvirales_2": {
+    "Mesyanzhinovviridae_2": {
+      "Dactylvirinae": [
+        "Xiamenvirus",
+        "Steinhofvirus",
+        "Axeltriavirus"
+      ],
+      "Vlasinavirinae": [
+        "Alachuavirus"
+      ],
+      "Bradleyvirinae_1": [
+        "Bosavirus",
+        "Xooduovirus"
+      ]
+    }
+  },
+  "Orlajensenvirales": {
+    "Orlajensenviridae": {
+      "Farbautivirinae": [
+        "Adaiavirus"
+      ],
+      "Julietvirinae": [
+        "Grutrevirus",
+        "Decurrovirus",
+        "Emperorvirus"
+      ],
+      "Pelczarvirinae": [
+        "Efekovirus",
+        "Paopuvirus",
+        "Bonaevitaevirus"
+      ]
+    }
+  },
+  "Pachyvirales_1": {
+    "Pachyviridae_1": {
+      "Margaretvirinae": [
+        "Baltivirus_1",
+        "Baltivirus_2"
+      ]
+    }
+  },
+  "Pachyvirales_2": {
+    "Pachyviridae_2": {
+      "Albmivirinae": [
+        "Hollowayvirus"
+      ],
+      "Megaclitevirinae": [
+        "Hollowayvirus"
+      ]
+    }
+  },
+  "Rountreevirales": {
+    "Rountreeviridae_1": {
+      "Eyekevirinae": [
+        "Cepunavirus"
+      ],
+      "Tatarstanvirinae": [
+        "Bundooravirus_2",
+        "Bundooravirus_1",
+        "Gaunavirus",
+        "Karezivirus"
+      ],
+      "Denniswatsonvirinae_1": [
+        "Cepunavirus"
+      ],
+      "Rakietenvirinae_1": [
+        "Rosenblumvirus_1",
+        "Rosenblumvirus_2"
+      ],
+      "Picovirinae": [
+        "Salasvirus",
+        "Mingyongvirus",
+        "Harambevirus",
+        "Beecentumtrevirus"
+      ],
+      "Rakietenvirinae_2": [
+        "Andhravirus",
+        "Anjalivirus",
+        "Badaztecvirus",
+        "Astrithrvirus"
+      ]
+    }
+  },
+  "Schitovirales": {
+    "Schitoviridae_1": {
+      "Bebhionnvirinae": [
+        "Dendoorenvirus",
+        "Xoxocotlavirus"
+      ],
+      "Prometheusvirinae": [
+        "Efbeekayvirus",
+        "Cbunavirus_1",
+        "Cbunavirus_2"
+      ],
+      "Eggthervirinae": [
+        "Exceevirus"
+      ],
+      "X\u00f3lotlvirinae": [
+        "Electravirus"
+      ],
+      "Hippocampvirinae": [
+        "Varunavirus",
+        "Pacinivirus",
+        "Penintadodekavirus"
+      ],
+      "Cayahuancavirinae": [
+        "Pariacacavirus"
+      ],
+      "Cuptorvirinae": [
+        "Waedenswilvirus"
+      ],
+      "Pontosvirinae": [
+        "Matsuvirus",
+        "Galateavirus"
+      ],
+      "Rothmandenesvirinae": [
+        "Pokkenvirus",
+        "Dongdastvirus",
+        "Inbricusvirus",
+        "Johnsonvirus",
+        "Yonginvirus",
+        "Petruschkyvirus",
+        "Philippevirus",
+        "Oliverunavirus",
+        "Cavevirus",
+        "Zurivirus",
+        "Zicotriavirus",
+        "Enquatrovirus",
+        "Jwalphavirus"
+      ],
+      "Migulavirinae": [
+        "Luzseptimavirus",
+        "Litunavirus",
+        "Littlefixvirus",
+        "Shizishanvirus"
+      ],
+      "Demetervirinae": [
+        "Acanvirus"
+      ],
+      "Humphriesvirinae": [
+        "Ithacavirus",
+        "Eceepunavirus",
+        "Pollockvirus"
+      ]
+    },
+    "Schitoviridae_4": {
+      "Dimorphosvirinae": [
+        "Mukerjeevirus"
+      ]
+    },
+    "Schitoviridae_2": {
+      "Rhodovirinae": [
+        "Aorunvirus",
+        "Raunefjordenvirus",
+        "Plymouthvirus",
+        "Sanyabayvirus",
+        "Baltimorevirus",
+        "Gonggongvirus"
+      ]
+    },
+    "Schitoviridae_3": {
+      "Enquatrovirinae": [
+        "Gamaleyavirus_1",
+        "Gamaleyavirus_2",
+        "Gamaleyavirus_3",
+        "Gamaleyavirus_4"
+      ]
+    }
+  },
+  "Vertovirales": {
+    "Vertoviridae": {
+      "Thyonevirinae": [
+        "Myohalovirus"
+      ],
+      "Caphvirinae": [
+        "Myohalovirus"
+      ]
+    }
+  },
+  "Winovirales": {
+    "Winoviridae": {
+      "Selamvirinae": [
+        "Pippivirus",
+        "Helsingorvirus"
+      ]
+    }
+  },
+  "Juravirales_2": {
+    "Boinayelviridae": {
+      "Boinayelvirinae": [
+        "Epaquintavirus"
+      ]
+    }
+  },
+  "Methanobavirales_1": {
+    "Phobetorviridae": {
+      "Phobetorvirinae": [
+        "Metforvirus"
+      ]
+    }
+  },
+  "Methanobavirales_2": {
+    "Surtviridae": {
+      "Surtvirinae": [
+        "Deepoceanvirus"
+      ]
+    }
+  },
+  "Bo-Shurikenvirales": {
+    "Teberdaviridae": {
+      "Teberdavirinae": [
+        "Nanhaivirus"
+      ]
+    },
+    "Kr\u00e1\u013eomocviridae": {
+      "Kr\u00e1\u013eomocvirinae": [
+        "Rigallicvirus"
+      ]
+    },
+    "Bo-Shurikenviridae": {
+      "Queuovirinae_2": [
+        "Seuratvirus",
+        "Nonagvirus"
+      ],
+      "Jondennisvirinae": [
+        "Septimatrevirus",
+        "Titanvirus",
+        "Lokivirus"
+      ],
+      "Queuovirinae_1": [
+        "Iggyvirus",
+        "Amoyvirus",
+        "Craquatrovirus",
+        "Nipunavirus"
+      ],
+      "Beaumontvirinae": [
+        "Bixiavirus",
+        "Salvavirus"
+      ]
+    }
+  },
+  "Khopeshvirales": {
+    "Hallaviridae": {
+      "Hallavirinae": [
+        "Lacusarxvirus"
+      ]
+    },
+    "Khopeshviridae": {
+      "Dolichocephalovirinae_1": [
+        "Shapirovirus",
+        "Poindextervirus"
+      ],
+      "Dolichocephalovirinae_2": [
+        "Bertelyvirus",
+        "Colossusvirus"
+      ]
+    }
+  },
+  "Rowlingvirales": {
+    "Rowlingviridae": {
+      "Polleravirinae": [
+        "Purivirus"
+      ],
+      "Perwanavirinae": [
+        "Myxoctovirus"
+      ]
+    }
+  },
+  "Naomvirales": {
+    "Ganjaviridae": {
+      "Ganjavirinae": [
+        "Noahvirus"
+      ]
+    }
+  },
+  "Asyevirales": {
+    "Asyeviridae": {
+      "Asyevirinae": [
+        "Saintgironsvirus",
+        "Nylescharonvirus"
+      ]
+    }
+  },
+  "Wadirumvirales": {
+    "Wadirumviridae": {
+      "Wadirumvirinae": [
+        "Chopinvirus"
+      ]
+    }
+  },
+  "Letevirales": {
+    "Leteviridae": {
+      "Letevirinae": [
+        "Capnelvirus"
+      ]
+    }
+  },
+  "Belivvirales": {
+    "Beliviridae": {
+      "Belivirinae": [
+        "Epaquintavirus"
+      ]
+    },
+    "Bradleyviridae_2": {
+      "Bradleyvirinae_2": [
+        "Epaquintavirus"
+      ]
+    }
+  },
+  "Aoedevirales": {
+    "Aoedeviridae": {
+      "Aoedevirinae": [
+        "Sozzivirus_1",
+        "Sozzivirus_2"
+      ]
+    }
+  },
+  "Tarvosvirales": {
+    "Tarvosviridae": {
+      "Tarvosvirinae": [
+        "Punavirus_2",
+        "Punavirus_1"
+      ]
+    }
+  },
+  "Lightbulbvirales": {
+    "Lightbulbviridae": {
+      "Nerivirinae": [
+        "Lightbulbvirus"
+      ]
+    }
+  },
+  "Methonevirales": {
+    "Methoneviridae": {
+      "Methonevirinae": [
+        "Vieuvirus"
+      ]
+    }
+  },
+  "Saparovirales_2": {
+    "Fenrirviridae": {
+      "Fenrirvirinae": [
+        "Halohivirus"
+      ]
+    }
+  },
+  "Khandavirales": {
+    "Khandaviridae": {
+      "Trabyvirinae": [
+        "Jelitavirus",
+        "Psavirus",
+        "Slepowronvirus"
+      ]
+    }
+  },
+  "Kilijvirales": {
+    "Kilijviridae": {
+      "Stephanstirmvirinae": [
+        "Justusliebigvirus",
+        "Phapecoctavirus"
+      ]
+    }
+  },
+  "Kamavirales": {
+    "Kamaviridae": {
+      "Sejongvirinae": [
+        "Andromedavirus"
+      ]
+    }
+  },
+  "Hwandovirales": {
+    "Hwandoviridae": {
+      "Guarnerosvirinae": [
+        "Phabquatrovirus"
+      ]
+    }
+  },
+  "Kakutevirales": {
+    "Kakuteviridae": {
+      "Gochnauervirinae_3": [
+        "Wanderervirus"
+      ]
+    }
+  },
+  "Culverinvirales": {
+    "Culverinviridae": {
+      "Guernseyvirinae_1": [
+        "Jerseyvirus_1",
+        "Kagunavirus_2",
+        "Cornellvirus",
+        "Kagunavirus_1",
+        "Jerseyvirus_2"
+      ],
+      "Guernseyvirinae_2": [
+        "Jerseyvirus_3"
+      ]
+    }
+  },
+  "Atlatlvirales": {
+    "Atlatlviridae": {
+      "Weiservirinae_1": [
+        "Unicornvirus_2",
+        "Timquatrovirus",
+        "Anayavirus_1",
+        "Anayavirus_3",
+        "Unicornvirus_1",
+        "Anayavirus_2",
+        "Keshuvirus",
+        "Aminayvirus",
+        "Fionnbharthvirus_1",
+        "Fionnbharthvirus_2"
+      ],
+      "Weiservirinae_2": [
+        "Kratiovirus"
+      ]
+    }
+  },
+  "Jambiyavirales": {
+    "Jambiyaviridae": {
+      "Sejongvirinae": [
+        "Yihwangvirus",
+        "Slashvirus"
+      ]
+    }
+  },
+  "Kalisvirales": {
+    "Kalisviridae": {
+      "Tybeckvirinae_1": [
+        "Maenadvirus_1",
+        "Lenusvirus_2",
+        "Lenusvirus_1",
+        "Maenadvirus_2",
+        "Douglaswolinvirus"
+      ],
+      "Tybeckvirinae_2": [
+        "Lidleunavirus"
+      ]
+    }
+  },
+  "Kamikazevirales": {
+    "Kamikazeviridae": {
+      "Guarnerosvirinae": [
+        "Mechnikovvirus",
+        "Muvirus",
+        "Mushuvirus",
+        "Bcepmuvirus"
+      ]
+    },
+    "Guarnerosviridae": {
+      "Guarnerosvirinae": [
+        "Abaiavirus",
+        "Peternellavirus"
+      ]
+    }
+  },
+  "Lassovirales": {
+    "Lassoviridae": {
+      "Kutznervirinae_1": [
+        "Metamorphoovirus",
+        "Quhwahvirus"
+      ],
+      "Kutznervirinae_2": [
+        "Mementomorivirus"
+      ]
+    }
+  },
+  "Voulgevirales": {
+    "Voulgeviridae": {
+      "Skryabinvirinae": [
+        "Cecivirus"
+      ]
+    }
+  },
+  "Iklwavirales": {
+    "Iklwaviridae": {
+      "Gclasvirinae": [
+        "Liefievirus",
+        "Avocadovirus",
+        "Pinnievirus",
+        "Jolieduovirus"
+      ]
+    }
+  },
+  "Chasevirales": {
+    "Chaseviridae": {
+      "Cleopatravirinae": [
+        "Carltongylesvirus",
+        "Faunusvirus",
+        "Loessnervirus",
+        "Myducvirus"
+      ],
+      "Nefertitivirinae": [
+        "Yushanvirus",
+        "Pahsextavirus"
+      ]
+    }
+  },
+  "Rountreevirales_2": {
+    "Rountreeviridae_2": {
+      "Sarlesvirinae_1": [
+        "Copernicusvirus_1",
+        "Copernicusvirus_2"
+      ],
+      "Sarlesvirinae_2": [
+        "Minhovirus"
+      ]
+    }
+  },
+  "Salasmavirales": {
+    "Salasmaviridae": {
+      "Northropvirinae": [
+        "Claudivirus",
+        "Hemphillvirus_2",
+        "Klosterneuburgvirus",
+        "Hemphillvirus_1"
+      ]
+    }
+  },
+  "Zierdtvirales": {
+    "Zierdtviridae_1": {
+      "Toshachvirinae": [
+        "Ceetrepovirus",
+        "Chunghsingvirus"
+      ]
+    },
+    "Zierdtviridae_2": {
+      "Emilbogenvirinae": [
+        "Kablunavirus",
+        "Skysandvirus",
+        "Gruunavirus",
+        "Foxborovirus_2",
+        "Foxborovirus_1",
+        "Sukkupivirus",
+        "Pleakleyvirus"
+      ]
+    }
+  }
+}
