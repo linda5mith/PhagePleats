@@ -1,11 +1,9 @@
 # Specify path to input pdbs
 PDBs: "test_data/pdbs"
-#PDBs: "/home/administrator/phd/caudo_esmfold_DB/ictv_vmr_39_test_caudoviricetes/1764_test_caudoviricetes/pdbs"
 
-# genome-protein mapping metadata file
+# Genome-protein mapping metadata file
 metadata: "test_data/metadata/genome_protein_mapping.csv"
-#metadata: "/home/administrator/phd/caudo_esmfold_DB/ictv_vmr_39_test_caudoviricetes/1764_test_caudoviricetes/genome_protein_map.csv"
 
 # Output directory
-outdir: "/home/administrator/phd/"
+outdir: "/home/lindasmith/phd/"
 

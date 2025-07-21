@@ -18,7 +18,7 @@ with open("config.yml", 'r') as f:
 installation_path = os.path.abspath('.')
 input_PDBs = config['PDBs']
 cluster_reps = os.path.join(installation_path, 'cluster_reps')
-today_date = datetime.now().strftime('%d:%m:%y')
+today_date = datetime.now().strftime('%d-%m-%y')
 outdir = os.path.join(config['outdir'], f"PhagePleats_out_{today_date}")
 log_dir = os.path.join(outdir, "log")
 foldseek_out_dir = os.path.join(outdir, "foldseek_out")
@@ -45,7 +45,7 @@ rule all:
     input:
         os.path.join(foldseek_out_dir, 'search_result.tsv'),
         os.path.join(outdir, 'taxa_predictions.csv'),
-        os.path.join(outdir, 'novel_taxa_summary.csv')
+        os.path.join(outdir, 'taxa_novelty_summary.csv')
 
 # 1. Create foldseek DB of query pdbs
 rule foldseek_createDB:
@@ -111,7 +111,7 @@ rule run_phagepleats_pipeline:
         outdir=outdir
     output:
         taxa_preds=os.path.join(outdir, 'taxa_predictions.csv'),
-        closest_genomes=os.path.join(outdir, 'novel_taxa_summary.csv')
+        closest_genomes=os.path.join(outdir, 'taxa_novelty_summary.csv')
     run:
         def print_phage_ascii():
             print(r'''
@@ -145,7 +145,6 @@ rule run_phagepleats_pipeline:
         flat_preds = predict_all_ranks(input_matrix, out_dir=input.outdir)
         preds = hierarchical_lookup(flat_preds, hierarchy)
         preds.to_csv(output.taxa_preds)
-        print(preds)
 
         # 4: Compute novelty
         taxonomy_df = pd.read_csv(input.taxonomy_df)
@@ -162,20 +161,22 @@ rule run_phagepleats_pipeline:
 
         print("✅ All results saved.")
 
+        def print_happy_phage():
+            print(r'''
+           ___
+         /    \\
+        | 0   0 |     
+        |  \_/  |     
+         \_____/ 
+          |||||       
+          |||||       
+           |||        
+        ___|||___      
+       /   |||   \    
 
-#4. Run PhagePleats predictions
-# rule run_python_script:
-#     input:
-#         search_result=os.path.join(foldseek_out_dir, 'search_result.tsv'),
-#         query_metadata=config['metadata'],
-#         presence_absence="data/presence_absence.csv.gz",
-#         models_path="data/models",
-#         taxonomy="data/taxonomy.csv",
-#         intra_relatedness="data/intra_rank_relatedness.csv",
-#         outdir=outdir
-#     output:
-#         taxa_preds=os.path.join(outdir, 'taxa_predictions.csv'),
-#         closest_genomes=os.path.join(outdir, 'novel_taxa_summary.csv')
-#     script:
-#         "phagepleats.py"
+    🧬 Predictions are complete. 🎉
+        ''')
+        print_happy_phage()
+        
+
 

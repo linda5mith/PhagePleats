@@ -1,0 +1,37 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+run_phagepleats_pipeline        1
+total                           2
+
+Select jobs to execute...
+
+[Mon Jul 21 12:57:40 2025]
+rule run_phagepleats_pipeline:
+    input: /home/administrator/phd/PhagePleats_out_21:07:25/foldseek_out/search_result.tsv, test_data/metadata/genome_protein_mapping.csv, data/presence_absence.csv.gz, data/models, data/taxonomy.json, data/taxonomy.csv, data/intra_rank_relatedness.csv, /home/administrator/phd/PhagePleats_out_21:07:25
+    output: /home/administrator/phd/PhagePleats_out_21:07:25/taxa_predictions.csv, /home/administrator/phd/PhagePleats_out_21:07:25/taxa_novelty_summary.csv
+    jobid: 4
+    reason: Code has changed since last execution
+    resources: tmpdir=/tmp
+
+[Mon Jul 21 13:01:49 2025]
+Finished job 4.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Mon Jul 21 13:01:49 2025]
+localrule all:
+    input: /home/administrator/phd/PhagePleats_out_21:07:25/foldseek_out/search_result.tsv, /home/administrator/phd/PhagePleats_out_21:07:25/taxa_predictions.csv, /home/administrator/phd/PhagePleats_out_21:07:25/taxa_novelty_summary.csv
+    jobid: 0
+    reason: Input files updated by another job: /home/administrator/phd/PhagePleats_out_21:07:25/taxa_predictions.csv, /home/administrator/phd/PhagePleats_out_21:07:25/taxa_novelty_summary.csv
+    resources: tmpdir=/tmp
+
+[Mon Jul 21 13:01:49 2025]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2025-07-21T125739.958096.snakemake.log
