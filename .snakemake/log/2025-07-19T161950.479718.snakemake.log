@@ -1,3 +1,0 @@
-ImportError in file /home/administrator/phd/PhagePleats/Snakefile, line 9:
-cannot import name 'compute_clade_novelty_summary' from 'phagepleats.novelty' (/home/administrator/phd/PhagePleats/phagepleats/novelty.py)
-  File "/home/administrator/phd/PhagePleats/Snakefile", line 9, in <module>

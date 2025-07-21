@@ -1,3 +1,0 @@
-IndentationError in file /home/administrator/phd/PhagePleats/phagepleats/novelty.py, line 32:
-unindent does not match any outer indentation level (novelty.py, line 32)
-  File "/home/administrator/phd/PhagePleats/Snakefile", line 11, in <module>
