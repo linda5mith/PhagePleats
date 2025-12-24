@@ -1,98 +1,80 @@
 <p align="center">
-  <img src="data/img/PhagePleats.png" alt="PhagePleats Logo" width="300"/>
+  <img src="phagepleats/resources/data/img/logo.png" alt="PhagePleats Logo" width="300"/>
 </p>
 
 # PhagePleats
 
-**PhagePleats** is a tool for taxonomically classifying dsDNA bacteriophages of the order Caudoviricetes.
+**PhagePleats** is a command-line tool for taxonomic classification of dsDNA bacteriophages (*Caudoviricetes*) using structural protein profiles.
 
-Each fold, a secret,<br>
-A tapestry starts to form —<br>
+Each fold, a secret,  
+A tapestry starts to form —  
 PhagePleats dares to know. 🦠🧬🐍
 
-## Features
+---
 
-- 🔬 Predict taxonomic ranks (Order, Family, Subfamily, Genus) of your phage
-- 🧬 Compute % shared proteins and distance between input phage genomes and established taxonomic ranks
+## 📦 Installation (recommended: mamba)
 
-<p align="center">
-  <img src="data/img/PhagePleats_Pipeline.png" alt="PhagePleats Pipeline" width="1000"/>
-</p>
+PhagePleats is distributed as an **installable CLI tool** via a reproducible conda environment  
+(required for FAISS and Foldseek compatibility).
 
-## 📦 Installation
-
-Clone the repository and set up the environment:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/linda5mith/PhagePleats.git
 cd PhagePleats
-conda env create -f environment.yml
+```
+
+### 2. Create & activate the environment
+mamba env create -f environment.yml
 conda activate phagepleats
-```
 
-## ▶️ Running PhagePleats
+### 3. Running PhagePleats
+phagepleats run \
+  --path_to_pdbs /path/to/pdbs \
+  --metadata /path/to/genome_protein_mapping.csv \
+  --outdir /path/to/output_directory \
+  --cores 4
 
-Edit the `config.yml` file to include paths to your:
+Test pdbs and metadata found in: test_data/metadata, test_data/pdbs
 
-- `pdbs/` directory  
-- genome-to-protein mapping file  
-- desired output directory  
+| Argument         | Description                                   |
+| ---------------- | --------------------------------------------- |
+| `--path_to_pdbs` | Directory containing folded protein PDB files |
+| `--metadata`     | Genome-to-protein mapping CSV                 |
+| `--outdir`       | Output directory                              |
+| `--cores`        | Number of CPU cores (default: 8)              |
 
-> **Note:** The default `config.yml` is already set up to run on the included test data.
+Test run (included example data)
+phagepleats run \
+  --path_to_pdbs test_data/pdbs \
+  --metadata test_data/metadata/genome_protein_mapping.csv \
+  --outdir /tmp/phagepleats_test \
+  --cores 1
 
-Then run the pipeline:
+### 4. Outputs
+🧬 taxonomy_predictions.csv
 
-```bash
-snakemake --cores 4
-```
+Predicted taxonomy for each input genome with confidence scores.
 
-## 📊 Interpreting PhagePleats Outputs
+Includes:
 
-PhagePleats generates **three main result files**:
+Order, Family, Subfamily, Genus
 
----
+Corresponding probability scores (*_prob)
 
-### 🧬 `taxonomy_predictions.csv`
+🧪 taxa_novelty_summary.csv
 
-This file contains the **predicted taxonomy** for each input phage, along with confidence scores.
+Quantitative assessment of novelty relative to known clades, including:
 
-**Key columns:**
-- `Genome`: Identifier for the input genome
-- `Order`, `Family`, `Subfamily`, `Genus`: Predicted taxonomic assignments
-- `Order_prob`, `Family_prob`, etc.: Confidence score (0–1) for each predicted rank
+Closest training genome
 
----
+Shared structural protein similarity
 
-### 🧩 `phage_closest_hit.csv`
+Distance metrics
 
-This file reports the **closest training genome** to each input genome based on structural protein profiles.
+Novelty flags (e.g. Potential new genus)
 
-**Key columns:**
-- `input_genome`: Query genome name  
-- `closest_training_genome`: Closest match in the reference database  
-- `euclidean_distance`: Euclidean distance in presence/absence space  
-- `%_shared_proteins`: Jaccard similarity to closest genome  
-- `Order`, `Family`, etc.: Known taxonomy of the closest training genome  
+### 📚 Citation
 
----
-
-### 🧪 `novel_taxa_summary.csv`
-
-This file combines predictions, clade comparisons, and intra-clade statistics to assign **novelty flags**.
-
-**Key columns:**
-- `Genome`: Input genome ID  
-- `closest_training_genome`: Most similar known genome  
-- `euclidean_dist_to_closest_hit`: Distance to closest genome  
-- `%_shared_with_predicted_*`: Mean Jaccard similarity to predicted clade  
-- `eucl_dist_to_predicted_*`: Mean Euclidean distance to predicted clade  
-- `*_z_shared_proteins` and `*_z_euclidean_distance`: Z-scores comparing your genome to typical members of the predicted clade  
-- `*_novelty_flag`: Final novelty status for each rank:
-
-  - `Likely member`  
-  - `Potential new genus`, `Potential new family`, etc.  
-  - `Unknown` (if intra-clade stats are unavailable)
-
----
-
-These flags aim to **highlight potential novel taxa** and provide a quantitative basis for exploring viral novelty in your dataset.
+If you use PhagePleats in your work, please cite:
+A novel approach to Caudoviricetes taxonomy utilising whole proteome structure-structure comparison
