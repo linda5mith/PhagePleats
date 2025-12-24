@@ -1,0 +1,70 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+foldseek_convertalis            1
+foldseek_createDB               1
+foldseek_search                 1
+run_phagepleats_pipeline        1
+total                           5
+
+Select jobs to execute...
+
+[Wed Dec 24 19:46:47 2025]
+rule foldseek_createDB:
+    input: test_data/pdbs
+    output: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/queryDB
+    log: /tmp/phagepleats_test/PhagePleats_out_24-12-25/log/foldseek_createDB.log
+    jobid: 2
+    reason: Missing output files: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+
+[Wed Dec 24 19:46:48 2025]
+Finished job 2.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Wed Dec 24 19:46:48 2025]
+checkpoint foldseek_search:
+    input: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/queryDB, /home/administrator/phd/PhagePleats/phagepleats/resources/data/targetDB
+    output: /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments
+    log: /tmp/phagepleats_test/PhagePleats_out_24-12-25/log/foldseek_search.log
+    jobid: 3
+    reason: Input files updated by another job: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/queryDB
+    resources: tmpdir=/tmp
+DAG of jobs will be updated after completion.
+
+[Wed Dec 24 19:46:52 2025]
+Finished job 3.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Wed Dec 24 19:46:52 2025]
+rule foldseek_convertalis:
+    input: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/queryDB, /home/administrator/phd/PhagePleats/phagepleats/resources/data/targetDB, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.9, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.3, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.7, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.14, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.8, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.2, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.19, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.17, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.11, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.23, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.20, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.10, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.22, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.4, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.index, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.1, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.5, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.16, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.13, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.dbtype, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.0, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.18, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.12, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.21, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.6, /tmp/phagepleats_test/PhagePleats_out_24-12-25/alignments/aln.15
+    output: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/search_result.tsv
+    log: /tmp/phagepleats_test/PhagePleats_out_24-12-25/log/foldseek_convertalis.log
+    jobid: 1
+    reason: Missing output files: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/search_result.tsv
+    resources: tmpdir=/tmp
+
+[Wed Dec 24 19:46:52 2025]
+Finished job 1.
+3 of 5 steps (60%) done
+Select jobs to execute...
+
+[Wed Dec 24 19:46:52 2025]
+rule run_phagepleats_pipeline:
+    input: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/search_result.tsv, test_data/metadata/genome_protein_mapping.csv
+    output: /tmp/phagepleats_test/PhagePleats_out_24-12-25/taxa_predictions.csv, /tmp/phagepleats_test/PhagePleats_out_24-12-25/taxa_novelty_summary.csv
+    jobid: 4
+    reason: Missing output files: /tmp/phagepleats_test/PhagePleats_out_24-12-25/taxa_novelty_summary.csv, /tmp/phagepleats_test/PhagePleats_out_24-12-25/taxa_predictions.csv; Input files updated by another job: /tmp/phagepleats_test/PhagePleats_out_24-12-25/foldseek_out/search_result.tsv
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-12-24T194646.184645.snakemake.log

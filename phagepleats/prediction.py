@@ -4,6 +4,7 @@ import os
 from tqdm import tqdm
 import pickle
 from collections import defaultdict
+from importlib.resources import files
 
 def load_models_from_folder(folder_path):
     """
@@ -85,7 +86,8 @@ def predict_from_models(X, models, rank):
 
     return df_out, prob_matrix
 
-def predict_all_ranks(X, ranks=["Order", "Family", "Subfamily", "Genus"], model_base="data/models", out_dir="outputs"):
+def predict_all_ranks(X, ranks=["Order", "Family", "Subfamily", "Genus"], 
+                      model_base=None, out_dir="outputs"):
     """
     Predicts taxonomic ranks using saved models for each rank and saves results to the specified output directory.
 
@@ -98,6 +100,10 @@ def predict_all_ranks(X, ranks=["Order", "Family", "Subfamily", "Genus"], model_
     Returns:
         pd.DataFrame: Final DataFrame containing predictions for all ranks.
     """
+    if model_base is None:
+        model_base = files("phagepleats") / "resources" / "data" / "models"
+        model_base = str(model_base)
+
     all_preds = []
     os.makedirs(out_dir, exist_ok=True)
     prob_dir = os.path.join(out_dir, "rank_probabilities")

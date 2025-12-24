@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phagepleats"
+version = "0.1.0"
+dependencies = [
+    "pandas",
+    "pyyaml",
+    "snakemake",
+    "tqdm"
+]
+
+[project.scripts]
+phagepleats = "phagepleats.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["phagepleats*"]
+
+[project.optional-dependencies]
+workflow = [
+    "snakemake>=7.30,<8",
+    "pulp<=2.7.0",
+    "faiss-cpu",
+    "scikit-learn",
+    "joblib",
+]

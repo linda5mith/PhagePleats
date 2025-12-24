@@ -3,8 +3,8 @@ import numpy as np
 import time
 from tqdm import tqdm
 from collections import defaultdict
-import faiss
 from .similarity import preprocess_matrices, build_faiss_indexes, process_genome
+import faiss
 
 def classify_novelty(z_s, rank):
     """

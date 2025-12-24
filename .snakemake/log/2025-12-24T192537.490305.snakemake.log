@@ -1,0 +1,4 @@
+ModuleNotFoundError in file /home/administrator/phd/PhagePleats/phagepleats/resources/Snakefile, line 19:
+No module named 'tqdm'
+  File "/home/administrator/phd/PhagePleats/phagepleats/resources/Snakefile", line 19, in <module>
+  File "/home/administrator/phd/PhagePleats/phagepleats/prediction.py", line 4, in <module>

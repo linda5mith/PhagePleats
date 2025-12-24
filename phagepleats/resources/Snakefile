@@ -1,0 +1,205 @@
+############################################
+# Config
+############################################
+
+import os
+import yaml
+import glob
+import json
+import pandas as pd
+from datetime import datetime
+from importlib.resources import files
+
+from phagepleats.io import (
+    read_search,
+    read_metadata,
+    map_query_to_genome,
+    create_input_matrix,
+)
+from phagepleats.prediction import predict_all_ranks, hierarchical_lookup
+from phagepleats.novelty import compute_clade_novelty_summary
+
+
+############################################
+# Package resources (INSTALL-SAFE)
+############################################
+
+PKG_ROOT = files("phagepleats")
+RESOURCE_DIR = PKG_ROOT / "resources"
+DATA_DIR = RESOURCE_DIR / "data"
+
+TARGET_DB = DATA_DIR / "targetDB"
+PRESENCE_ABSENCE = DATA_DIR / "presence_absence.csv.gz"
+MODELS_DIR = DATA_DIR / "models"
+TAXONOMY_JSON = DATA_DIR / "taxonomy.json"
+TAXONOMY_DF = DATA_DIR / "taxonomy.csv"
+INTRA_RELATEDNESS = DATA_DIR / "intra_rank_relatedness.csv"
+
+
+############################################
+# User config
+############################################
+
+input_PDBs = config["PDBs"]
+query_metadata = config["metadata"]
+
+today_date = datetime.now().strftime("%d-%m-%y")
+outdir = os.path.join(config["outdir"], f"PhagePleats_out_{today_date}")
+log_dir = os.path.join(outdir, "log")
+foldseek_out_dir = os.path.join(outdir, "foldseek_out")
+alignments_dir = os.path.join(outdir, "alignments")
+
+os.makedirs(log_dir, exist_ok=True)
+os.makedirs(foldseek_out_dir, exist_ok=True)
+os.makedirs(alignments_dir, exist_ok=True)
+
+shell.executable("/bin/bash")
+
+
+############################################
+# Debug prints (optional but useful)
+############################################
+
+print(f"[PhagePleats] Package root: {PKG_ROOT}")
+print(f"[PhagePleats] Data dir: {DATA_DIR}")
+print(f"[PhagePleats] Output dir: {outdir}")
+
+
+############################################
+# Final targets
+############################################
+
+rule all:
+    input:
+        os.path.join(foldseek_out_dir, "search_result.tsv"),
+        os.path.join(outdir, "taxa_predictions.csv"),
+        os.path.join(outdir, "taxa_novelty_summary.csv")
+
+
+############################################
+# 1. Create Foldseek DB from query PDBs
+############################################
+
+rule foldseek_createDB:
+    input:
+        pdbs=input_PDBs
+    output:
+        queryDB=os.path.join(foldseek_out_dir, "queryDB")
+    log:
+        os.path.join(log_dir, "foldseek_createDB.log")
+    shell:
+        """
+        foldseek createdb {input.pdbs} {output.queryDB} \
+            --threads 10 | tee -a {log}
+        """
+
+
+############################################
+# 2. Foldseek search against packaged targetDB
+############################################
+
+checkpoint foldseek_search:
+    input:
+        query=os.path.join(foldseek_out_dir, "queryDB"),
+        target=str(TARGET_DB)
+    output:
+        alignment_dir=directory(alignments_dir)
+    log:
+        os.path.join(log_dir, "foldseek_search.log")
+    shell:
+        """
+        mkdir -p {output.alignment_dir}
+        foldseek search {input.query} {input.target} \
+            {output.alignment_dir}/aln {output.alignment_dir}/tmpFolder \
+            -c 0.4 --cov-mode 5 --tmscore-threshold 0.3 \
+            --max-seqs 5 --exhaustive-search 1 -e 0.01 \
+            | tee -a {log}
+        """
+
+
+############################################
+# 3. Collect alignment files
+############################################
+
+def aggregate_input(wildcards):
+    ckpt = checkpoints.foldseek_search.get(**wildcards)
+    aln_dir = ckpt.output.alignment_dir
+    ids = glob_wildcards(os.path.join(aln_dir, "aln.{i}")).i
+    return expand(os.path.join(aln_dir, "aln.{i}"), i=ids)
+
+
+############################################
+# 4. Convert alignments to TSV
+############################################
+
+rule foldseek_convertalis:
+    input:
+        query=os.path.join(foldseek_out_dir, "queryDB"),
+        target=str(TARGET_DB),
+        aln_files=aggregate_input
+    output:
+        result=os.path.join(foldseek_out_dir, "search_result.tsv")
+    log:
+        os.path.join(log_dir, "foldseek_convertalis.log")
+    shell:
+        """
+        foldseek convertalis {input.query} {input.target} \
+            {alignments_dir}/aln {output.result} \
+            | tee -a {log}
+        """
+
+
+############################################
+# 5. Run PhagePleats prediction + novelty
+############################################
+
+rule run_phagepleats_pipeline:
+    input:
+        search_result=os.path.join(foldseek_out_dir, "search_result.tsv"),
+        query_metadata=query_metadata
+    output:
+        taxa_preds=os.path.join(outdir, "taxa_predictions.csv"),
+        novelty=os.path.join(outdir, "taxa_novelty_summary.csv")
+    run:
+        print("""
+        PhagePleats is predicting... 🧬🚀
+        """)
+
+        # Load & preprocess
+        search_df = read_search(input.search_result)
+        metadata_df = read_metadata(input.query_metadata)
+        search_df = map_query_to_genome(search_df, metadata_df)
+
+        input_matrix = create_input_matrix(
+            search_df,
+            str(PRESENCE_ABSENCE),
+        )
+
+        # Load taxonomy hierarchy
+        with open(TAXONOMY_JSON) as f:
+            hierarchy = json.load(f)
+
+        # Predict taxonomy
+        flat_preds = predict_all_ranks(
+            input_matrix,
+            out_dir=outdir
+        )
+
+        preds = hierarchical_lookup(flat_preds, hierarchy)
+        preds.to_csv(output.taxa_preds)
+
+        # Novelty detection
+        taxonomy_df = pd.read_csv(TAXONOMY_DF)
+        intra_df = pd.read_csv(INTRA_RELATEDNESS)
+
+        novelty_df = compute_clade_novelty_summary(
+            str(PRESENCE_ABSENCE),
+            input_matrix=input_matrix,
+            taxonomy_df=taxonomy_df,
+            preds=preds,
+            intra_rank_relatedness=intra_df,
+        )
+
+        novelty_df.to_csv(output.novelty)
+
+        print("PhagePleats complete.")
