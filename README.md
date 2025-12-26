@@ -6,8 +6,8 @@
 
 **PhagePleats** is a command-line tool for taxonomic classification of dsDNA bacteriophages (*Caudoviricetes*) using structural protein profiles.
 
-Structures speak in code,
-Viral stories fold and flow -
+Structures speak in code,<br>
+Viral stories fold and flow -<br>
 PhagePleats dares to know. 🦠🧬🐍
 
 ---
