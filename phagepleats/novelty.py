@@ -166,7 +166,7 @@ def compute_clade_novelty_summary(presence_absence_path, input_matrix, taxonomy_
     }).set_index("Genome")
 
     # Add closest genome's taxonomy to df
-    closest_tax = taxonomy_df.loc[closest_df['closest_training_genome']]
+    closest_tax = taxonomy_df.reindex(closest_df['closest_training_genome'])
     for rank in ["Order", "Family", "Subfamily", "Genus"]:
         closest_df[f"Closest_{rank}"] = closest_tax[rank].values
 

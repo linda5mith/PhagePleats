@@ -13,7 +13,11 @@ from importlib.resources import files
 from phagepleats.io import (
     read_search,
     read_metadata,
+    read_taxonomy,
     map_query_to_genome,
+    add_cluster_protein_metadata,
+    aggregate_hits_by_genome,
+    add_taxonomy_to_genome_summary,
     create_input_matrix,
 )
 from phagepleats.prediction import predict_all_ranks, hierarchical_lookup
@@ -21,7 +25,7 @@ from phagepleats.novelty import compute_clade_novelty_summary
 
 
 ############################################
-# Package resources (INSTALL-SAFE)
+# Package resources
 ############################################
 
 PKG_ROOT = files("phagepleats")
@@ -40,11 +44,15 @@ INTRA_RELATEDNESS = DATA_DIR / "intra_rank_relatedness.csv"
 # User config
 ############################################
 
-input_PDBs = config["PDBs"]
-query_metadata = config["metadata"]
+input_PDBs = os.path.normpath(config["PDBs"])
+query_metadata = os.path.normpath(config["metadata"])
 
 today_date = datetime.now().strftime("%d-%m-%y")
-outdir = os.path.join(config["outdir"], f"PhagePleats_out_{today_date}")
+
+outdir = os.path.normpath(
+    os.path.join(config["outdir"], f"PhagePleats_out_{today_date}")
+)
+
 log_dir = os.path.join(outdir, "log")
 foldseek_out_dir = os.path.join(outdir, "foldseek_out")
 alignments_dir = os.path.join(outdir, "alignments")
@@ -162,24 +170,83 @@ rule run_phagepleats_pipeline:
         novelty=os.path.join(outdir, "taxa_novelty_summary.csv")
     run:
         print("""
-        PhagePleats is predicting... 🧬🚀
+        ██████╗ ██╗  ██╗ █████╗  ██████╗ ███████╗    ██████╗ ██╗     ███████╗ █████╗ ████████╗███████
+        ██╔══██╗██║  ██║██╔══██╗██╔════╝ ██╔════╝    ██╔══██╗██║     ██╔════╝██╔══██ ╚══██╔══╝██╔════╝
+        ██████╔╝███████║███████║██║  ███╗█████╗      ██████╔╝██║     █████╗  ███████║   ██║   ███████╗
+        ██╔═══╝ ██╔══██║██╔══██║██║   ██║██╔══╝      ██╔═══╝ ██║     ██╔══╝  ██╔══██║   ██║   ╚════██║ 
+        ██║     ██║  ██║██║  ██║╚██████╔╝███████╗    ██║     ███████╗███████╗██║  ██║   ██║   ███████║
+        ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝    ╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
+
+        Structural protein–based viral taxonomy prediction
         """)
 
-        # Load & preprocess
+        # -------------------------
+        # Load & preprocess search
+        # -------------------------
         search_df = read_search(input.search_result)
         metadata_df = read_metadata(input.query_metadata)
         search_df = map_query_to_genome(search_df, metadata_df)
+        
+        # -------------------------
+        # Add cluster rep protein metadata
+        # -------------------------
+        cluster_meta = pd.read_csv(
+            DATA_DIR / "cluster_rep_metadata.csv"
+        )
 
+        search_df = add_cluster_protein_metadata(
+            search_df,
+            cluster_meta
+        )
+
+        search_df.to_csv(
+            os.path.join(outdir, "foldseek_target_hits.csv"),
+            index=False
+        )
+        print(f'Individual query protein hits saved to: {os.path.join(outdir, "foldseek_target_hits.csv")}')
+
+        # -------------------------
+        # Genome-level aggregation
+        # -------------------------
+        genome_summary = aggregate_hits_by_genome(
+            search_df,
+            metadata_df
+        )
+
+        # -------------------------
+        # Add taxonomy to genome summary
+        # -------------------------
+        taxonomy_df = read_taxonomy()
+        genome_summary_tax = add_taxonomy_to_genome_summary(
+            genome_summary,
+            taxonomy_df
+        )
+
+        genome_summary_tax.to_csv(
+            os.path.join(outdir, "genome_similarity_with_taxonomy.csv"),
+            index=False
+        )
+        print(f'Genomes with hits to query proteome: {os.path.join(outdir, "genome_similarity_with_taxonomy.csv")}')
+
+        print("PhagePleats complete.")
+
+        # -------------------------
+        # Build input matrix for ML
+        # -------------------------
         input_matrix = create_input_matrix(
             search_df,
             str(PRESENCE_ABSENCE),
         )
 
+        # -------------------------
         # Load taxonomy hierarchy
+        # -------------------------
         with open(TAXONOMY_JSON) as f:
             hierarchy = json.load(f)
 
+        # -------------------------
         # Predict taxonomy
+        # -------------------------
         flat_preds = predict_all_ranks(
             input_matrix,
             out_dir=outdir
@@ -188,7 +255,9 @@ rule run_phagepleats_pipeline:
         preds = hierarchical_lookup(flat_preds, hierarchy)
         preds.to_csv(output.taxa_preds)
 
+        # -------------------------
         # Novelty detection
+        # -------------------------
         taxonomy_df = pd.read_csv(TAXONOMY_DF)
         intra_df = pd.read_csv(INTRA_RELATEDNESS)
 

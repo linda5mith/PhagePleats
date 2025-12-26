@@ -2,7 +2,11 @@ import argparse
 import subprocess
 import sys
 from importlib.resources import files
+import warnings
+import os
 
+os.environ["PYTHONWARNINGS"] = "ignore"
+warnings.simplefilter("ignore")
 
 def main():
     parser = argparse.ArgumentParser(
