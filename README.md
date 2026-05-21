@@ -6,6 +6,19 @@
 
 **PhagePleats** is a command-line tool for taxonomic classification of dsDNA bacteriophages (*Caudoviricetes*) using structural protein profiles.
 
+The framework underlying PhagePleats was developed from the large-scale structural analysis described in *A novel approach to Caudoviricetes taxonomy utilising whole proteome structure-structure comparison*.
+
+This reference taxonomy was generated from:
+- 4,082 reference Caudoviricetes genomes (ICTV)
+- 445,151 predicted protein structures (ESMFold)
+- Large-scale structural clustering and phylogenetic analysis 
+- RED-based clade normalization
+- This yielded a revised structural taxonomy comprising 159 orders, 267 families, 502 subfamilies, and 1,189 genera across Caudoviricetes.
+
+<p align="center">
+  <img src="phagepleats/resources/data/img/Figure_3_RED_tree_portrait.png" alt="RED tree" width="300"/>
+</p>
+
 Structures speak in code,<br>
 Viral stories fold and flow -<br>
 PhagePleats dares to know. 🦠🧬
@@ -14,7 +27,7 @@ PhagePleats dares to know. 🦠🧬
 
 ## 📦 Installation (recommended: mamba)
 
-PhagePleats is distributed as an **installable CLI tool** via a reproducible conda environment  
+PhagePleats is distributed as an **installable CLI tool** via a conda environment  
 (required for FAISS and Foldseek compatibility).
 
 ### 1. Clone the repository
