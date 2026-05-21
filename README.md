@@ -8,7 +8,7 @@
 
 Structures speak in code,<br>
 Viral stories fold and flow -<br>
-PhagePleats dares to know. 🦠🧬🐍
+PhagePleats dares to know. 🦠🧬
 
 ---
 
@@ -25,15 +25,19 @@ cd PhagePleats
 ```
 
 ### 2. Create & activate the environment
+```bash
 mamba env create -f environment.yml
 conda activate phagepleats
+```
 
 ### 3. Running PhagePleats
+```bash
 phagepleats run \
   --path_to_pdbs /path/to/pdbs \
   --metadata /path/to/genome_protein_mapping.csv \
   --outdir /path/to/output_directory \
   --cores 4
+```
 
 Test pdbs and metadata found in: test_data/metadata, test_data/pdbs
 
@@ -45,11 +49,13 @@ Test pdbs and metadata found in: test_data/metadata, test_data/pdbs
 | `--cores`        | Number of CPU cores (default: 8)              |
 
 Test run (included example data)
+```bash
 phagepleats run \
   --path_to_pdbs test_data/pdbs \
   --metadata test_data/metadata/genome_protein_mapping.csv \
   --outdir /tmp/phagepleats_test \
   --cores 1
+```
 
 ### 4. Outputs
 🧬 taxonomy_predictions.csv
