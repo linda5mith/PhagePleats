@@ -9,14 +9,14 @@
 The framework underlying PhagePleats was developed from the large-scale structural analysis described in *A novel approach to Caudoviricetes taxonomy utilising whole proteome structure-structure comparison*.
 
 This reference taxonomy was generated from:
-- 4,082 reference Caudoviricetes genomes (ICTV)
+- 4,082 reference *Caudoviricetes* genomes (ICTV)
 - 445,151 predicted protein structures (ESMFold)
 - Large-scale structural clustering and phylogenetic analysis 
 - RED-based clade normalization
-- This yielded a revised structural taxonomy comprising 159 orders, 267 families, 502 subfamilies, and 1,189 genera across Caudoviricetes.
+- This yielded a revised structural taxonomy comprising 159 orders, 267 families, 502 subfamilies, and 1,189 genera across *Caudoviricetes*.
 
 <p align="center">
-  <img src="phagepleats/resources/data/img/Figure_3_RED_tree_portrait.png" alt="RED tree" width="300"/>
+  <img src="phagepleats/resources/data/img/Figure_3_RED_tree_portrait.png" alt="RED tree" width="100%"/>
 </p>
 
 Structures speak in code,<br>
@@ -96,4 +96,4 @@ Novelty flags (e.g. Potential new genus)
 ### 📚 Citation
 
 If you use PhagePleats in your work, please cite:
-A novel approach to Caudoviricetes taxonomy utilising whole proteome structure-structure comparison
+*A novel approach to Caudoviricetes taxonomy utilising whole proteome structure-structure comparison*
