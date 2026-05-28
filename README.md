@@ -16,7 +16,7 @@ This reference taxonomy was generated from:
 - Yielding a revised structural taxonomy comprising 159 orders, 267 families, 502 subfamilies, and 1,189 genera across *Caudoviricetes*.
 
 <p align="center">
-  <img src="phagepleats/resources/data/img/PhagePleats_Pipeline.png" alt="pipeline-infographic" width="100%"/>
+  <img src="phagepleats/resources/data/img/pipeline_infographic.png" alt="pipeline-infographic" width="100%"/>
 </p>
 
 <p align="center">
