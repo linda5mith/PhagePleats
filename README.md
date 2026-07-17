@@ -44,7 +44,7 @@ cd PhagePleats
 ### 2. Create & activate the environment
 ```bash
 mamba env create -f environment.yml
-conda activate phagepleats
+mamba activate phagepleats
 ```
 
 ### 3. Running PhagePleats
