@@ -19,7 +19,7 @@ def main():
         Example:
         phagepleats run \
             --path_to_pdbs pdbs/ \
-            --metadata metadata.csv \
+            --protein_genome_map protein_to_genome.csv \
             --outdir results/
 
         For more information:
@@ -53,9 +53,10 @@ def main():
         help="Directory containing input PDB files",
     )
     run.add_argument(
-        "--metadata",
+        "--protein_genome_map",
         required=True,
-        help="Genome–protein mapping metadata CSV",
+        dest="protein_genome_map",
+        help="CSV metadata mapping each protein ID to its parent genome",
     )
     run.add_argument(
         "--outdir",
@@ -88,7 +89,7 @@ def main():
             "--cores", str(args.cores),
             "--config",
             f"PDBs={args.path_to_pdbs}",
-            f"metadata={args.metadata}",
+            f"protein_genome_map={args.protein_genome_map}",
             f"outdir={args.outdir}",
         ]
 
