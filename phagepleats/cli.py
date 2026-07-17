@@ -11,10 +11,33 @@ warnings.simplefilter("ignore")
 def main():
     parser = argparse.ArgumentParser(
         prog="phagepleats",
-        description="PhagePleats: structural phage taxonomy prediction",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description="""
+        PhagePleats
+        Structural taxonomy prediction for Caudoviricetes genomes.
+
+        Example:
+        phagepleats run \
+            --path_to_pdbs pdbs/ \
+            --metadata metadata.csv \
+            --outdir results/
+
+        For more information:
+        https://github.com/linda5mith/PhagePleats
+        """
     )
 
-    subparsers = parser.add_subparsers(dest="cmd", required=True)
+    parser.add_argument(
+        "--version",
+        action="version",
+        version="PhagePleats 1.0.0",
+    )
+
+    subparsers = parser.add_subparsers(
+        dest="command",
+        metavar="<command>",
+        required=True,
+    )
 
     # --------------------
     # run subcommand
@@ -46,9 +69,17 @@ def main():
         help="Number of CPU cores (default: 8)",
     )
 
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit(0)
+
     args = parser.parse_args()
 
-    if args.cmd == "run":
+    if args.command == "version":
+        print("PhagePleats 1.0.0")
+        sys.exit(0)
+
+    if args.command == "run":
         snakefile = files("phagepleats") / "resources" / "Snakefile"
 
         cmd = [
