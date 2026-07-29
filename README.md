@@ -47,7 +47,7 @@ mamba env create -f environment.yml
 mamba activate phagepleats
 ```
 
-### 3. Running PhagePleats
+## ▶️ Running PhagePleats
 ```bash
 phagepleats run \
   --path_to_pdbs /path/to/pdbs \
@@ -74,7 +74,7 @@ phagepleats run \
   --cores 1
 ```
 
-### 4. Outputs
+## 📊 Outputs
 | Output file                             | Description                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **taxa_predictions.csv**                | Predicted taxonomy for each input genome at the **Order**, **Family**, **Subfamily**, and **Genus** ranks, together with the classification confidence (probability) for each prediction.                                                                                                                                                              |
