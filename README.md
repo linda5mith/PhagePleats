@@ -100,4 +100,5 @@ Novelty flags (e.g. Potential new genus)
 ### 📚 Citation
 
 If you use PhagePleats in your work, please cite:
+
 *A novel approach to Caudoviricetes taxonomy utilising whole proteome structure-structure comparison*
