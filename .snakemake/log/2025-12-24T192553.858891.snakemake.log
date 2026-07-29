@@ -1,3 +1,0 @@
-ModuleNotFoundError in file /home/administrator/phd/PhagePleats/phagepleats/resources/Snakefile, line 9:
-No module named 'tqdm'
-  File "/home/administrator/phd/PhagePleats/phagepleats/resources/Snakefile", line 9, in <module>

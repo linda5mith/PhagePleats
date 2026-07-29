@@ -45,7 +45,7 @@ INTRA_RELATEDNESS = DATA_DIR / "intra_rank_relatedness.csv"
 ############################################
 
 input_PDBs = os.path.normpath(config["PDBs"])
-query_metadata = os.path.normpath(config["metadata"])
+query_metadata = os.path.normpath(config["protein_genome_map"])
 
 today_date = datetime.now().strftime("%d-%m-%y")
 
