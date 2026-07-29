@@ -61,8 +61,8 @@ Test pdbs and metadata found in: test_data/metadata, test_data/pdbs
 | Argument         | Description                                   |
 | ---------------- | --------------------------------------------- |
 | `--path_to_pdbs` | Directory containing folded protein PDB files |
-| `--protein_genome_map`     | CSV mapping each protein identifier to its parent genome. |
-| `--outdir`       | Output directory                              |
+| `--protein_genome_map`     | CSV mapping each protein identifier to its parent genome |
+| `--outdir`       | Output directory                             |
 | `--cores`        | Number of CPU cores (default: 8)              |
 
 Example (`protein_to_genome.csv`):
