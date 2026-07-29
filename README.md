@@ -51,7 +51,7 @@ mamba activate phagepleats
 ```bash
 phagepleats run \
   --path_to_pdbs /path/to/pdbs \
-  --metadata /path/to/genome_protein_mapping.csv \
+  --protein_genome_map /path/to/genome_protein_mapping.csv \
   --outdir /path/to/output_directory \
   --cores 4
 ```
@@ -61,7 +61,7 @@ Test pdbs and metadata found in: test_data/metadata, test_data/pdbs
 | Argument         | Description                                   |
 | ---------------- | --------------------------------------------- |
 | `--path_to_pdbs` | Directory containing folded protein PDB files |
-| `--metadata`     | Genome-to-protein mapping CSV                 |
+| `--protein_genome_map`     | Genome-to-protein mapping CSV       |
 | `--outdir`       | Output directory                              |
 | `--cores`        | Number of CPU cores (default: 8)              |
 
@@ -69,7 +69,7 @@ Test run (included example data)
 ```bash
 phagepleats run \
   --path_to_pdbs test_data/pdbs \
-  --metadata test_data/metadata/genome_protein_mapping.csv \
+  --protein_genome_map test_data/metadata/genome_protein_mapping.csv \
   --outdir /tmp/phagepleats_test \
   --cores 1
 ```
