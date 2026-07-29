@@ -75,27 +75,15 @@ phagepleats run \
 ```
 
 ### 4. Outputs
-🧬 taxonomy_predictions.csv
+| Output file                             | Description                                                                                                                                                                                                                                                                                                                                            |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **taxa_predictions.csv**                | Predicted taxonomy for each input genome at the **Order**, **Family**, **Subfamily**, and **Genus** ranks, together with the classification confidence (probability) for each prediction.                                                                                                                                                              |
+| **taxa_novelty_summary.csv**            | Summary of taxonomic novelty for each input genome. Reports the closest reference genome in the PhagePleats database, the proportion of shared structural proteins with the predicted taxonomic ranks, Z-scores relative to known taxa, and novelty flags indicating whether the genome is likely to represent an existing or potentially novel clade. |
+| **genome_similarity_with_taxonomy.csv** | Genome-level summary of structural similarity between each query genome and reference genomes. Includes the number of shared structural proteins, alignment statistics, structural proteome coverage, and the taxonomy of each matched reference genome.                                                                                               |
+| **foldseek_target_hits.csv**            | Protein-level structural homology results. Lists every query protein together with its best structural match in the reference database, including alignment statistics, predicted protein function (PFAM annotation), and the reference genome from which the matched protein originated.                                                              |
+| **rank_probabilities/**                 | Directory containing the complete probability distributions produced by the machine learning classifiers for each taxonomic rank. Useful for inspecting alternative classifications and borderline predictions.                                                                                                                                        |
+| **log/**                                | Log files generated during the PhagePleats workflow, including Foldseek and pipeline execution logs for troubleshooting and reproducibility.                                                                                                                                                                                                           |
 
-Predicted taxonomy for each input genome with confidence scores.
-
-Includes:
-
-Order, Family, Subfamily, Genus
-
-Corresponding probability scores (*_prob)
-
-🧪 taxa_novelty_summary.csv
-
-Quantitative assessment of novelty relative to known clades, including:
-
-Closest training genome
-
-Shared structural protein similarity
-
-Distance metrics
-
-Novelty flags (e.g. Potential new genus)
 
 ### 📚 Citation
 
