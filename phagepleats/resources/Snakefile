@@ -6,6 +6,7 @@ import os
 import yaml
 import glob
 import json
+import shutil
 import pandas as pd
 from datetime import datetime
 from importlib.resources import files
@@ -79,7 +80,6 @@ print(f"[PhagePleats] Output dir: {outdir}")
 
 rule all:
     input:
-        os.path.join(foldseek_out_dir, "search_result.tsv"),
         os.path.join(outdir, "taxa_predictions.csv"),
         os.path.join(outdir, "taxa_novelty_summary.csv")
 
@@ -270,5 +270,9 @@ rule run_phagepleats_pipeline:
         )
 
         novelty_df.to_csv(output.novelty)
+
+        # Remove intermediary Foldseek outputs
+        shutil.rmtree(alignments_dir, ignore_errors=True)
+        shutil.rmtree(foldseek_out_dir, ignore_errors=True)
 
         print("PhagePleats complete.")
